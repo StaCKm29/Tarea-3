@@ -5,8 +5,6 @@ import java.util.ArrayList;
 public class Expendedor {
     private ArrayList<Producto>[] depositos;
     private Deposito<Moneda> monedaVuelto;
-    private Producto producto;
-    private Deposito<Moneda> monedasPago;
 
     public Expendedor(int size){
         depositos = new ArrayList[Selector.values().length];
@@ -19,23 +17,24 @@ public class Expendedor {
         }
     }
 
-    public void comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
+    public Producto comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
         int i = eleccion.ordinal();
         if(pago == null){
             throw new PagoIncorrectoException("El pago es incorrecto.");
         }
         if(pago.getValor() < eleccion.getprecio()){
+            monedaVuelto.addObjeto(pago);
             throw new PagoInsuficienteException("El pago es insuficiente.");
         }
         if(depositos[eleccion.ordinal()].isEmpty()){
+            monedaVuelto.addObjeto(pago);
             throw new NoHayProductoException("No hay producto." + eleccion.toString().toLowerCase());
         }
-        monedasPago.addObjeto(pago);
-        producto = depositos[i].remove(depositos[i].size()-1);
-    }
-
-    public Producto getProducto(){
-        return producto;
+        int vuelto = (pago.getValor() - eleccion.getprecio())/100;
+        for(int j = 0; j < vuelto; j++){
+            monedaVuelto.addObjeto(new Moneda100());
+        }
+        return depositos[i].remove(depositos[i].size()-1);
     }
 
     public Moneda getVuelto() {
