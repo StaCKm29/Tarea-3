@@ -1,4 +1,4 @@
 package org.vistas;
-
-public class PanelExpendedor {
+import javax.swing.JPanel;
+public class PanelExpendedor extends JPanel{
 }

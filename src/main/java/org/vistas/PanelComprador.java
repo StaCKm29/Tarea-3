@@ -1,4 +1,4 @@
 package org.vistas;
-
-public class PanelComprador {
+import javax.swing.JPanel;
+public class PanelComprador extends JPanel{
 }
