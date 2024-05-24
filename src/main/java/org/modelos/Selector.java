@@ -4,7 +4,7 @@ public enum Selector {
     COCACOLA(1200){
         @Override
         public Producto crearProducto(int serie){
-            return new CocaCola(serie);
+            return new Cocacola(serie);
         }
     },
     FANTA(1200){

@@ -13,7 +13,7 @@ public class Comprador {
      * @param cualProducto Se usa para la elección del producto deseado, 1 para cocacola, 2 para sprite, 3 para fanta, 4 para snickers y 5 para super8
      * @param exp Es el expendedor donde se realizará compra
      */
-    public Comprador(Moneda m, int cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+    public Comprador(Moneda m, Selector cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         Producto b1 = exp.comprarProducto(m, cualProducto);
         /**
          * Este ciclo se utilizará para que el comprador pueda retirar su vuelto
