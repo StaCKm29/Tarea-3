@@ -23,7 +23,7 @@ public class Comprador {
             if (a == null) {
                 break;
             } else {
-                vuelto += a.getValor();
+                vuelto = vuelto + a.getValor();
             }
         }
 
