@@ -19,7 +19,7 @@ public enum Selector {
             return new Sprite(serie);
         }
     },
-    SNICKERS(1850){
+    SNICKERS(1500){
         @Override
         public Producto crearProducto(int serie){
             return new Snickers(serie);
