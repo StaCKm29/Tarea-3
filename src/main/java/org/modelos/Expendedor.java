@@ -1,14 +1,38 @@
 package org.modelos;
 
+import java.util.ArrayList;
+
 public class Expendedor {
-    public Producto comprarProducto (int pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException{
+    private ArrayList<Producto>[] depositos;
+    private Deposito<Moneda> monedaVuelto;
+
+    public Expendedor(int size){
+        depositos = new ArrayList[Selector.values().length];
+        monedaVuelto = new Deposito<>();
+        for(Selector p : Selector.values()){
+            depositos[p.ordinal()] = new ArrayList<Producto>();
+            for(int i = 0; i < size; i++){
+                depositos[p.ordinal()].add(p.crearProducto(i));
+            }
+        }
+    }
+
+    public Producto comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
         int i = eleccion.ordinal();
-        if(pago < eleccion.getprecio()){
+        if(pago == null){
+            throw new PagoIncorrectoException("El pago es incorrecto.");
+        }
+        if(pago.getValor() < eleccion.getprecio()){
             throw new PagoInsuficienteException("El pago es insuficiente.");
         }
         if(depositos[eleccion.ordinal()].isEmpty()){
             throw new NoHayProductoException("No hay producto." + eleccion.toString().toLowerCase());
         }
         return depositos[i].remove(depositos[i].size()-1);
+    }
+
+    public Moneda getVuelto() {
+        Moneda m = monedaVuelto.getObjeto();
+        return m;
     }
 }
