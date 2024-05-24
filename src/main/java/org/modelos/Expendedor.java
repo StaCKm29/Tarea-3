@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Expendedor {
     private ArrayList<Producto>[] depositos;
     private Deposito<Moneda> monedaVuelto;
+    private Producto producto; //Será el producto que se retornará
 
     public Expendedor(int size){
         depositos = new ArrayList[Selector.values().length];
@@ -17,7 +18,7 @@ public class Expendedor {
         }
     }
 
-    public Producto comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
+    public void comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
         int i = eleccion.ordinal();
         if(pago == null){
             throw new PagoIncorrectoException("El pago es incorrecto.");
@@ -34,7 +35,11 @@ public class Expendedor {
         for(int j = 0; j < vuelto; j++){
             monedaVuelto.addObjeto(new Moneda100());
         }
-        return depositos[i].remove(depositos[i].size()-1);
+        producto = depositos[i].remove(depositos[i].size()-1);
+    }
+
+    public Producto getProducto() {
+        return producto;
     }
 
     public Moneda getVuelto() {

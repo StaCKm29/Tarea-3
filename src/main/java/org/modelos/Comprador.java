@@ -14,7 +14,8 @@ public class Comprador {
      * @param exp Es el expendedor donde se realizará compra
      */
     public Comprador(Moneda m, Selector cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        Producto b1 = exp.comprarProducto(m, cualProducto);
+        exp.comprarProducto(m, cualProducto);
+        Producto b1 = exp.getProducto();
         /**
          * Este ciclo se utilizará para que el comprador pueda retirar su vuelto
          */
