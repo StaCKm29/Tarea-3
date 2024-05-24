@@ -40,7 +40,8 @@ class ExpendedorTest {
     @Test
     @DisplayName("Test para un solo producto")
     void comprarUnProducto() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        assertNotNull(expendedor.comprarProducto(moneda1500, coca));
+        expendedor.comprarProducto(moneda1500, coca);
+        assertNotNull(expendedor.getProducto());
     }
 
     @Test
@@ -68,7 +69,6 @@ class ExpendedorTest {
     void testGetVuelto() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         expendedor.comprarProducto(moneda1500, coca);
         expendedor.comprarProducto(moneda500, super8);
-
         assertNotNull(expendedor.getVuelto());
     }
 
