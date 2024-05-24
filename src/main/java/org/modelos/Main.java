@@ -1,4 +1,4 @@
-package org.tarea3;
+package org.modelos;
 
 public class Main {
     public static void main(String[] args) {
