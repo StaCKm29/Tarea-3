@@ -2,29 +2,50 @@ package org.vistas;
 
 import java.awt.*;
 import java.net.URL;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class PanelBilletera extends JPanel {
 
     public PanelBilletera() {
+        //Creacion de una grilla de 2x2 para las 4 imagenes
         setLayout(new GridLayout(2,2));
 
-        URL[] rutaImagenes = new URL[4];
-        rutaImagenes [0] = getClass().getClassLoader().getResource("moneda500.png");
-        rutaImagenes [1] = getClass().getClassLoader().getResource("moneda100.png");
-        rutaImagenes [2] = getClass().getClassLoader().getResource("1000pesos.png");
-        rutaImagenes [3] = getClass().getClassLoader().getResource("2000pesos.png");
+        //Cargar las imagenes desde el archivo (carpeta resource)
+        URL url500 = getClass().getClassLoader().getResource("moneda500.png");
+        URL url100 = getClass().getClassLoader().getResource("moneda100.png");
+        URL urlMil = getClass().getClassLoader().getResource("1000pesos.png");
+        URL urlDosMil = getClass().getClassLoader().getResource("2000pesos.png");
 
-        for(URL url : rutaImagenes){
-            ImageIcon moneda = new ImageIcon(url);
-            JLabel label = new JLabel(moneda);
-            add(label);
+        //Crear los ImageIcon con las imagenes cargadas para poder crear JToggleButtons con las imagenes
+        ImageIcon icon500 = new ImageIcon(url500);
+        ImageIcon icon100 = new ImageIcon(url100);
+        ImageIcon iconMil = new ImageIcon(urlMil);
+        ImageIcon iconDosMil = new ImageIcon(urlDosMil);
+
+        //Crear los JToggleButtons con las imagenes
+        ArrayList<JToggleButton> botones = new ArrayList<>();
+        botones.add(new JToggleButton(icon500));
+        botones.add(new JToggleButton(icon100));
+        botones.add(new JToggleButton(iconMil));
+        botones.add(new JToggleButton(iconDosMil));
+
+        //Agrupar los botones para que solo se pueda seleccionar uno a la vez
+        ButtonGroup monedero = new ButtonGroup();
+        for (JToggleButton boton : botones) {
+            monedero.add(boton);
         }
+
+        //Agregar los botones al panel
+        for (JToggleButton boton : botones) {
+            add(boton);
+        }
+
     }
 
     public static void main(String[] args) {
         // Crear el JFrame (ventana)
-        JFrame frame = new JFrame("Mostrar Varias Imágenes");
+        JFrame frame = new JFrame("Su Monedero");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 600);
 
