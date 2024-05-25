@@ -8,7 +8,7 @@ import javax.swing.*;
 public class PanelBilletera extends JPanel {
 
     public PanelBilletera() {
-        //Creacion de una grilla de 2x2 para las 4 imagenes
+        //Creacion de una grilla de 2x2 para las 4 monedas
         setLayout(new GridLayout(2,2));
 
         //Cargar las imagenes desde el archivo (carpeta resource)
@@ -47,7 +47,7 @@ public class PanelBilletera extends JPanel {
         // Crear el JFrame (ventana)
         JFrame frame = new JFrame("Su Monedero");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 600);
+        frame.setSize(1000, 600);
 
         // Crear una instancia del PanelBilletera
         PanelBilletera panel = new PanelBilletera();
