@@ -4,18 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
-public class JButtonCoca extends JRadioButton{
-    public JButtonCoca() {
-        super("Precio: $1200");
-
-        URL urlCoca = getClass().getClassLoader().getResource("Coca-Cola.png");
+public class JButtonSnickers extends JRadioButton{
+    JButtonSnickers() {
+        super("Precio: $1500");
+        URL urlSnickers = getClass().getClassLoader().getResource("super8.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("seleccionado.png");
 
         int ancho = 150;
         int alto = 170;
-        ImageIcon iconCoca = new ImageIcon(new ImageIcon(urlCoca).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        ImageIcon iconSnickers = new ImageIcon(new ImageIcon(urlSnickers).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-        this.setIcon(iconCoca);
+        this.setIcon(iconSnickers);
         this.setSelectedIcon(iconSeleccionado);
     }
 }
