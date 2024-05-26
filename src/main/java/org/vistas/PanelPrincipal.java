@@ -9,10 +9,21 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         exp = new PanelExpendedor ();
         com = new PanelComprador();
         this.setBackground(Color.white);
+        /*
+        //Layout nulo para permitir posicionamiento absoluto
+        this.setLayout(null);
+        // Posicionar y añadir los paneles al PanelPrincipal
+        com.setBounds(50, 50, 200, 200); // Ajusta las coordenadas y el tamaño según sea necesario
+        exp.setBounds(300, 50, 200, 200); // Ajusta las coordenadas y el tamaño según sea necesario
+
         this.add(exp);
+        this.add(com);*/
     }
-    public void paintComponent (Graphics g) {
+
+    @Override
+    protected void paintComponent (Graphics g) {
         super.paintComponent(g);
-        exp.paintComponent(g);
+        //No es necesario llamar a los subpaneles
+        //Swing se encarga de redibujar los componentes hijos automáticamente.
     }
 }
