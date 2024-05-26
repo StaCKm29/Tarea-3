@@ -1,11 +1,17 @@
 package org.vistas;
 
+import org.modelos.Deposito;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class JPanelDepSuper8 extends JPanel {
+
     public JPanelDepSuper8(){
-        JButtonSuper8 super8 = new JButtonSuper8();
-        this.add(super8, BorderLayout.CENTER);
+        JButtonSuper8 boton1 = new JButtonSuper8();
+        JButtonSuper8 boton2 = new JButtonSuper8();
+        this.add(boton1);
+        this.add(boton2);
     }
 
     public static void main(String[] args) {

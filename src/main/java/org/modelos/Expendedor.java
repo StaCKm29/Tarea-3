@@ -3,7 +3,7 @@ package org.modelos;
 import java.util.ArrayList;
 
 public class Expendedor {
-    private ArrayList<Producto>[] depositos;
+    private     ArrayList<Producto>[] depositos;
     private Deposito<Moneda> monedaVuelto;
     private Producto producto; //Será el producto que se retornará
 

@@ -1,6 +1,7 @@
 package org.vistas;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class JPanelDepSprite extends JPanel {
     public JPanelDepSprite(){
