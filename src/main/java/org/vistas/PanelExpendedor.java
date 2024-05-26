@@ -22,11 +22,14 @@ public class PanelExpendedor extends JPanel{
         URL urlSnickers = getClass().getClassLoader().getResource("snickers.png");
 
         //Crear los ImageIcon con las imagenes cargadas para poder crear JToggleButtons con las imagenes
-        ImageIcon iconCoca = new ImageIcon(urlCoca);
-        ImageIcon iconSprite = new ImageIcon(urlSprite);
-        ImageIcon iconFanta = new ImageIcon(urlFanta);
-        ImageIcon iconSuper8 = new ImageIcon(urlSuper8);
-        ImageIcon iconSnickers = new ImageIcon(urlSnickers);
+        int ancho = 150;
+        int alto = 170;
+        ImageIcon iconCoca = new ImageIcon(new ImageIcon(urlCoca).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        ImageIcon iconSprite = new ImageIcon(new ImageIcon(urlSprite).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        ImageIcon iconFanta = new ImageIcon(new ImageIcon(urlFanta).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        ImageIcon iconSuper8 = new ImageIcon(new ImageIcon(urlSuper8).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        ImageIcon iconSnickers = new ImageIcon(new ImageIcon(urlSnickers).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+
 
         //Crear los JToggleButtons con las imagenes
         ArrayList<JToggleButton> botones = new ArrayList<>();
