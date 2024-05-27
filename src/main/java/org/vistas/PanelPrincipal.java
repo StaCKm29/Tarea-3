@@ -4,9 +4,9 @@ import java.awt.*;
 import org.modelos.*;
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private PanelComprador com;
-    private PanelExpendedor exp;
+    private PanelExpendedor exp; //static
     public PanelPrincipal () {
-        exp = new PanelExpendedor ();
+        exp = new PanelExpendedor (5);
         com = new PanelComprador();
         this.setBackground(Color.white);
         /*

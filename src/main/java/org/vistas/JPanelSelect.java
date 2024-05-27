@@ -1,9 +1,12 @@
 package org.vistas;
 
+import org.modelos.Selector;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class JPanelSelect extends JPanel {
+    Selector tipo;
     public JPanelSelect(){
         setLayout(new GridLayout(2, 3));
         JButtonSuper8 boton1 = new JButtonSuper8();
@@ -11,6 +14,22 @@ public class JPanelSelect extends JPanel {
         JButtonCoca boton3 = new JButtonCoca();
         JButtonFanta boton4 = new JButtonFanta();
         JButtonSprite boton5 = new JButtonSprite();
+
+        if(boton1.isSelected()){
+            tipo = Selector.SUPER8;
+        }
+        if(boton2.isSelected()){
+            tipo = Selector.SNICKERS;
+        }
+        if(boton3.isSelected()){
+            tipo = Selector.COCACOLA;
+        }
+        if(boton4.isSelected()){
+            tipo = Selector.FANTA;
+        }
+        if(boton5.isSelected()){
+            tipo = Selector.SPRITE;
+        }
 
         ButtonGroup productos = new ButtonGroup();
         productos.add(boton1);
@@ -24,6 +43,10 @@ public class JPanelSelect extends JPanel {
         add(boton3);
         add(boton4);
         add(boton5);
+    }
+
+    public Selector getTipoProducto(){
+        return tipo;
     }
     public static void main (String[] args){
         JFrame frame = new JFrame("Seleccion de Producto");
