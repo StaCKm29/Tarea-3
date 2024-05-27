@@ -9,7 +9,7 @@ public class JButtonSprite extends JRadioButton{
         super("Precio: $1200");
 
         URL urlSprite = getClass().getClassLoader().getResource("sprite.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("seleccionado.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("spriteSeleccionado.png");
 
         int ancho = 150;
         int alto = 170;

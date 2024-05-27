@@ -8,7 +8,7 @@ public class JButtonSnickers extends JRadioButton{
     JButtonSnickers() {
         super("Precio: $1500");
         URL urlSnickers = getClass().getClassLoader().getResource("snickers.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("seleccionado.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("snickersSeleccionado.png");
 
         int ancho = 150;
         int alto = 170;

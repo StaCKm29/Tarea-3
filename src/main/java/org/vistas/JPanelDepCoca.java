@@ -21,7 +21,7 @@ public class JPanelDepCoca extends JPanel {
             // Crear el JFrame (ventana)
             JFrame frame = new JFrame("Deposito con respectivo Botón");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(300, 300);
+            frame.setSize(1280, 720);
 
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
             JPanelDepCoca panelCoca = new JPanelDepCoca();
