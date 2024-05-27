@@ -5,8 +5,15 @@ import java.awt.*;
 
 public class JPanelDepCoca extends JPanel {
     public JPanelDepCoca(){
+        setLayout(new GridLayout(1,5));
+
+        for(int i = 0; i < 5; i++) {
+            ImageCoca coca = new ImageCoca();
+            add(coca);
+        }
+        /*
         JButtonCoca coca = new JButtonCoca();
-        this.add(coca, BorderLayout.CENTER);
+        this.add(coca, BorderLayout.CENTER);*/
     }
 
     public static void main(String[] args) {
