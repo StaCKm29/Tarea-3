@@ -20,4 +20,8 @@ public class Deposito<T> {
             return almacen.remove(0);
         }
     }
+
+    public int size() {
+        return almacen.size();
+    }
 }

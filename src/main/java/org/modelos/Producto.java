@@ -4,7 +4,7 @@ package org.modelos;
  * Sirve como plantilla para representar a los productos que se venderán en el expendedor
  */
 
-abstract class Producto {
+public abstract class Producto {
 
     private int serie;
 

@@ -15,7 +15,7 @@ public class Super8 extends Dulce{
      * Retorna que se ha consumido un super8
      */
     public String consumir() {
-        return "super8";
+        return "Super8";
     }
 }
 
