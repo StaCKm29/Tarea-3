@@ -7,7 +7,7 @@ public class JButtonFanta extends JRadioButton{
         super("Precio: $1200");
 
         URL urlFanta = getClass().getClassLoader().getResource("fanta.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("seleccionado.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("fantaSeleccionado.png");
 
         int ancho = 150;
         int alto = 170;

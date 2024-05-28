@@ -14,7 +14,7 @@ public class JButtonCoca extends JRadioButton{
         super("Precio: $1200");
 
         URL urlCoca = getClass().getClassLoader().getResource("Coca-Cola.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("seleccionado.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("Coca-ColaSeleccionado.png");
 
         int ancho = 150;
         int alto = 170;

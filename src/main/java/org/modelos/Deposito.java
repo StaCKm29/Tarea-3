@@ -23,4 +23,8 @@ public class Deposito<T> {
     public boolean isEmpty(){
         return almacen.isEmpty();
     }
+
+    public int size() {
+        return almacen.size();
+    }
 }

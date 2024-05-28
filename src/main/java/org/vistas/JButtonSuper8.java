@@ -9,7 +9,7 @@ public class JButtonSuper8 extends JRadioButton {
         super("Precio: $300");
 
         URL urlSuper8 = getClass().getClassLoader().getResource("super8.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("seleccionado.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("super8Seleccionado.png");
 
         int ancho = 150;
         int alto = 170;
