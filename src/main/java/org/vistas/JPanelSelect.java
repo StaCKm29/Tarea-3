@@ -14,7 +14,7 @@ public class JPanelSelect extends JPanel {
         JButtonCoca boton3 = new JButtonCoca();
         JButtonFanta boton4 = new JButtonFanta();
         JButtonSprite boton5 = new JButtonSprite();
-
+        JbuttonAlfajor boton6 = new JbuttonAlfajor();
         if(boton1.isSelected()){
             tipo = Selector.SUPER8;
         }
@@ -30,6 +30,9 @@ public class JPanelSelect extends JPanel {
         if(boton5.isSelected()){
             tipo = Selector.SPRITE;
         }
+        if(boton6.isSelected()){
+            tipo = Selector.ALFAJOR;
+        }
 
         ButtonGroup productos = new ButtonGroup();
         productos.add(boton1);
@@ -37,12 +40,14 @@ public class JPanelSelect extends JPanel {
         productos.add(boton3);
         productos.add(boton4);
         productos.add(boton5);
+        productos.add(boton6);
 
         add(boton1);
         add(boton2);
         add(boton3);
         add(boton4);
         add(boton5);
+        add(boton6);
     }
 
     public Selector getTipoProducto(){

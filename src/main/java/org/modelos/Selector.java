@@ -30,6 +30,12 @@ public enum Selector {
         public Producto crearProducto(int serie){
             return new Super8(serie);
         }
+    },
+    ALFAJOR(600){
+        @Override
+        public Producto crearProducto(int serie){
+            return new Alfajor(serie);
+        }
     };
     private final int precio;
 
