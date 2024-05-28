@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 
 public class ImageCoca extends JPanel {
     private Image imagen;
+
     public ImageCoca() {
         URL imagenURL = getClass().getClassLoader().getResource("Coca-Cola.png");
         try{

@@ -8,10 +8,9 @@ public class PanelExpendedor extends JPanel{
     //Aqui una variable de tipo Expendedor para poder instanciarla
     //getter expendedor
     //Otra idea seira pasar el expendor para botoncomprar
-    private Expendedor exp;
+    public static Expendedor exp = new Expendedor(5);
     private JButtonCompra botonComprar;
     public PanelExpendedor(int size) {
-        this.exp = new Expendedor(size);
         this.botonComprar = new JButtonCompra(exp);
     }
 }
