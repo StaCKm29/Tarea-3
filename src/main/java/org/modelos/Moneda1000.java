@@ -6,8 +6,8 @@ package org.modelos;
 
 class Moneda1000 extends Moneda{
 
-    public Moneda1000(){
-        super();
+    public Moneda1000(int serie){
+        super(serie);
     }
 
     /**

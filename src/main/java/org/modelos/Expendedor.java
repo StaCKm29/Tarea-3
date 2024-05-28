@@ -3,18 +3,38 @@ package org.modelos;
 import java.util.ArrayList;
 
 public class Expendedor {
-    private     ArrayList<Producto>[] depositos;
+    private Deposito <Producto> coca;
+    private Deposito <Producto> sprite;
+    private Deposito <Producto> fanta;
+    private Deposito <Producto> snickers;
+    private Deposito <Producto> super8;
+    private ArrayList <Deposito<Producto>> depositos;
+    private int c = 100;
+
     private Deposito<Moneda> monedaVuelto;
     private Producto producto; //Será el producto que se retornará
 
     public Expendedor(int size){
-        depositos = new ArrayList[Selector.values().length];
+        coca = new Deposito<>();
+        sprite = new Deposito<>();
+        fanta = new Deposito<>();
+        snickers = new Deposito<>();
+        super8 = new Deposito<>();
+        depositos = new ArrayList<>();
+
+        depositos.add(coca);
+        depositos.add(sprite);
+        depositos.add(fanta);
+        depositos.add(snickers);
+        depositos.add(super8);
+
         monedaVuelto = new Deposito<>();
         for(Selector p : Selector.values()){
-            depositos[p.ordinal()] = new ArrayList<Producto>();
             for(int i = 0; i < size; i++){
-                depositos[p.ordinal()].add(p.crearProducto(i));
+                Producto producto = p.crearProducto(i+c);
+                depositos.get(p.ordinal()).addObjeto(producto);
             }
+            c+= 100;
         }
     }
 
@@ -27,15 +47,15 @@ public class Expendedor {
             monedaVuelto.addObjeto(pago);
             throw new PagoInsuficienteException("El pago es insuficiente.");
         }
-        if(depositos[eleccion.ordinal()].isEmpty()){
+        if(depositos.get(eleccion.ordinal()).isEmpty()){
             monedaVuelto.addObjeto(pago);
             throw new NoHayProductoException("No hay producto." + eleccion.toString().toLowerCase());
         }
         int vuelto = (pago.getValor() - eleccion.getprecio())/100;
         for(int j = 0; j < vuelto; j++){
-            monedaVuelto.addObjeto(new Moneda100());
+            monedaVuelto.addObjeto(new Moneda100(j+1));
         }
-        producto = depositos[i].remove(depositos[i].size()-1);
+        producto = depositos.get(i).getObjeto();
     }
 
     public Producto getProducto() {

@@ -38,10 +38,10 @@ public class Main {
             System.out.println(e.getMessage());
         } catch (NoHayProductoException e) {
             Moneda moneda = exp.getVuelto();
-            System.out.println(e.getMessage() + "Vuelto: " + moneda.getValor() + "\n");
+            System.out.println(e.getMessage() + " Vuelto: " + moneda.getValor() + "\n");
         } catch (PagoInsuficienteException e) {
             Moneda moneda = exp.getVuelto();
-            System.out.println(e.getMessage() + "Vuelto: " + moneda.getValor() + "\n");
+            System.out.println(e.getMessage() + " Vuelto: " + moneda.getValor() + "\n");
         }
     }
 }
