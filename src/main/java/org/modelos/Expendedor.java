@@ -8,6 +8,7 @@ public class Expendedor {
     private Deposito <Producto> fanta;
     private Deposito <Producto> snickers;
     private Deposito <Producto> super8;
+    private Deposito <Producto> alfajores;
     private ArrayList <Deposito<Producto>> depositos;
     private int c = 100;
 
@@ -20,6 +21,7 @@ public class Expendedor {
         fanta = new Deposito<>();
         snickers = new Deposito<>();
         super8 = new Deposito<>();
+        alfajores = new Deposito<>();
         depositos = new ArrayList<>();
 
         depositos.add(coca);
@@ -27,6 +29,7 @@ public class Expendedor {
         depositos.add(fanta);
         depositos.add(snickers);
         depositos.add(super8);
+        depositos.add(alfajores);
 
         monedaVuelto = new Deposito<>();
         for(Selector p : Selector.values()){
@@ -57,6 +60,7 @@ public class Expendedor {
         }
         producto = depositos.get(i).getObjeto();
     }
+
 
     public Producto getProducto() {
         return producto;

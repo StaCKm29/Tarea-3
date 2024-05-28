@@ -2,8 +2,8 @@ package org.modelos;
 
 public class Main {
     public static void main(String[] args) {
-        Moneda m1 = new Moneda1000();
-        Moneda m5 = new Moneda500();
+        Moneda m1 = new Moneda1000(123);
+        Moneda m5 = new Moneda500(321);
         Expendedor exp = new Expendedor(5);
         /**
          * Se intenta comprar un producto con una moneda especificando qué producto y el expendedor

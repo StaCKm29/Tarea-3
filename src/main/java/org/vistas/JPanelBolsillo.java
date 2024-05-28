@@ -3,6 +3,7 @@ import org.modelos.*;
 
 import javax.swing.*;
 
+
 public class JPanelBolsillo extends JPanel {
     private Deposito<Cocacola> cocas;
     private Deposito<Sprite> sprites;
@@ -36,7 +37,7 @@ public class JPanelBolsillo extends JPanel {
         add(cuantosSuper8s);
     }
 
-    public void addProducto(Expendedor exp) {
+    public void addProducto(Expendedor exp){
         Producto j = exp.getProducto();
         String tipo = j.consumir();
         if (tipo == "CocaCola") {
