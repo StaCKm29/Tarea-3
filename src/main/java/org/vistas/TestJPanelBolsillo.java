@@ -1,7 +1,6 @@
 package org.vistas;
 
 import org.modelos.*;
-import org.vistas.*;
 
 import javax.swing.*;
 import java.util.Scanner;
@@ -29,7 +28,7 @@ public class TestJPanelBolsillo {
                 for (Selector selector : Selector.values()) {
                     System.out.println("Presiona Enter para comprar un " + selector);
                     scanner.nextLine(); // Esperar a que el usuario presione Enter
-                    expendedor.comprarProducto(new Moneda1500(), selector);
+                    expendedor.comprarProducto(new Moneda2000(i), selector);
                     panelBolsillo.addProducto(expendedor);
                 }
             } catch (NoHayProductoException | PagoInsuficienteException | PagoIncorrectoException e) {

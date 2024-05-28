@@ -9,9 +9,11 @@ public class PanelExpendedor extends JPanel{
     //getter expendedor
     //Otra idea seira pasar el expendor para botoncomprar
     private Expendedor exp;
-    private JButtonCompra botonComprar;
+
     public PanelExpendedor(int size) {
         this.exp = new Expendedor(size);
-        this.botonComprar = new JButtonCompra(exp);
+    }
+    public Expendedor getExpendedor(){
+        return exp;
     }
 }
