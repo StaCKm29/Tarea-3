@@ -10,12 +10,13 @@ public class JPanelBolsillo extends JPanel {
     private Deposito<Fanta> fantas;
     private Deposito<Snickers> snickers;
     private Deposito<Super8> super8s;
-
+    private Deposito<Alfajor> alfajores;
     private JLabel cuantasCocas;
     private JLabel cuantasSprites;
     private JLabel cuantasFantas;
     private JLabel cuantosSnickers;
     private JLabel cuantosSuper8s;
+    private JLabel cuantosAlfajores;
 
     public JPanelBolsillo() {
         cocas = new Deposito<Cocacola>();
@@ -23,18 +24,19 @@ public class JPanelBolsillo extends JPanel {
         fantas = new Deposito<Fanta>();
         snickers = new Deposito<Snickers>();
         super8s = new Deposito<Super8>();
-
+        alfajores = new Deposito<Alfajor>();
         cuantasCocas = new JLabel("Cocas: 0");
         cuantasSprites = new JLabel("Sprites: 0");
         cuantasFantas = new JLabel("Fantas: 0");
         cuantosSnickers = new JLabel("Snickers: 0");
         cuantosSuper8s = new JLabel("Super8s: 0");
-
+        cuantosAlfajores = new JLabel("Alfajores: 0");
         add(cuantasCocas);
         add(cuantasSprites);
         add(cuantasFantas);
         add(cuantosSnickers);
         add(cuantosSuper8s);
+        add(cuantosAlfajores);
     }
 
     public void addProducto(Expendedor exp){
@@ -59,6 +61,10 @@ public class JPanelBolsillo extends JPanel {
         else if (tipo == "Super8"){
             super8s.addObjeto((Super8) j);
             cuantosSuper8s.setText("Super8s: " + super8s.size());
+        }
+        else if (tipo == "Alfajor"){
+            alfajores.addObjeto((Alfajor) j);
+            cuantosAlfajores.setText("Alfajores: " + alfajores.size());
         }
     }
 
