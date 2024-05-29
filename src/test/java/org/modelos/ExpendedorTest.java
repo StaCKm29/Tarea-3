@@ -1,5 +1,4 @@
 package org.modelos;
-import org.modelos.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -24,7 +23,7 @@ class ExpendedorTest {
         expendedor = new Expendedor(2);
         moneda500 = new Moneda500();
         moneda1000 = new Moneda1000();
-        moneda1500 = new Moneda1500();
+        moneda1500 = new Moneda2000();
 
         coca = Selector.COCACOLA;
         sprite = Selector.SPRITE;

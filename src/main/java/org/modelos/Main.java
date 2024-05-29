@@ -2,8 +2,8 @@ package org.modelos;
 
 public class Main {
     public static void main(String[] args) {
-        Moneda m1 = new Moneda1000();
-        Moneda m5 = new Moneda500();
+        Moneda m1 = new Moneda1000(123);
+        Moneda m5 = new Moneda500(321);
         Expendedor exp = new Expendedor(5);
         /**
          * Se intenta comprar un producto con una moneda especificando qué producto y el expendedor
@@ -38,10 +38,10 @@ public class Main {
             System.out.println(e.getMessage());
         } catch (NoHayProductoException e) {
             Moneda moneda = exp.getVuelto();
-            System.out.println(e.getMessage() + "Vuelto: " + moneda.getValor() + "\n");
+            System.out.println(e.getMessage() + " Vuelto: " + moneda.getValor() + "\n");
         } catch (PagoInsuficienteException e) {
             Moneda moneda = exp.getVuelto();
-            System.out.println(e.getMessage() + "Vuelto: " + moneda.getValor() + "\n");
+            System.out.println(e.getMessage() + " Vuelto: " + moneda.getValor() + "\n");
         }
     }
 }

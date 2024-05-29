@@ -1,11 +1,15 @@
 package org.vistas;
 
+import org.modelos.Moneda;
+import org.modelos.Moneda100;
+
 import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
 
 public class PanelBilletera extends JPanel {
+    private Moneda moneda;
 
     public PanelBilletera() {
         //Creacion de una grilla de 2x2 para las 4 monedas
@@ -25,8 +29,8 @@ public class PanelBilletera extends JPanel {
 
         //Crear los JToggleButtons con las imagenes
         ArrayList<JToggleButton> botones = new ArrayList<>();
-        botones.add(new JToggleButton(icon500));
         botones.add(new JToggleButton(icon100));
+        botones.add(new JToggleButton(icon500));
         botones.add(new JToggleButton(iconMil));
         botones.add(new JToggleButton(iconDosMil));
 
@@ -41,8 +45,24 @@ public class PanelBilletera extends JPanel {
             add(boton);
         }
 
+        if(botones.get(0).isSelected()){
+            moneda = new Moneda100(100);
+        }
+        if(botones.get(1).isSelected()){
+            moneda = new Moneda100(500);
+        }
+        if(botones.get(2).isSelected()){
+            moneda = new Moneda100(1000);
+        }
+        if(botones.get(3).isSelected()){
+            moneda = new Moneda100(2000);
+        }
+
     }
 
+    public Moneda getMoneda(){
+        return moneda;
+    }
     public static void main(String[] args) {
         // Crear el JFrame (ventana)
         JFrame frame = new JFrame("Su Monedero");

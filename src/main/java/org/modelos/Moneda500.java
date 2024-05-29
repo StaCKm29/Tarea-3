@@ -3,10 +3,10 @@ package org.modelos;
 /**
  * Moneda que representa una moneda de valor 500
  */
-class Moneda500 extends Moneda{
+public class Moneda500 extends Moneda{
 
-    public Moneda500(){
-        super();
+    public Moneda500(int serie){
+        super(serie);
     }
 
     /**
