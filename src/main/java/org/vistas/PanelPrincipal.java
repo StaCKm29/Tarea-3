@@ -10,12 +10,10 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     public PanelPrincipal () {
         this.exp = new PanelExpendedor (5);
         this.com = new PanelComprador();
-        this.botonComprar = new JButtonCompra(exp, com);
 
         setLayout(new BorderLayout());
         add(exp, BorderLayout.CENTER);
         add(com, BorderLayout.NORTH);
-        add(botonComprar, BorderLayout.SOUTH);
 
         this.setBackground(Color.white);
     }
@@ -24,6 +22,10 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     protected void paintComponent (Graphics g) {
         super.paintComponent(g);
     }
+    public void iniciarButtonCompra() {
+        this.botonComprar = new JButtonCompra(exp.getExpendedor(), com.getPanel(), com.getMonedero());
+        add(botonComprar, BorderLayout.SOUTH);
+    }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Panel Principal");
@@ -31,6 +33,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         frame.setSize(800, 600);
 
         PanelPrincipal panelPrincipal = new PanelPrincipal();
+        panelPrincipal.iniciarButtonCompra();
         frame.add(panelPrincipal);
 
         frame.setVisible(true);

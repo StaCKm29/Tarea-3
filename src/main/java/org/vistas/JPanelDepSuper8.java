@@ -8,10 +8,10 @@ import java.awt.*;
 public class JPanelDepSuper8 extends JPanel {
 
     public JPanelDepSuper8(){
-        JButtonSuper8 boton1 = new JButtonSuper8();
+        /*JButtonSuper8 boton1 = new JButtonSuper8();
         JButtonSuper8 boton2 = new JButtonSuper8();
         this.add(boton1);
-        this.add(boton2);
+        this.add(boton2);*/
     }
 
     public static void main(String[] args) {

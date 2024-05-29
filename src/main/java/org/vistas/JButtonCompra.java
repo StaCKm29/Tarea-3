@@ -1,40 +1,66 @@
 package org.vistas;
 
 import org.modelos.*;
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class JButtonCompra extends JPanel  {
-    private PanelExpendedor expPanel;
+public class JButtonCompra extends JPanel {
     private Expendedor expendedor;
-    private PanelComprador comPanel;
+    private JPanelSelect comPanel;
+    private PanelBilletera monedero;
     private Selector seleccion;
     private Moneda moneda;
     //Objeto fuente
-    JRadioButton  BotonComprar= new JRadioButton("Compra");
-    public JButtonCompra(PanelExpendedor exp, PanelComprador com) {
-        this.expPanel = exp;
-        this.expendedor = expPanel.getExpendedor();
-        this. comPanel = com;
-        this.seleccion= comPanel.getPanel().getTipoProducto();
-        this.moneda = comPanel.getMonedero().getMoneda();
+    private JRadioButton  BotonComprar= new JRadioButton("Compra");
+
+    public JButtonCompra(Expendedor exp, JPanelSelect comPanel, PanelBilletera monedero) {
+        this.expendedor = exp;
+        this. comPanel = comPanel;
+        this.seleccion= comPanel.getTipoProducto();
+        this.monedero = monedero;
+        this.moneda = monedero.getMoneda();
 
         add(BotonComprar);
 
-        if(BotonComprar.isSelected()){
-            try {
-                expendedor.comprarProducto(moneda, seleccion);
-            } catch (PagoIncorrectoException e){
-                JOptionPane.showMessageDialog(null, "El pago es incorrecto.");
-            } catch (PagoInsuficienteException e){
-                Moneda moneda = expendedor.getVuelto();
-                JOptionPane.showMessageDialog(null, "El pago es insuficiente.");
-            } catch (NoHayProductoException e){
-                Moneda moneda = expendedor.getVuelto();
-                JOptionPane.showMessageDialog(null, "No hay producto." + seleccion.toString().toLowerCase());
+        BotonComprar.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) { //clickea
+                try {
+                    expendedor.comprarProducto(moneda, seleccion);
+                } catch (PagoIncorrectoException ex) {
+                    JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
+                } catch(NoHayProductoException ex) {
+                    Moneda moneda = expendedor.getVuelto();
+                    JOptionPane.showMessageDialog(null, "No hay stock o el producto no existe");
+                } catch(PagoInsuficienteException ex) {
+                    Moneda moneda = expendedor.getVuelto();
+                    JOptionPane.showMessageDialog(null, "El pago es insuficiente");
+                }
+
             }
-        }
+
+            @Override
+            public void mousePressed(MouseEvent e) { //presionado
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) { //soltado
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) { //entra (por encima)
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -44,11 +70,12 @@ public class JButtonCompra extends JPanel  {
         frame.setSize(400, 300);
 
         // Crear instancias de PanelExpendedor y PanelComprador
-        PanelExpendedor expPanel = new PanelExpendedor(1);
-        PanelComprador comPanel = new PanelComprador();
+        Expendedor exp = new Expendedor(5);
+        JPanelSelect com = new JPanelSelect();
+        PanelBilletera mon = new PanelBilletera();
 
         // Inicializar la instancia de JButtonCompra
-        JButtonCompra botonCompra = new JButtonCompra(expPanel, comPanel);
+        JButtonCompra botonCompra = new JButtonCompra(exp, com, mon);
 
         // Añadir el panel de compra al frame
         frame.add(botonCompra);
@@ -57,5 +84,6 @@ public class JButtonCompra extends JPanel  {
         frame.setLayout(new FlowLayout());
         frame.setVisible(true);
     }
+
 
 }

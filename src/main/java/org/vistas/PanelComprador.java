@@ -7,8 +7,8 @@ public class PanelComprador extends JPanel{
     private PanelBilletera monedero;
 
     public PanelComprador(){
-        JPanelSelect panel = new JPanelSelect();
-        PanelBilletera monedero = new PanelBilletera();
+        panel = new JPanelSelect();
+        monedero = new PanelBilletera();
 
         add(panel);
         add(monedero);

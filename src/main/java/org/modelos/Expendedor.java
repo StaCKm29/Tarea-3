@@ -42,6 +42,7 @@ public class Expendedor {
     }
 
     public void comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
+        // Comprueba si 'eleccion' es null antes de llamar a 'ordinal()'
         int i = eleccion.ordinal();
         if(pago == null){
             throw new PagoIncorrectoException("El pago es incorrecto.");
@@ -50,7 +51,7 @@ public class Expendedor {
             monedaVuelto.addObjeto(pago);
             throw new PagoInsuficienteException("El pago es insuficiente.");
         }
-        if(depositos.get(eleccion.ordinal()).isEmpty()){
+        if( depositos.get(eleccion.ordinal()).isEmpty() ){
             monedaVuelto.addObjeto(pago);
             throw new NoHayProductoException("No hay producto." + eleccion.toString().toLowerCase());
         }
