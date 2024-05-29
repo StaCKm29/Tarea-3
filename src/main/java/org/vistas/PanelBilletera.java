@@ -22,10 +22,11 @@ public class PanelBilletera extends JPanel {
         URL urlDosMil = getClass().getClassLoader().getResource("2000pesos.png");
 
         //Crear los ImageIcon con las imagenes cargadas para poder crear JToggleButtons con las imagenes
-        ImageIcon icon500 = new ImageIcon(url500);
-        ImageIcon icon100 = new ImageIcon(url100);
-        ImageIcon iconMil = new ImageIcon(urlMil);
-        ImageIcon iconDosMil = new ImageIcon(urlDosMil);
+        ImageIcon icon500 = new ImageIcon(new ImageIcon (url500).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        ImageIcon icon100 = new ImageIcon(new ImageIcon (url100).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        ImageIcon iconMil = new ImageIcon(new ImageIcon (urlMil).getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT));
+        ImageIcon iconDosMil = new ImageIcon(new ImageIcon (urlDosMil).getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT));
+
 
         //Crear los JToggleButtons con las imagenes
         ArrayList<JToggleButton> botones = new ArrayList<>();
