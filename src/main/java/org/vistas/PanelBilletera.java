@@ -42,7 +42,6 @@ public class PanelBilletera extends JPanel {
         }
 
     }
-
     public static void main(String[] args) {
         // Crear el JFrame (ventana)
         JFrame frame = new JFrame("Su Monedero");
