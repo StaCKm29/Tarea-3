@@ -8,10 +8,19 @@ import java.awt.*;
 public class JPanelDepSuper8 extends JPanel {
 
     public JPanelDepSuper8(){
-        /*JButtonSuper8 boton1 = new JButtonSuper8();
-        JButtonSuper8 boton2 = new JButtonSuper8();
-        this.add(boton1);
-        this.add(boton2);*/
+        setLayout(new GridLayout(1, 5));
+        for(int i = 0; i < 5; i++){
+            ImageSuper8 super8 = new ImageSuper8();
+            super8.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            add(super8);
+        }
+    }
+    //Probar este método
+    public void retiroProducto(){
+        if(this.getComponentCount() > 0){
+            this.remove(0);
+            this.updateUI();
+        }
     }
 
     public static void main(String[] args) {

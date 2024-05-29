@@ -1,12 +1,24 @@
 package org.vistas;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
-
+import javax.swing.border.LineBorder;
 public class JPanelDepSprite extends JPanel {
     public JPanelDepSprite(){
-        JButtonSprite sprite = new JButtonSprite();
-        this.add(sprite, BorderLayout.CENTER);
+        setLayout(new GridLayout(1, 5));
+        for(int i =0; i < 5; i++){
+            ImageSprite sprite = new ImageSprite();
+            sprite.setBorder(new LineBorder(Color.BLACK));
+            add(sprite);
+        }
+    }
+    //Probar este método
+    public void retiroProducto(){
+        if(this.getComponentCount() > 0){
+            this.remove(0);
+            this.updateUI();
+        }
     }
 
     public static void main(String[] args) {

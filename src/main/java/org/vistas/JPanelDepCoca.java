@@ -2,18 +2,26 @@ package org.vistas;
 
 import javax.swing.*;
 import java.awt.*;
-
+import javax.swing.border.LineBorder;
 public class JPanelDepCoca extends JPanel {
     public JPanelDepCoca(){
         setLayout(new GridLayout(1,5));
 
         for(int i = 0; i < 5; i++) {
             ImageCoca coca = new ImageCoca();
+            coca.setBorder(new LineBorder(Color.BLACK));
             add(coca);
         }
         /*
         JButtonCoca coca = new JButtonCoca();
         this.add(coca, BorderLayout.CENTER);*/
+    }
+    //Probar este método
+    public void retiroProducto(){
+        if(this.getComponentCount() > 0){
+            this.remove(0);
+            this.updateUI();
+        }
     }
 
     public static void main(String[] args) {

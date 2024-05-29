@@ -1,15 +1,15 @@
 package org.vistas;
-
 import javax.swing.*;
-import java.awt.*;
 import javax.swing.border.LineBorder;
-public class JPanelDepSnickers extends JPanel {
-    public JPanelDepSnickers(){
-        setLayout(new GridLayout(1,5));
-        for(int i = 0; i < 5; i++) {
-            ImageSnickers snicker = new ImageSnickers();
-            snicker.setBorder(new LineBorder(Color.BLACK));
-            add(snicker);
+import java.awt.*;
+
+public class JPanelDepAlfajores extends JPanel{
+    public JPanelDepAlfajores(){
+        setLayout(new GridLayout(1, 5));
+        for(int i =0; i < 5; i++){
+            ImageAlfajor alfajor = new ImageAlfajor();
+            alfajor.setBorder(new LineBorder(Color.BLACK));
+            add(alfajor);
         }
     }
     //Probar este método
@@ -19,6 +19,7 @@ public class JPanelDepSnickers extends JPanel {
             this.updateUI();
         }
     }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             // Crear el JFrame (ventana)
@@ -27,8 +28,8 @@ public class JPanelDepSnickers extends JPanel {
             frame.setSize(300, 300);
 
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            JPanelDepSnickers panelSnickers = new JPanelDepSnickers();
-            frame.add(panelSnickers);
+            JPanelDepAlfajores panelAlfajores = new JPanelDepAlfajores();
+            frame.add(panelAlfajores);
 
             // Hacer visible el JFrame
             frame.setVisible(true);
