@@ -18,7 +18,6 @@ public class JButtonCompra extends JPanel {
     public JButtonCompra(Expendedor exp, JPanelSelect comPanel, PanelBilletera monedero) {
         this.expendedor = exp;
         this. comPanel = comPanel;
-        this.seleccion= comPanel.getTipoProducto();
         this.monedero = monedero;
         this.moneda = monedero.getMoneda();
 
@@ -28,6 +27,7 @@ public class JButtonCompra extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) { //clickea
                 try {
+                    seleccion = comPanel.getTipoProducto();
                     expendedor.comprarProducto(moneda, seleccion);
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");

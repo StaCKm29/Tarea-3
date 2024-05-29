@@ -13,20 +13,17 @@ public class JButtonSuper8 extends JRadioButton implements MouseListener {
     public JButtonSuper8(JPanelSelect panelSelect) {
         super("Precio: $300");
 
-        this.panelSelect = panelSelect;
-
         URL urlSuper8 = getClass().getClassLoader().getResource("super8.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("super8Seleccionado.png");
 
         int ancho = 150;
         int alto = 170;
-
         ImageIcon iconSuper8 = new ImageIcon(new ImageIcon(urlSuper8).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-
         this.setIcon(iconSuper8);
         this.setSelectedIcon(iconSeleccionado);
         this.addMouseListener(this);
+        this.panelSelect = panelSelect;
     }
 
     @Override

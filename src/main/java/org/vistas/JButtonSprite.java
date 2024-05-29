@@ -1,11 +1,17 @@
 package org.vistas;
 
+import org.modelos.Selector;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.net.URL;
 
-public class JButtonSprite extends JRadioButton{
-    public JButtonSprite() {
+public class JButtonSprite extends JRadioButton implements MouseListener {
+    private JPanelSelect panelSelect;
+
+    public JButtonSprite(JPanelSelect panelSelect) {
         super("Precio: $1200");
 
         URL urlSprite = getClass().getClassLoader().getResource("sprite.png");
@@ -17,5 +23,32 @@ public class JButtonSprite extends JRadioButton{
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         this.setIcon(iconSprite);
         this.setSelectedIcon(iconSeleccionado);
+        this.panelSelect = panelSelect;
+        this.addMouseListener(this);
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        panelSelect.setTipoProducto(Selector.SPRITE);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

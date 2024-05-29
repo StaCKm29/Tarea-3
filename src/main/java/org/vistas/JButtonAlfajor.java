@@ -1,27 +1,25 @@
 package org.vistas;
-
 import org.modelos.Selector;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
-
-public class JButtonCoca extends JRadioButton implements MouseListener {
+import java.awt.*;
+public class JButtonAlfajor extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
-    public JButtonCoca(JPanelSelect panelSelect) {
-        super("Precio: $1200");
+    public JButtonAlfajor(JPanelSelect panelSelect){
+        super("Precio: $600");
 
-        URL urlCoca = getClass().getClassLoader().getResource("Coca-Cola.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("Coca-ColaSeleccionado.png");
+        URL urlAlfajor = getClass().getClassLoader().getResource("alfajor.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("alfajorSeleccionado.png");
 
         int ancho = 150;
         int alto = 170;
-        ImageIcon iconCoca = new ImageIcon(new ImageIcon(urlCoca).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        ImageIcon iconAlfajor = new ImageIcon(new ImageIcon(urlAlfajor).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-        this.setIcon(iconCoca);
+        this.setIcon(iconAlfajor);
         this.setSelectedIcon(iconSeleccionado);
         this.panelSelect = panelSelect;
         this.addMouseListener(this);
@@ -29,7 +27,7 @@ public class JButtonCoca extends JRadioButton implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        panelSelect.setTipoProducto(Selector.COCACOLA);
+        panelSelect.setTipoProducto(Selector.ALFAJOR);
     }
 
     @Override
