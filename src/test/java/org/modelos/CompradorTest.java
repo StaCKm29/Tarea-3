@@ -26,7 +26,7 @@ class CompradorTest {
         expendedor = new Expendedor(2);
         moneda500 = new Moneda500();
         moneda1000 = new Moneda1000();
-        moneda1500 = new Moneda1500();
+        moneda1500 = new Moneda2000();
 
         coca = Selector.COCACOLA;
         sprite = Selector.SPRITE;

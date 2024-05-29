@@ -23,6 +23,7 @@ public class JButtonCoca extends JRadioButton{
         this.setIcon(iconCoca);
         this.setSelectedIcon(iconSeleccionado);
 
+
         /*
         this.addActionListener(new ActionListener() {
             @Override
