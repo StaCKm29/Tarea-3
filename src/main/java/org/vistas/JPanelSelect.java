@@ -4,6 +4,8 @@ import org.modelos.Selector;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class JPanelSelect extends JPanel {
     private Selector tipo;
@@ -15,9 +17,9 @@ public class JPanelSelect extends JPanel {
     private JButtonSprite boton5;
     private JbuttonAlfajor boton6;
 
-    public JPanelSelect(){
+    public JPanelSelect() {
         setLayout(new GridLayout(2, 3));
-        boton1 = new JButtonSuper8(this);
+        boton1 = new JButtonSuper8();
         boton2 = new JButtonSnickers();
         boton3 = new JButtonCoca();
         boton4 = new JButtonFanta();
@@ -38,40 +40,58 @@ public class JPanelSelect extends JPanel {
         add(boton4);
         add(boton5);
         add(boton6);
-    }
-    /*
-    public Selector getTipoProducto(){
-        if(boton1.isSelected()){
-            tipo = Selector.SUPER8;
-            i = tipo.ordinal();
-        } else if (boton2.isSelected()){
-            tipo = Selector.SNICKERS;
-            i = tipo.ordinal();
-        } else if (boton3.isSelected()){
-            tipo = Selector.COCACOLA;
-            i = tipo.ordinal();
-        } else if (boton4.isSelected()){
-            tipo = Selector.FANTA;
-            i = tipo.ordinal();
-        }else if (boton5.isSelected()){
-            tipo = Selector.SPRITE;
-            i = tipo.ordinal();
-        }else if(boton6.isSelected()){
-            tipo = Selector.ALFAJOR;
-            i = tipo.ordinal();
-        }
+        // Add ActionListeners to each button
+        boton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tipo = Selector.SUPER8;
+                i = tipo.ordinal();
+            }
+        });
 
+        boton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tipo = Selector.SNICKERS;
+                i = tipo.ordinal();
+            }
+        });
+
+        boton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tipo = Selector.COCACOLA;
+                i = tipo.ordinal();
+            }
+        });
+
+        boton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tipo = Selector.FANTA;
+                i = tipo.ordinal();
+            }
+        });
+
+        boton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tipo = Selector.SPRITE;
+                i = tipo.ordinal();
+            }
+        });
+
+        boton6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tipo = Selector.ALFAJOR;
+                i = tipo.ordinal();
+            }
+        });
+    }
+
+    public Selector getTipo() {
         return tipo;
-    }
-
-    public int getI(){
-        return i;
-    }*/
-    public void setTipoProducto(Selector selector) {
-        this.tipo = selector;
-    }
-    public Selector getTipoProducto() {
-        return this.tipo;
     }
 
     public static void main (String[] args){
