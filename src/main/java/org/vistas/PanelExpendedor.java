@@ -23,6 +23,12 @@ public class PanelExpendedor extends JPanel{
     public Expendedor getExpendedor(){
         return exp;
     }
+
+    @Override
+    public void paintComponents(Graphics g) {
+        super.paintComponents(g);
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             // Crear el JFrame (ventana)
