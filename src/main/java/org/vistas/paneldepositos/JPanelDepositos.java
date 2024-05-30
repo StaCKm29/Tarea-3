@@ -22,6 +22,8 @@ public class JPanelDepositos extends JPanel{
         add(panelSuper8);
         add(panelMonedas);
     }
+
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             // Crear el JFrame (ventana)
@@ -34,5 +36,9 @@ public class JPanelDepositos extends JPanel{
             // Hacer visible el JFrame
             frame.setVisible(true);
         });
+    }
+
+    public void removeProducto(){
+
     }
 }

@@ -1,5 +1,5 @@
-package org.vistas;
-import org.modelos.Moneda;
+package org.vistas.paneldepositos;
+import org.vistas.ImageMonedas;
 
 import javax.swing.*;
 import java.awt.*;

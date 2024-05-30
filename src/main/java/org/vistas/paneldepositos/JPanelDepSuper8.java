@@ -5,7 +5,7 @@ import org.vistas.imagenes.ImageSuper8;
 import javax.swing.*;
 import java.awt.*;
 
-public class JPanelDepSuper8 extends JPanel {
+public class JPanelDepSuper8 extends DepositosMadre {
 
     public JPanelDepSuper8(){
         setLayout(new GridLayout(1, 5));
@@ -20,6 +20,16 @@ public class JPanelDepSuper8 extends JPanel {
         if(this.getComponentCount() > 0){
             this.remove(0);
             this.updateUI();
+        }
+    }
+
+    @Override
+    public void rellenarTodo() {
+        this.removeAll();
+        for(int i = 0; i < 5; i++) {
+            ImageSuper8 super8 = new ImageSuper8();
+            super8.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            add(super8);
         }
     }
 

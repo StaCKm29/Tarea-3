@@ -1,6 +1,8 @@
 package org.vistas;
 
 import org.modelos.*;
+import org.vistas.paneldepositos.JPanelDepositos;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -10,15 +12,17 @@ public class JButtonCompra extends JPanel {
     private Expendedor expendedor;
     private JPanelSelect comPanel;
     private JPanelBilletera monedero;
+    private JPanelDepositos panelDepositos;
     private Selector seleccion;
     private Moneda moneda;
     //Objeto fuente
     private JRadioButton  BotonComprar= new JRadioButton("Compra");
 
-    public JButtonCompra(Expendedor exp, JPanelSelect comPanel, JPanelBilletera monedero) {
+    public JButtonCompra(Expendedor exp, JPanelSelect comPanel, JPanelBilletera monedero, JPanelDepositos panelDepositos) {
         this.expendedor = exp;
         this. comPanel = comPanel;
         this.monedero = monedero;
+        this.panelDepositos = panelDepositos;
 
         add(BotonComprar);
 
@@ -73,9 +77,9 @@ public class JButtonCompra extends JPanel {
         Expendedor exp = new Expendedor(5);
         JPanelSelect com = new JPanelSelect();
         JPanelBilletera mon = new JPanelBilletera();
-
+        JPanelDepositos pan = new JPanelDepositos();
         // Inicializar la instancia de JButtonCompra
-        JButtonCompra botonCompra = new JButtonCompra(exp, com, mon);
+        JButtonCompra botonCompra = new JButtonCompra(exp, com, mon, pan);
 
         // Añadir el panel de compra al frame
         frame.add(botonCompra);

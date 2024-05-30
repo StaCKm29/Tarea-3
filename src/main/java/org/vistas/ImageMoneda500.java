@@ -25,7 +25,7 @@ public class ImageMoneda500 extends ImageMonedas {
     }
 
     @Override
-    int getValor() {
+    public int getValor() {
         return this.valor;
     }
 }

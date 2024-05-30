@@ -6,7 +6,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class JPanelDepSprite extends JPanel {
+public class JPanelDepSprite extends DepositosMadre {
     public JPanelDepSprite(){
         setLayout(new GridLayout(1, 5));
         for(int i =0; i < 5; i++){
@@ -20,6 +20,16 @@ public class JPanelDepSprite extends JPanel {
         if(this.getComponentCount() > 0){
             this.remove(0);
             this.updateUI();
+        }
+    }
+
+    @Override
+    public void rellenarTodo() {
+        this.removeAll();
+        for(int i = 0; i < 5; i++) {
+            ImageSprite sprite = new ImageSprite();
+            sprite.setBorder(new LineBorder(Color.BLACK));
+            add(sprite);
         }
     }
 

@@ -5,7 +5,7 @@ import org.vistas.imagenes.ImageCoca;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.LineBorder;
-public class JPanelDepCoca extends JPanel {
+public class JPanelDepCoca extends DepositosMadre {
     public JPanelDepCoca(){
         setLayout(new GridLayout(1,5));
 
@@ -23,6 +23,16 @@ public class JPanelDepCoca extends JPanel {
         if(this.getComponentCount() > 0){
             this.remove(0);
             this.updateUI();
+        }
+    }
+
+    @Override
+    public void rellenarTodo() {
+        this.removeAll();
+        for(int i = 0; i < 5; i++) {
+            ImageCoca coca = new ImageCoca();
+            coca.setBorder(new LineBorder(Color.BLACK));
+            add(coca);
         }
     }
 

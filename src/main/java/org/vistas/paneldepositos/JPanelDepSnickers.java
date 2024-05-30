@@ -5,7 +5,7 @@ import org.vistas.imagenes.ImageSnickers;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.LineBorder;
-public class JPanelDepSnickers extends JPanel {
+public class JPanelDepSnickers extends DepositosMadre {
     public JPanelDepSnickers(){
         setLayout(new GridLayout(1,5));
         for(int i = 0; i < 5; i++) {
@@ -19,6 +19,16 @@ public class JPanelDepSnickers extends JPanel {
         if(this.getComponentCount() > 0){
             this.remove(0);
             this.updateUI();
+        }
+    }
+
+    @Override
+    public void rellenarTodo() {
+        this.removeAll();
+        for(int i = 0; i < 5; i++) {
+            ImageSnickers snicker = new ImageSnickers();
+            snicker.setBorder(new LineBorder(Color.BLACK));
+            add(snicker);
         }
     }
     public static void main(String[] args) {

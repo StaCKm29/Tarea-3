@@ -11,6 +11,6 @@ public abstract class ImageMonedas extends JPanel {
     public ImageMonedas() {
         super();
     }
-    abstract int getValor();
+    public abstract int getValor();
 
 }

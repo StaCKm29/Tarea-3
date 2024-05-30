@@ -23,7 +23,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         super.paintComponent(g);
     }
     public void iniciarButtonCompra() {
-        this.botonComprar = new JButtonCompra(exp.getExpendedor(), com.getPanel(), com.getMonedero());
+        this.botonComprar = new JButtonCompra(exp.getExpendedor(), com.getPanel(), com.getMonedero(), exp.getPanelDepositos());
         add(botonComprar, BorderLayout.SOUTH);
     }
 

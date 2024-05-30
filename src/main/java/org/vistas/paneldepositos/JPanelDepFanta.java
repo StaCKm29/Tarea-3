@@ -5,7 +5,7 @@ import org.vistas.imagenes.ImageFanta;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.LineBorder;
-public class JPanelDepFanta extends JPanel{
+public class JPanelDepFanta extends DepositosMadre{
     public JPanelDepFanta(){
         setLayout(new GridLayout(1,5));
         for(int i = 0; i < 5; i++) {
@@ -21,6 +21,18 @@ public class JPanelDepFanta extends JPanel{
             this.updateUI();
         }
     }
+
+    @Override
+    public void rellenarTodo() {
+        this.removeAll();
+        for(int i = 0; i < 5; i++) {
+            ImageFanta fanta = new ImageFanta();
+            fanta.setBorder(new LineBorder(Color.BLACK));
+            add(fanta);
+        }
+    }
+
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {

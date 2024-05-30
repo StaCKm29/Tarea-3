@@ -5,7 +5,8 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class JPanelDepAlfajores extends JPanel{
+public class JPanelDepAlfajores extends DepositosMadre{
+
     public JPanelDepAlfajores(){
         setLayout(new GridLayout(1, 5));
         for(int i =0; i < 5; i++){
@@ -19,6 +20,16 @@ public class JPanelDepAlfajores extends JPanel{
         if(this.getComponentCount() > 0){
             this.remove(0);
             this.updateUI();
+        }
+    }
+
+    @Override
+    public void rellenarTodo() {
+        this.removeAll();
+        for(int i = 0; i < 5; i++) {
+            ImageAlfajor alfajor = new ImageAlfajor();
+            alfajor.setBorder(new LineBorder(Color.BLACK));
+            add(alfajor);
         }
     }
 
