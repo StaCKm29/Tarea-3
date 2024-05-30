@@ -13,12 +13,13 @@ public class JButtonCompra extends JPanel {
     private JPanelSelect comPanel;
     private JPanelBilletera monedero;
     private JPanelDepositos panelDepositos;
+    private JPanelBolsillo panelBolsillo;
     private Selector seleccion;
     private Moneda moneda;
     //Objeto fuente
     private JRadioButton  BotonComprar= new JRadioButton("Compra");
 
-    public JButtonCompra(Expendedor exp, JPanelSelect comPanel, JPanelBilletera monedero, JPanelDepositos panelDepositos) {
+    public JButtonCompra(Expendedor exp, JPanelSelect comPanel, JPanelBilletera monedero, JPanelDepositos panelDepositos, JPanelBolsillo panelBolsillo) {
         this.expendedor = exp;
         this. comPanel = comPanel;
         this.monedero = monedero;
@@ -33,6 +34,7 @@ public class JButtonCompra extends JPanel {
                     seleccion = comPanel.getTipoProducto();
                     moneda = monedero.getMoneda();
                     expendedor.comprarProducto(moneda, seleccion);
+                    panelBolsillo.addProducto(expendedor);
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
                 } catch(NoHayProductoException ex) {
@@ -78,8 +80,9 @@ public class JButtonCompra extends JPanel {
         JPanelSelect com = new JPanelSelect();
         JPanelBilletera mon = new JPanelBilletera();
         JPanelDepositos pan = new JPanelDepositos();
+        JPanelBolsillo bol = new JPanelBolsillo();
         // Inicializar la instancia de JButtonCompra
-        JButtonCompra botonCompra = new JButtonCompra(exp, com, mon, pan);
+        JButtonCompra botonCompra = new JButtonCompra(exp, com, mon, pan, bol);
 
         // Añadir el panel de compra al frame
         frame.add(botonCompra);
