@@ -23,6 +23,7 @@ public class JButtonAlfajor extends JRadioButton implements MouseListener {
         this.setSelectedIcon(iconSeleccionado);
         this.panelSelect = panelSelect;
         this.addMouseListener(this);
+        setBackground(new Color(3, 131, 168));
     }
 
     @Override
