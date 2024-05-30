@@ -17,14 +17,15 @@ public class JButtonCoca extends JRadioButton implements MouseListener {
         URL urlCoca = getClass().getClassLoader().getResource("Coca-Cola.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("Coca-ColaSeleccionado.png");
 
-        int ancho = 150;
-        int alto = 170;
+        int ancho = 100;
+        int alto = 100;
         ImageIcon iconCoca = new ImageIcon(new ImageIcon(urlCoca).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         this.setIcon(iconCoca);
         this.setSelectedIcon(iconSeleccionado);
         this.panelSelect = panelSelect;
         this.addMouseListener(this);
+        setBackground(new Color(3, 131, 168));
     }
 
     @Override
@@ -38,9 +39,7 @@ public class JButtonCoca extends JRadioButton implements MouseListener {
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
+    public void mouseReleased(MouseEvent e) {}
 
     @Override
     public void mouseEntered(MouseEvent e) {

@@ -17,12 +17,13 @@ public class JButtonSprite extends JRadioButton implements MouseListener {
         URL urlSprite = getClass().getClassLoader().getResource("sprite.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("spriteSeleccionado.png");
 
-        int ancho = 150;
-        int alto = 170;
+        int ancho = 100;
+        int alto = 100;
         ImageIcon iconSprite = new ImageIcon(new ImageIcon(urlSprite).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         this.setIcon(iconSprite);
         this.setSelectedIcon(iconSeleccionado);
+        setBackground(new Color(3, 131, 168));
         this.panelSelect = panelSelect;
         this.addMouseListener(this);
     }

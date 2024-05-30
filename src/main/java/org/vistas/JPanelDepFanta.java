@@ -2,11 +2,22 @@ package org.vistas;
 
 import javax.swing.*;
 import java.awt.*;
-
+import javax.swing.border.LineBorder;
 public class JPanelDepFanta extends JPanel{
     public JPanelDepFanta(){
-        JButtonFanta fanta = new JButtonFanta();
-        this.add(fanta, BorderLayout.CENTER);
+        setLayout(new GridLayout(1,5));
+        for(int i = 0; i < 5; i++) {
+            ImageFanta fanta = new ImageFanta();
+            fanta.setBorder(new LineBorder(Color.BLACK));
+            add(fanta);
+        }
+    }
+    //Probar este método
+    public void retiroProducto(){
+        if(this.getComponentCount() > 0){
+            this.remove(0);
+            this.updateUI();
+        }
     }
 
     public static void main(String[] args) {

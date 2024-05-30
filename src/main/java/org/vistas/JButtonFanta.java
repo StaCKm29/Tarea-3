@@ -2,6 +2,7 @@ package org.vistas;
 import org.modelos.Selector;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -16,12 +17,13 @@ public class JButtonFanta extends JRadioButton implements MouseListener {
         URL urlFanta = getClass().getClassLoader().getResource("fanta.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("fantaSeleccionado.png");
 
-        int ancho = 150;
-        int alto = 170;
+        int ancho = 100;
+        int alto = 100;
         ImageIcon iconFanta = new ImageIcon(new ImageIcon(urlFanta).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         this.setIcon(iconFanta);
         this.setSelectedIcon(iconSeleccionado);
+        setBackground(new Color(3, 131, 168));
         this.panelSelect = panelSelect;
         this.addMouseListener(this);
     }

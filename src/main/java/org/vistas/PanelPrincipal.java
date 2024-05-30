@@ -11,9 +11,9 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         this.exp = new PanelExpendedor (5);
         this.com = new PanelComprador();
 
-        setLayout(new BorderLayout());
-        add(exp, BorderLayout.CENTER);
-        add(com, BorderLayout.NORTH);
+        setLayout(new FlowLayout());
+        add(exp);
+        add(com);
 
         this.setBackground(Color.white);
     }
