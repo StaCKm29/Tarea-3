@@ -10,7 +10,7 @@ public class ImageMoneda1000 extends ImageMonedas{
     private Image imagen;
     public ImageMoneda1000() {
         super();
-        this.ruta = "moneda1000.png";
+        this.ruta = "1000pesos.png";
         this.valor = 1000;
         URL imagenURL = getClass().getClassLoader().getResource(ruta);
         try{
