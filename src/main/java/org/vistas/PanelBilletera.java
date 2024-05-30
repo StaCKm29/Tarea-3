@@ -4,14 +4,20 @@ import org.modelos.Moneda;
 import org.modelos.Moneda100;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.*;
 
 public class PanelBilletera extends JPanel {
+    Random rand = new Random();
+    int randomNum;
     private Moneda moneda;
 
     public PanelBilletera() {
+        this.randomNum = rand.nextInt(100);
         //Creacion de una grilla de 2x2 para las 4 monedas
         setLayout(new GridLayout(2,2));
 
@@ -27,17 +33,25 @@ public class PanelBilletera extends JPanel {
         ImageIcon iconMil = new ImageIcon(new ImageIcon (urlMil).getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT));
         ImageIcon iconDosMil = new ImageIcon(new ImageIcon (urlDosMil).getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT));
 
+        ArrayList<JRadioButton> botones = new ArrayList<>();
 
-        //Crear los JToggleButtons con las imagenes
-        ArrayList<JToggleButton> botones = new ArrayList<>();
-        botones.add(new JToggleButton(icon100));
-        botones.add(new JToggleButton(icon500));
-        botones.add(new JToggleButton(iconMil));
-        botones.add(new JToggleButton(iconDosMil));
+        JRadioButton boton100 = new JRadioButton(icon100);
+        boton100.addMouseListener(new MonedaMouseListener(new Moneda100(randomNum)));
+        JRadioButton boton500 = new JRadioButton(icon500);
+        boton500.addMouseListener(new MonedaMouseListener(new Moneda500(randomNum)));
+        JRadioButton boton1000 = new JRadioButton(iconMil);
+        boton1000.addMouseListener(new MonedaMouseListener(new Moneda1000(randomNum)));
+        JRadioButton boton2000 = new JRadioButton(iconDosMil);
+        boton2000.addMouseListener(new MonedaMouseListener(new Moneda2000(randomNum)));
+
+        botones.add(boton100);
+        botones.add(boton500);
+        botones.add(boton1000);
+        botones.add(boton2000);
 
         //Agrupar los botones para que solo se pueda seleccionar uno a la vez
         ButtonGroup monedero = new ButtonGroup();
-        for (JToggleButton boton : botones) {
+        for (JRadioButton boton : botones) {
             monedero.add(boton);
         }
 
@@ -45,20 +59,39 @@ public class PanelBilletera extends JPanel {
         for (JToggleButton boton : botones) {
             add(boton);
         }
+    }
 
-        if(botones.get(0).isSelected()){
-            moneda = new Moneda100(100);
-        }
-        if(botones.get(1).isSelected()){
-            moneda = new Moneda100(500);
-        }
-        if(botones.get(2).isSelected()){
-            moneda = new Moneda100(1000);
-        }
-        if(botones.get(3).isSelected()){
-            moneda = new Moneda100(2000);
+    private class MonedaMouseListener implements MouseListener {
+        private Moneda monedaAsociada;
+
+        public MonedaMouseListener(Moneda moneda) {
+            this.monedaAsociada = moneda;
         }
 
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            moneda = monedaAsociada;
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
     }
 
     public Moneda getMoneda(){
