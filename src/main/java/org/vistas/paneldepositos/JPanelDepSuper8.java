@@ -1,16 +1,18 @@
-package org.vistas;
+package org.vistas.paneldepositos;
+
+import org.vistas.imagenes.ImageSuper8;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
-import javax.swing.border.LineBorder;
-public class JPanelDepSprite extends JPanel {
-    public JPanelDepSprite(){
+
+public class JPanelDepSuper8 extends JPanel {
+
+    public JPanelDepSuper8(){
         setLayout(new GridLayout(1, 5));
-        for(int i =0; i < 5; i++){
-            ImageSprite sprite = new ImageSprite();
-            sprite.setBorder(new LineBorder(Color.BLACK));
-            add(sprite);
+        for(int i = 0; i < 5; i++){
+            ImageSuper8 super8 = new ImageSuper8();
+            super8.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            add(super8);
         }
     }
     //Probar este método
@@ -29,8 +31,8 @@ public class JPanelDepSprite extends JPanel {
             frame.setSize(300, 300);
 
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            JPanelDepSprite panelSprite = new JPanelDepSprite();
-            frame.add(panelSprite);
+            JPanelDepSuper8 panelSuper8 = new JPanelDepSuper8();
+            frame.add(panelSuper8);
 
             // Hacer visible el JFrame
             frame.setVisible(true);

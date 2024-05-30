@@ -1,20 +1,19 @@
-package org.vistas;
+package org.vistas.paneldepositos;
+
+import org.vistas.imagenes.ImageSprite;
 
 import javax.swing.*;
-import java.awt.*;
 import javax.swing.border.LineBorder;
-public class JPanelDepCoca extends JPanel {
-    public JPanelDepCoca(){
-        setLayout(new GridLayout(1,5));
+import java.awt.*;
 
-        for(int i = 0; i < 5; i++) {
-            ImageCoca coca = new ImageCoca();
-            coca.setBorder(new LineBorder(Color.BLACK));
-            add(coca);
+public class JPanelDepSprite extends JPanel {
+    public JPanelDepSprite(){
+        setLayout(new GridLayout(1, 5));
+        for(int i =0; i < 5; i++){
+            ImageSprite sprite = new ImageSprite();
+            sprite.setBorder(new LineBorder(Color.BLACK));
+            add(sprite);
         }
-        /*
-        JButtonCoca coca = new JButtonCoca();
-        this.add(coca, BorderLayout.CENTER);*/
     }
     //Probar este método
     public void retiroProducto(){
@@ -29,14 +28,15 @@ public class JPanelDepCoca extends JPanel {
             // Crear el JFrame (ventana)
             JFrame frame = new JFrame("Deposito con respectivo Botón");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(1280, 720);
+            frame.setSize(300, 300);
 
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            JPanelDepCoca panelCoca = new JPanelDepCoca();
-            frame.add(panelCoca);
+            JPanelDepSprite panelSprite = new JPanelDepSprite();
+            frame.add(panelSprite);
 
             // Hacer visible el JFrame
             frame.setVisible(true);
         });
     }
+
 }

@@ -30,7 +30,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     public static void main(String[] args) {
         JFrame frame = new JFrame("Panel Principal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         PanelPrincipal panelPrincipal = new PanelPrincipal();
         panelPrincipal.iniciarButtonCompra();

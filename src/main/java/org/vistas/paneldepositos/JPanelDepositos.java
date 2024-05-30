@@ -1,4 +1,4 @@
-package org.vistas;
+package org.vistas.paneldepositos;
 import javax.swing.*;
 import java.awt.*;
 

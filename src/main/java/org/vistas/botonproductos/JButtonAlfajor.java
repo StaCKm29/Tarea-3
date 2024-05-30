@@ -1,27 +1,27 @@
-package org.vistas;
-
+package org.vistas.botonproductos;
 import org.modelos.Selector;
+import org.vistas.JPanelSelect;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
+import java.awt.*;
 
-public class JButtonCoca extends JRadioButton implements MouseListener {
+public class JButtonAlfajor extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
-    public JButtonCoca(JPanelSelect panelSelect) {
-        super("Precio: $1200");
+    public JButtonAlfajor(JPanelSelect panelSelect){
+        super("Precio: $600");
 
-        URL urlCoca = getClass().getClassLoader().getResource("Coca-Cola.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("Coca-ColaSeleccionado.png");
+        URL urlAlfajor = getClass().getClassLoader().getResource("alfajor.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("alfajorSeleccionado.png");
 
-        int ancho = 100;
-        int alto = 100;
-        ImageIcon iconCoca = new ImageIcon(new ImageIcon(urlCoca).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        int ancho = 150;
+        int alto = 170;
+        ImageIcon iconAlfajor = new ImageIcon(new ImageIcon(urlAlfajor).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-        this.setIcon(iconCoca);
+        this.setIcon(iconAlfajor);
         this.setSelectedIcon(iconSeleccionado);
         this.panelSelect = panelSelect;
         this.addMouseListener(this);
@@ -30,7 +30,7 @@ public class JButtonCoca extends JRadioButton implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        panelSelect.setTipoProducto(Selector.COCACOLA);
+        panelSelect.setTipoProducto(Selector.ALFAJOR);
     }
 
     @Override
@@ -39,7 +39,9 @@ public class JButtonCoca extends JRadioButton implements MouseListener {
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+
+    }
 
     @Override
     public void mouseEntered(MouseEvent e) {

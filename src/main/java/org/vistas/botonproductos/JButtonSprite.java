@@ -1,34 +1,37 @@
-package org.vistas;
+package org.vistas.botonproductos;
+
 import org.modelos.Selector;
+import org.vistas.JPanelSelect;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
-import java.awt.*;
-public class JButtonAlfajor extends JRadioButton implements MouseListener {
+
+public class JButtonSprite extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
-    public JButtonAlfajor(JPanelSelect panelSelect){
-        super("Precio: $600");
+    public JButtonSprite(JPanelSelect panelSelect) {
+        super("Precio: $1200");
 
-        URL urlAlfajor = getClass().getClassLoader().getResource("alfajor.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("alfajorSeleccionado.png");
+        URL urlSprite = getClass().getClassLoader().getResource("sprite.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("spriteSeleccionado.png");
 
-        int ancho = 150;
-        int alto = 170;
-        ImageIcon iconAlfajor = new ImageIcon(new ImageIcon(urlAlfajor).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        int ancho = 100;
+        int alto = 100;
+        ImageIcon iconSprite = new ImageIcon(new ImageIcon(urlSprite).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-        this.setIcon(iconAlfajor);
+        this.setIcon(iconSprite);
         this.setSelectedIcon(iconSeleccionado);
+        setBackground(new Color(3, 131, 168));
         this.panelSelect = panelSelect;
         this.addMouseListener(this);
-        setBackground(new Color(3, 131, 168));
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        panelSelect.setTipoProducto(Selector.ALFAJOR);
+        panelSelect.setTipoProducto(Selector.SPRITE);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package org.vistas;
 
+import org.modelos.Moneda;
 import org.modelos.Selector;
+import org.vistas.botonproductos.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,6 +57,5 @@ public class JPanelSelect extends JPanel {
         frame.add(panel);
         frame.setVisible(true);
     }
-
 
 }

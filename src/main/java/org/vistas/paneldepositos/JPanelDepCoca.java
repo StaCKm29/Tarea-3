@@ -1,16 +1,22 @@
-package org.vistas;
+package org.vistas.paneldepositos;
+
+import org.vistas.imagenes.ImageCoca;
 
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.LineBorder;
-public class JPanelDepFanta extends JPanel{
-    public JPanelDepFanta(){
+public class JPanelDepCoca extends JPanel {
+    public JPanelDepCoca(){
         setLayout(new GridLayout(1,5));
+
         for(int i = 0; i < 5; i++) {
-            ImageFanta fanta = new ImageFanta();
-            fanta.setBorder(new LineBorder(Color.BLACK));
-            add(fanta);
+            ImageCoca coca = new ImageCoca();
+            coca.setBorder(new LineBorder(Color.BLACK));
+            add(coca);
         }
+        /*
+        JButtonCoca coca = new JButtonCoca();
+        this.add(coca, BorderLayout.CENTER);*/
     }
     //Probar este método
     public void retiroProducto(){
@@ -25,11 +31,11 @@ public class JPanelDepFanta extends JPanel{
             // Crear el JFrame (ventana)
             JFrame frame = new JFrame("Deposito con respectivo Botón");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(300, 300);
+            frame.setSize(1280, 720);
 
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            JPanelDepFanta panelFanta = new JPanelDepFanta();
-            frame.add(panelFanta);
+            JPanelDepCoca panelCoca = new JPanelDepCoca();
+            frame.add(panelCoca);
 
             // Hacer visible el JFrame
             frame.setVisible(true);

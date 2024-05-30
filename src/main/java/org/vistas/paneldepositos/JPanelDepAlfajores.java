@@ -1,4 +1,6 @@
-package org.vistas;
+package org.vistas.paneldepositos;
+import org.vistas.imagenes.ImageAlfajor;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;

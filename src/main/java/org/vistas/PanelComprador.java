@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class PanelComprador extends JPanel{
     private JPanelSelect panel;
-    private PanelBilletera monedero;
+    private JPanelBilletera monedero;
     private JPanelBolsillo bolsillo;
     public PanelComprador(){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -17,7 +17,7 @@ public class PanelComprador extends JPanel{
         JPanel panelAjustado = new JPanel(new FlowLayout());
         panelAjustado.add(panel);
 
-        monedero = new PanelBilletera();
+        monedero = new JPanelBilletera();
         monedero.setPreferredSize(new Dimension(500, 300));
         JPanel monederoAjustado = new JPanel(new FlowLayout());
         monederoAjustado.add(monedero);
@@ -34,7 +34,7 @@ public class PanelComprador extends JPanel{
     public JPanelSelect getPanel(){
         return panel;
     }
-    public PanelBilletera getMonedero(){
+    public JPanelBilletera getMonedero(){
         return monedero;
     }
     public static void main(String[] args) {

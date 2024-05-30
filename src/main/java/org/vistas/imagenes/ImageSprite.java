@@ -1,13 +1,13 @@
-package org.vistas;
+package org.vistas.imagenes;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
-public class ImageSnickers extends JPanel{
+public class ImageSprite extends JPanel {
     private Image imagen;
-    public ImageSnickers(){
-        URL imagenURL = getClass().getClassLoader().getResource("snickers.png");
+    public ImageSprite(){
+        URL imagenURL = getClass().getClassLoader().getResource("sprite.png");
         try{
             imagen = ImageIO.read(imagenURL);
             int ancho = 70;

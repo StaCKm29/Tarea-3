@@ -1,18 +1,17 @@
-package org.vistas;
+package org.vistas.paneldepositos;
 
-import org.modelos.Deposito;
+import org.vistas.imagenes.ImageSnickers;
 
 import javax.swing.*;
 import java.awt.*;
-
-public class JPanelDepSuper8 extends JPanel {
-
-    public JPanelDepSuper8(){
-        setLayout(new GridLayout(1, 5));
-        for(int i = 0; i < 5; i++){
-            ImageSuper8 super8 = new ImageSuper8();
-            super8.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            add(super8);
+import javax.swing.border.LineBorder;
+public class JPanelDepSnickers extends JPanel {
+    public JPanelDepSnickers(){
+        setLayout(new GridLayout(1,5));
+        for(int i = 0; i < 5; i++) {
+            ImageSnickers snicker = new ImageSnickers();
+            snicker.setBorder(new LineBorder(Color.BLACK));
+            add(snicker);
         }
     }
     //Probar este método
@@ -22,7 +21,6 @@ public class JPanelDepSuper8 extends JPanel {
             this.updateUI();
         }
     }
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             // Crear el JFrame (ventana)
@@ -31,12 +29,11 @@ public class JPanelDepSuper8 extends JPanel {
             frame.setSize(300, 300);
 
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            JPanelDepSuper8 panelSuper8 = new JPanelDepSuper8();
-            frame.add(panelSuper8);
+            JPanelDepSnickers panelSnickers = new JPanelDepSnickers();
+            frame.add(panelSnickers);
 
             // Hacer visible el JFrame
             frame.setVisible(true);
         });
     }
-
 }

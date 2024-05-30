@@ -9,17 +9,16 @@ import java.awt.event.MouseListener;
 public class JButtonCompra extends JPanel {
     private Expendedor expendedor;
     private JPanelSelect comPanel;
-    private PanelBilletera monedero;
+    private JPanelBilletera monedero;
     private Selector seleccion;
     private Moneda moneda;
     //Objeto fuente
     private JRadioButton  BotonComprar= new JRadioButton("Compra");
 
-    public JButtonCompra(Expendedor exp, JPanelSelect comPanel, PanelBilletera monedero) {
+    public JButtonCompra(Expendedor exp, JPanelSelect comPanel, JPanelBilletera monedero) {
         this.expendedor = exp;
         this. comPanel = comPanel;
         this.monedero = monedero;
-        this.moneda = monedero.getMoneda();
 
         add(BotonComprar);
 
@@ -28,6 +27,7 @@ public class JButtonCompra extends JPanel {
             public void mouseClicked(MouseEvent e) { //clickea
                 try {
                     seleccion = comPanel.getTipoProducto();
+                    moneda = monedero.getMoneda();
                     expendedor.comprarProducto(moneda, seleccion);
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
@@ -72,7 +72,7 @@ public class JButtonCompra extends JPanel {
         // Crear instancias de PanelExpendedor y PanelComprador
         Expendedor exp = new Expendedor(5);
         JPanelSelect com = new JPanelSelect();
-        PanelBilletera mon = new PanelBilletera();
+        JPanelBilletera mon = new JPanelBilletera();
 
         // Inicializar la instancia de JButtonCompra
         JButtonCompra botonCompra = new JButtonCompra(exp, com, mon);

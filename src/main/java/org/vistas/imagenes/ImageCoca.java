@@ -1,4 +1,4 @@
-package org.vistas;
+package org.vistas.imagenes;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,5 +1,6 @@
 package org.vistas;
 import org.modelos.Expendedor;
+import org.vistas.paneldepositos.JPanelDepositos;
 
 import javax.swing.JPanel;
 import java.awt.*;

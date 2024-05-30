@@ -1,27 +1,28 @@
-package org.vistas;
+package org.vistas.botonproductos;
+
 import org.modelos.Selector;
+import org.vistas.JPanelSelect;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
 
-public class JButtonFanta extends JRadioButton implements MouseListener {
+public class JButtonSnickers extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
-    public JButtonFanta(JPanelSelect panelSelect) {
-        super("Precio: $1200");
+    public JButtonSnickers(JPanelSelect panelSelect) {
+        super("Precio: $1500");
 
-        URL urlFanta = getClass().getClassLoader().getResource("fanta.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("fantaSeleccionado.png");
+        URL urlSnickers = getClass().getClassLoader().getResource("snickers.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("snickersSeleccionado.png");
 
         int ancho = 100;
         int alto = 100;
-        ImageIcon iconFanta = new ImageIcon(new ImageIcon(urlFanta).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        ImageIcon iconSnickers = new ImageIcon(new ImageIcon(urlSnickers).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-        this.setIcon(iconFanta);
+        this.setIcon(iconSnickers);
         this.setSelectedIcon(iconSeleccionado);
         setBackground(new Color(3, 131, 168));
         this.panelSelect = panelSelect;
@@ -30,7 +31,7 @@ public class JButtonFanta extends JRadioButton implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        panelSelect.setTipoProducto(Selector.FANTA);
+        panelSelect.setTipoProducto(Selector.SNICKERS);
     }
 
     @Override

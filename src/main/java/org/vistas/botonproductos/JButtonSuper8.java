@@ -1,4 +1,4 @@
-package org.vistas;
+package org.vistas.botonproductos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
 import org.modelos.Selector;
+import org.vistas.JPanelSelect;
 
 public class JButtonSuper8 extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
