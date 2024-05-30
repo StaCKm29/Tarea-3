@@ -17,7 +17,7 @@ public class JButtonCompra extends JPanel {
     private Selector seleccion;
     private Moneda moneda;
     //Objeto fuente
-    private JRadioButton  BotonComprar= new JRadioButton("Compra");
+    private JButton  BotonComprar= new JButton("Compra");
 
     public JButtonCompra(Expendedor exp, JPanelSelect comPanel, JPanelBilletera monedero, JPanelDepositos panelDepositos, JPanelBolsillo panelBolsillo) {
         this.expendedor = exp;
@@ -33,8 +33,9 @@ public class JButtonCompra extends JPanel {
                 try {
                     seleccion = comPanel.getTipoProducto();
                     moneda = monedero.getMoneda();
-                    expendedor.comprarProducto(moneda, seleccion);
+                    Comprador comprador = new Comprador(moneda, seleccion, expendedor);
                     panelBolsillo.addProducto(expendedor);
+                    DepositoEspecial compraExitosa = new DepositoEspecial(expendedor, seleccion);
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
                 } catch(NoHayProductoException ex) {
@@ -44,7 +45,6 @@ public class JButtonCompra extends JPanel {
                     Moneda moneda = expendedor.getVuelto();
                     JOptionPane.showMessageDialog(null, "El pago es insuficiente");
                 }
-
             }
 
             @Override
