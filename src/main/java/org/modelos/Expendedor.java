@@ -11,6 +11,7 @@ public class Expendedor {
     private Deposito <Producto> alfajores;
     private ArrayList <Deposito<Producto>> depositos;
     private int c = 100;
+    private int i;
 
     private Deposito<Moneda> monedaVuelto;
     private Producto producto; //Será el producto que se retornará
@@ -43,7 +44,7 @@ public class Expendedor {
 
     public void comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
         // Comprueba si 'eleccion' es null antes de llamar a 'ordinal()'
-        int i = eleccion.ordinal();
+        i = eleccion.ordinal();
         if(pago == null){
             throw new PagoIncorrectoException("El pago es incorrecto.");
         }
@@ -62,11 +63,12 @@ public class Expendedor {
         producto = depositos.get(i).getObjeto();
     }
 
-
     public Producto getProducto() {
         return producto;
     }
-
+    public int getI() {
+        return i;
+    }
     public Moneda getVuelto() {
         Moneda m = monedaVuelto.getObjeto();
         return m;

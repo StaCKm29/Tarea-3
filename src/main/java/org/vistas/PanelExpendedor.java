@@ -1,6 +1,9 @@
 package org.vistas;
 import org.modelos.Expendedor;
+import org.modelos.Producto;
+import org.modelos.Sprite;
 import org.vistas.paneldepositos.JPanelDepositos;
+import org.modelos.Selector;
 
 import javax.swing.JPanel;
 import java.awt.*;
@@ -9,19 +12,23 @@ import javax.swing.SwingUtilities;
 
 //Se debe instanciar a expendedor
 public class PanelExpendedor extends JPanel{
-    //Aqui una variable de tipo Expendedor para poder instanciarla
-    //getter expendedor
-    //Otra idea seira pasar el expendor para botoncomprar
     private Expendedor exp;
     private JPanelDepositos panelDepositos;
     private DepositoEspecial depositoEspecial;
+    private ProductoHolder productoHolder;
 
-    public PanelExpendedor(int size) {
+    public PanelExpendedor(int size, DepositoEspecial depositoEspecial) {
         this.exp = new Expendedor(size);
         this.panelDepositos = new JPanelDepositos();
         panelDepositos.setPreferredSize(new Dimension(440,440));
+        this.productoHolder = productoHolder;
+        this.depositoEspecial = depositoEspecial;
+        add(depositoEspecial);
         add(panelDepositos);
-
+    }
+    public void setDepositoEspecial(DepositoEspecial compraExitosa) {
+        this.depositoEspecial = compraExitosa;
+        add(depositoEspecial);
     }
     public Expendedor getExpendedor(){
         return exp;
@@ -43,10 +50,13 @@ public class PanelExpendedor extends JPanel{
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(300, 300);
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            PanelExpendedor panelExpendedor = new PanelExpendedor(5);
+            DepositoEspecial depositoEspecial = new DepositoEspecial(Selector.SUPER8, new Sprite(123));
+            PanelExpendedor panelExpendedor = new PanelExpendedor(5, depositoEspecial);
             frame.add(panelExpendedor);
             // Hacer visible el JFrame
             frame.setVisible(true);
         });
     }
+
+
 }

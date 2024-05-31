@@ -15,7 +15,7 @@ public class Alfajor extends Dulce{
      */
     @Override
     public String consumir() {
-        return "Alfajor";
+        return "Alfajor" + this.getSerie();
     }
 
 }
