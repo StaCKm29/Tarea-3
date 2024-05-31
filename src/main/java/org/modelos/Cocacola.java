@@ -15,6 +15,6 @@ public class Cocacola extends Bebida{
      * @return Retorna que se ha consumido una cocacola
      */
     public String consumir(){
-        return "CocaCola";
+        return "CocaCola" + this.getSerie();
     }
 }
