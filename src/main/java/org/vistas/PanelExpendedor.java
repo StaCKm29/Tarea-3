@@ -23,6 +23,7 @@ public class PanelExpendedor extends JPanel{
         add(panelDepositos);
 
     }
+
     public Expendedor getExpendedor(){
         return exp;
     }

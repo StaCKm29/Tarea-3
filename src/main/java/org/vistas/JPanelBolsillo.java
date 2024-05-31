@@ -39,31 +39,31 @@ public class JPanelBolsillo extends JPanel {
         add(cuantosAlfajores);
     }
 
-    public void addProducto(Expendedor exp){
-        Producto j = exp.getProducto();
-        String tipo = j.consumir();
+    public void addProducto(Producto producto){
+
+        String tipo = producto.consumir();
         if (tipo == "CocaCola") {
-            cocas.addObjeto((Cocacola) j);
+            cocas.addObjeto((Cocacola) producto);
             cuantasCocas.setText("Cocas: " + cocas.size());
         }
         else if (tipo == "Sprite") {
-            sprites.addObjeto((Sprite) j);
+            sprites.addObjeto((Sprite) producto);
             cuantasSprites.setText("Sprites: " + sprites.size());
         }
         else if (tipo == "Fanta") {
-            fantas.addObjeto((Fanta) j);
+            fantas.addObjeto((Fanta) producto);
             cuantasFantas.setText("Fantas: " + fantas.size());
         }
         else if (tipo == "Snickers") {
-            snickers.addObjeto((Snickers) j);
+            snickers.addObjeto((Snickers) producto);
             cuantosSnickers.setText("Snickers: " + snickers.size());
         }
         else if (tipo == "Super8"){
-            super8s.addObjeto((Super8) j);
+            super8s.addObjeto((Super8) producto);
             cuantosSuper8s.setText("Super8s: " + super8s.size());
         }
         else if (tipo == "Alfajor"){
-            alfajores.addObjeto((Alfajor) j);
+            alfajores.addObjeto((Alfajor) producto);
             cuantosAlfajores.setText("Alfajores: " + alfajores.size());
         }
     }

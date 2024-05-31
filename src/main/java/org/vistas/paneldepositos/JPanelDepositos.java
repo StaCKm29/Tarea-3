@@ -41,6 +41,9 @@ public class JPanelDepositos extends JPanel{
         add(panelMonedas);
     }
 
+    public void actualizarMonedas(){
+        panelMonedas.graficarMonedas();
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
