@@ -14,6 +14,7 @@ public class PanelExpendedor extends JPanel{
     //Otra idea seira pasar el expendor para botoncomprar
     private Expendedor exp;
     private JPanelDepositos panelDepositos;
+    private DepositoEspecial depositoEspecial;
 
     public PanelExpendedor(int size) {
         this.exp = new Expendedor(size);
