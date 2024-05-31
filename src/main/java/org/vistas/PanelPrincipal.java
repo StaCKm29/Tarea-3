@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private PanelComprador com;
-    private PanelExpendedor exp; //static
+    private PanelExpendedor exp;
     private JButtonCompra botonComprar;
 
     public PanelPrincipal () {

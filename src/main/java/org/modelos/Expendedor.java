@@ -10,7 +10,7 @@ public class Expendedor {
     private Deposito <Producto> super8;
     private Deposito <Producto> alfajores;
     private ArrayList <Deposito<Producto>> depositos;
-    private Deposito<Moneda> monedaPago;
+    private DepositoMonedas monedaPago;
     private int c = 100;
 
     private Deposito<Moneda> monedaVuelto;
@@ -24,7 +24,7 @@ public class Expendedor {
         super8 = new Deposito<>();
         alfajores = new Deposito<>();
         depositos = new ArrayList<>();
-        monedaPago = new Deposito<>();
+        monedaPago = new DepositoMonedas();
 
         depositos.add(coca);
         depositos.add(sprite);
@@ -62,6 +62,8 @@ public class Expendedor {
             monedaVuelto.addObjeto(new Moneda100(j+1));
         }
         producto = depositos.get(i).getObjeto();
+        monedaPago.addObjeto(pago);
+        ordenarMonedas();
     }
 
 
@@ -70,10 +72,10 @@ public class Expendedor {
     }
 
     public void ordenarMonedas(){
-
+        monedaPago.ordenar();
     }
 
-    public Deposito<Moneda> getDepositoPago(){
+    public DepositoMonedas getDepositoPago(){
         return monedaPago;
     }
     public Moneda getVuelto() {
