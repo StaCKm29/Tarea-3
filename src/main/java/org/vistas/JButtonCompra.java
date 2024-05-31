@@ -81,7 +81,7 @@ public class JButtonCompra extends JPanel {
         Expendedor exp = new Expendedor(5);
         JPanelSelect com = new JPanelSelect();
         JPanelBilletera mon = new JPanelBilletera();
-        JPanelDepositos pan = new JPanelDepositos();
+        JPanelDepositos pan = new JPanelDepositos(exp);
         JPanelBolsillo bol = new JPanelBolsillo();
         // Inicializar la instancia de JButtonCompra
         JButtonCompra botonCompra = new JButtonCompra(exp, com, mon, pan, bol);

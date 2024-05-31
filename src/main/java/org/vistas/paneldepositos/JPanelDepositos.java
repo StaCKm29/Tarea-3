@@ -49,7 +49,7 @@ public class JPanelDepositos extends JPanel{
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(300, 300);
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            JPanelDepositos panelDepositos = new JPanelDepositos();
+            JPanelDepositos panelDepositos = new JPanelDepositos(new Expendedor(5));
             frame.add(panelDepositos);
             // Hacer visible el JFrame
             frame.setVisible(true);

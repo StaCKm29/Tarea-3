@@ -1,7 +1,8 @@
 package org.vistas.paneldepositos;
 import org.modelos.Deposito;
+import org.modelos.DepositoMonedas;
 import org.modelos.Moneda;
-import org.vistas.ImageMonedas;
+import org.vistas.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,38 +15,33 @@ import java.util.Comparator;
 
 public class JPanelMonedas extends JPanel{
     //Arreglo que ordenará las monedas
-    private Deposito<Moneda> monedaPagoTemp;
+    private DepositoMonedas monedaPagoTemp;
     private ImageMonedas monedaTemporal;
     /**
      * Constructor de la clase
      */
-    public JPanelMonedas(Deposito<Moneda> monedaPagoTemp){
+    public JPanelMonedas(DepositoMonedas monedaPagoTemp){
         this.monedaPagoTemp = monedaPagoTemp;
         setLayout(new GridLayout(10,10));
     }
 
-    public void agregarMoneda(){
-        this.monedaTemporal = moneda;
-        monedas.add(moneda);
-        ordenarMonedas();
-        actualizarMonedas();
-    }
-
-
-    public void ordenarMonedas(){
-        monedas.sort(Comparator.comparingInt(ImageMonedas::getValor));
-    }
-
-    public void actualizarMonedas(){
+    //Este método actualiza las monedas mostradas en pantalla en base al depósito de pago en expendedor
+    public void graficarMonedas(){
         removeAll();
-        for(int i = 0; i < monedas.size(); i++){
-            add(monedas.get(i));
+        for(int i = 0 ; i < monedaPagoTemp.size() ; i++){
+            if(monedaPagoTemp.getMonedaEspecifica(i).getValor() == 100){
+                add(new ImageMoneda100());
+            }
+            else if(monedaPagoTemp.getMonedaEspecifica(i).getValor() == 500){
+                add(new ImageMoneda500());
+            }
+            else if(monedaPagoTemp.getMonedaEspecifica(i).getValor() == 1000){
+                add(new ImageMoneda1000());
+            }
+            else if(monedaPagoTemp.getMonedaEspecifica(i).getValor() == 2000){
+                add(new ImageMoneda2000());
+            }
         }
     }
-
-    public void vaciar(){
-
-    }
-
 
 }

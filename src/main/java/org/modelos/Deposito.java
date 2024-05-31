@@ -23,17 +23,9 @@ public class Deposito<T> {
             return almacen.remove(0);
         }
     }
+
     public boolean isEmpty(){
         return almacen.isEmpty();
-    }
-
-    public void ordenar(Moneda moneda){
-        if(moneda instanceof Moneda){
-            almacen.sort(Comparator.comparingInt(Moneda::getValor));
-        }
-        else{
-            throw new IllegalArgumentException("No es una moneda");
-        }
     }
 
     public int size() {
