@@ -7,6 +7,8 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import static javax.swing.text.StyleConstants.setIcon;
+
 public class DepositoEspecial extends JPanel implements MouseListener {
     private Producto producto;
     private Selector eleccion;
@@ -14,32 +16,42 @@ public class DepositoEspecial extends JPanel implements MouseListener {
     private JLabel label;
     private ProductoHolder productoHolder;
 
-    public DepositoEspecial(Selector eleccion, Producto producto){
-        this.eleccion = eleccion;
+    public DepositoEspecial(Producto producto){
         this.producto = producto;
-        switch(eleccion) {
-            case COCACOLA:
-                icon = new ImageIcon(new ImageIcon("src/main/resources/Coca-Cola.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-                break;
-            case FANTA:
-                icon = new ImageIcon(new ImageIcon("src/main/resources/fanta.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-                break;
-            case SPRITE:
-                icon = new ImageIcon(new ImageIcon("src/main/resources/sprite.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-                break;
-            case SNICKERS:
-                icon = new ImageIcon(new ImageIcon("src/main/resources/snickers.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-                break;
-            case SUPER8:
-                icon = new ImageIcon(new ImageIcon("src/main/resources/super8.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-                break;
-            case ALFAJOR:
-                icon = new ImageIcon(new ImageIcon("src/main/resources/alfajor.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-                break;
-        }
+        setIcon();
+        this.addMouseListener(this);
+
+
         label = new JLabel(icon);
         add(label);
         this.addMouseListener(this);
+    }
+
+    private void setIcon() {
+        if(producto == null) {
+            icon = null;
+        }
+        else if (producto instanceof Cocacola) {
+            icon = new ImageIcon(new ImageIcon("src/main/resources/Coca-Cola.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+        } else if(producto instanceof Fanta) {
+            icon = new ImageIcon(new ImageIcon("src/main/resources/fanta.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+        } else if(producto instanceof Sprite) {
+            icon = new ImageIcon(new ImageIcon("src/main/resources/sprite.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+        } else if(producto instanceof Snickers) {
+            icon = new ImageIcon(new ImageIcon("src/main/resources/snickers.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+        } else if(producto instanceof Super8) {
+            icon = new ImageIcon(new ImageIcon("src/main/resources/super8.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+        } else if(producto instanceof Alfajor) {
+            icon = new ImageIcon(new ImageIcon("src/main/resources/alfajor.png").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if(icon != null) {
+            g.drawImage(icon.getImage(), 0, 0, this);
+        }
     }
 
     @Override
@@ -79,7 +91,7 @@ public class DepositoEspecial extends JPanel implements MouseListener {
         exp.comprarProducto(moneda1000, seleccion);
 
         // Inicializar la instancia de DepositoEspecial
-        DepositoEspecial depositoEspecial = new DepositoEspecial(seleccion, exp.getProducto());
+        DepositoEspecial depositoEspecial = new DepositoEspecial(exp.getProducto());
 
         // Añadir el panel de DepositoEspecial al frame
         frame.add(depositoEspecial);

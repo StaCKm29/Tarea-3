@@ -44,12 +44,13 @@ public class JPanelDepositos extends JPanel{
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
+            Expendedor exp = new Expendedor(5);
             // Crear el JFrame (ventana)
             JFrame frame = new JFrame("Deposito con respectivo Botón");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(300, 300);
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            JPanelDepositos panelDepositos = new JPanelDepositos();
+            JPanelDepositos panelDepositos = new JPanelDepositos(exp);
             frame.add(panelDepositos);
             // Hacer visible el JFrame
             frame.setVisible(true);
