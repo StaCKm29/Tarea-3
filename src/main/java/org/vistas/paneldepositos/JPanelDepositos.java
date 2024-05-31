@@ -1,4 +1,5 @@
 package org.vistas.paneldepositos;
+import org.modelos.Expendedor;
 import org.modelos.Moneda;
 import org.modelos.Selector;
 import org.vistas.ImageMoneda100;
@@ -20,8 +21,9 @@ public class JPanelDepositos extends JPanel{
     DepositoGenerico<ImageSuper8> panelSuper8;
     DepositoGenerico<ImageAlfajor> panelAlfajor;
     JPanelMonedas panelMonedas;
+    Expendedor expendedorAsociado;
 
-    public JPanelDepositos(){
+    public JPanelDepositos(Expendedor expendedorAsociado){
         setLayout(new GridLayout(7,1));
         this.panelSprite = new DepositoGenerico<>(ImageSprite::new);
         this.panelSnickers = new DepositoGenerico<>(ImageSnickers::new);
@@ -29,7 +31,7 @@ public class JPanelDepositos extends JPanel{
         this.panelFanta = new DepositoGenerico<>(ImageFanta::new);
         this.panelSuper8 = new DepositoGenerico<>(ImageSuper8::new);
         this.panelAlfajor = new DepositoGenerico<>(ImageAlfajor::new);
-        this.panelMonedas = new JPanelMonedas();
+        this.panelMonedas = new JPanelMonedas(expendedorAsociado.getDepositoPago());
         add(panelSprite);
         add(panelSnickers);
         add(panelCoca);
@@ -71,22 +73,4 @@ public class JPanelDepositos extends JPanel{
         }
     }
 
-    public void agregarMoneda(Moneda i){
-        if(i.getValor() == 100) {
-            ImageMoneda100 m1 = new ImageMoneda100();
-            panelMonedas.agregarMoneda(m1);
-        }
-        else if(i.getValor() == 500){
-            ImageMoneda500 m2 = new ImageMoneda500();
-            panelMonedas.agregarMoneda(m2);
-        }
-        else if(i.getValor() == 1000){
-            ImageMoneda1000 m3 = new ImageMoneda1000();
-            panelMonedas.agregarMoneda(m3);
-        }
-        else if(i.getValor() == 2000){
-            ImageMoneda2000 m4 = new ImageMoneda2000();
-            panelMonedas.agregarMoneda(m4);
-        }
-    }
 }

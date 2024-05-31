@@ -1,4 +1,6 @@
 package org.vistas.paneldepositos;
+import org.modelos.Deposito;
+import org.modelos.Moneda;
 import org.vistas.ImageMonedas;
 
 import javax.swing.*;
@@ -12,70 +14,37 @@ import java.util.Comparator;
 
 public class JPanelMonedas extends JPanel{
     //Arreglo que ordenará las monedas
-    private ArrayList<ImageMonedas> monedas = new ArrayList<ImageMonedas>();
+    private Deposito<Moneda> monedaPagoTemp;
     private ImageMonedas monedaTemporal;
-    private JPanel[] espaciosGrilla = new JPanel[5];
-
     /**
      * Constructor de la clase
      */
-    public JPanelMonedas(){
-        setLayout(new GridLayout(1,5));
-        for(int i = 0; i < 5; i++){
-            espaciosGrilla[i] = new JPanel();
-            espaciosGrilla[i].setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            add(espaciosGrilla[i]);
-        }
+    public JPanelMonedas(Deposito<Moneda> monedaPagoTemp){
+        this.monedaPagoTemp = monedaPagoTemp;
+        setLayout(new GridLayout(10,10));
     }
-    /**
-     * Método que sirve para agregar una moneda al panel
-     * @param moneda la moneda a agregar
-     */
-    public void agregarMoneda(ImageMonedas moneda){
+
+    public void agregarMoneda(){
         this.monedaTemporal = moneda;
         monedas.add(moneda);
         ordenarMonedas();
         actualizarMonedas();
     }
-    /**
-     * Método que sirve para retirar la última moneda ingresada
-     * @return m la moneda que se retiró
-     */
-    public ImageMonedas retirarMoneda(){
-        if(monedas.size() > 0){
-            for(ImageMonedas m : monedas){
-                if(m.getValor() == monedaTemporal.getValor()){
-                    monedas.remove(m);
-                    ordenarMonedas();
-                    actualizarMonedas();
-                    return m;
-                }
-            }
-        }
-        return null;
-    }
 
-    /**
-     * Método que sirve para ordenar las monedas en el panel
-     */
+
     public void ordenarMonedas(){
         monedas.sort(Comparator.comparingInt(ImageMonedas::getValor));
     }
 
-    /*Metodo que actualiza las monedas en el panel*/
     public void actualizarMonedas(){
-        for(JPanel panel : espaciosGrilla){
-            panel.removeAll();
-        }
+        removeAll();
         for(int i = 0; i < monedas.size(); i++){
-            espaciosGrilla[i].add(monedas.get(i));
-            add(espaciosGrilla[i]);
+            add(monedas.get(i));
         }
-        updateUI();
     }
 
-    public void paintComponent(Graphics g){
-        super.paintComponent(g);
+    public void vaciar(){
+
     }
 
 
