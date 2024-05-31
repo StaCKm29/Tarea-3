@@ -69,8 +69,13 @@ public class JPanelMonedas extends JPanel{
         }
         for(int i = 0; i < monedas.size(); i++){
             espaciosGrilla[i].add(monedas.get(i));
+            add(espaciosGrilla[i]);
         }
         updateUI();
+    }
+
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
     }
 
 

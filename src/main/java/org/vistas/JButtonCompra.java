@@ -24,6 +24,7 @@ public class JButtonCompra extends JPanel {
         this. comPanel = comPanel;
         this.monedero = monedero;
         this.panelDepositos = panelDepositos;
+        this.panelBolsillo = panelBolsillo;
 
         add(BotonComprar);
 
@@ -35,6 +36,8 @@ public class JButtonCompra extends JPanel {
                     moneda = monedero.getMoneda();
                     expendedor.comprarProducto(moneda, seleccion);
                     panelBolsillo.addProducto(expendedor);
+                    panelDepositos.removeProducto(seleccion);
+                    panelDepositos.agregarMoneda(moneda);
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
                 } catch(NoHayProductoException ex) {

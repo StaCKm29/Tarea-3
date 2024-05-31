@@ -1,19 +1,35 @@
 package org.vistas.paneldepositos;
+import org.modelos.Moneda;
+import org.modelos.Selector;
+import org.vistas.ImageMoneda100;
+import org.vistas.ImageMoneda500;
+import org.vistas.ImageMonedas;
+import org.vistas.imagenes.*;
+import org.vistas.*;
+
 import javax.swing.*;
 import java.awt.*;
 /**
  * Clase que representa el panel de los depósitos
  */
 public class JPanelDepositos extends JPanel{
+    DepositoGenerico<ImageSprite> panelSprite;
+    DepositoGenerico<ImageSnickers> panelSnickers;
+    DepositoGenerico<ImageCoca> panelCoca;
+    DepositoGenerico<ImageFanta> panelFanta;
+    DepositoGenerico<ImageSuper8> panelSuper8;
+    DepositoGenerico<ImageAlfajor> panelAlfajor;
+    JPanelMonedas panelMonedas;
+
     public JPanelDepositos(){
         setLayout(new GridLayout(7,1));
-        JPanelDepSprite panelSprite = new JPanelDepSprite();
-        JPanelDepSnickers panelSnickers = new JPanelDepSnickers();
-        JPanelDepCoca panelCoca = new JPanelDepCoca();
-        JPanelDepFanta panelFanta = new JPanelDepFanta();
-        JPanelDepSuper8 panelSuper8 = new JPanelDepSuper8();
-        JPanelDepAlfajores panelAlfajor = new JPanelDepAlfajores();
-        JPanelMonedas panelMonedas = new JPanelMonedas();
+        this.panelSprite = new DepositoGenerico<>(ImageSprite::new);
+        this.panelSnickers = new DepositoGenerico<>(ImageSnickers::new);
+        this.panelCoca = new DepositoGenerico<>(ImageCoca::new);
+        this.panelFanta = new DepositoGenerico<>(ImageFanta::new);
+        this.panelSuper8 = new DepositoGenerico<>(ImageSuper8::new);
+        this.panelAlfajor = new DepositoGenerico<>(ImageAlfajor::new);
+        this.panelMonedas = new JPanelMonedas();
         add(panelSprite);
         add(panelSnickers);
         add(panelCoca);
@@ -38,7 +54,39 @@ public class JPanelDepositos extends JPanel{
         });
     }
 
-    public void removeProducto(){
+    public void removeProducto(Selector seleccion){
+        int i = seleccion.ordinal();
+        if(i == 0){
+            panelCoca.removeProducto();
+        } else if(i == 1){
+            panelFanta.removeProducto();
+        } else if(i == 2){
+            panelSprite.removeProducto();
+        } else if(i == 3){
+            panelSnickers.removeProducto();
+        } else if(i == 4){
+            panelSuper8.removeProducto();
+        } else if(i == 5){
+            panelAlfajor.removeProducto();
+        }
+    }
 
+    public void agregarMoneda(Moneda i){
+        if(i.getValor() == 100) {
+            ImageMoneda100 m1 = new ImageMoneda100();
+            panelMonedas.agregarMoneda(m1);
+        }
+        else if(i.getValor() == 500){
+            ImageMoneda500 m2 = new ImageMoneda500();
+            panelMonedas.agregarMoneda(m2);
+        }
+        else if(i.getValor() == 1000){
+            ImageMoneda1000 m3 = new ImageMoneda1000();
+            panelMonedas.agregarMoneda(m3);
+        }
+        else if(i.getValor() == 2000){
+            ImageMoneda2000 m4 = new ImageMoneda2000();
+            panelMonedas.agregarMoneda(m4);
+        }
     }
 }
