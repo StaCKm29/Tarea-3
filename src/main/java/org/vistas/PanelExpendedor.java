@@ -15,18 +15,16 @@ public class PanelExpendedor extends JPanel{
     private Expendedor exp;
     private JPanelDepositos panelDepositos;
     private DepositoEspecial depositoEspecial;
-    private ProductoHolder productoHolder;
 
     public PanelExpendedor(int size) {
         this.exp = new Expendedor(size);
         this.panelDepositos = new JPanelDepositos(exp);
         panelDepositos.setPreferredSize(new Dimension(440,440));
+        depositoEspecial = new DepositoEspecial(exp.getProducto());
+        add(depositoEspecial);
         add(panelDepositos);
     }
-    public void setDepositoEspecial(DepositoEspecial compraExitosa) {
-        this.depositoEspecial = compraExitosa;
-        add(depositoEspecial);
-    }
+
     public Expendedor getExpendedor(){
         return exp;
     }
@@ -38,6 +36,7 @@ public class PanelExpendedor extends JPanel{
     @Override
     public void paintComponents(Graphics g) {
         super.paintComponents(g);
+        depositoEspecial.paintComponent(g);
     }
 
     public static void main(String[] args) {

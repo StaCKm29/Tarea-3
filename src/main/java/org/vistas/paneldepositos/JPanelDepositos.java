@@ -21,7 +21,7 @@ public class JPanelDepositos extends JPanel{
     DepositoGenerico<ImageSuper8> panelSuper8;
     DepositoGenerico<ImageAlfajor> panelAlfajor;
     JPanelMonedas panelMonedas;
-    Expendedor expendedorAsociado;
+    //Expendedor expendedorAsociado;
 
     public JPanelDepositos(Expendedor expendedorAsociado){
         setLayout(new GridLayout(7,1));

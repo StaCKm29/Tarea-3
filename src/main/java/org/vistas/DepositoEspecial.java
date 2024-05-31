@@ -25,6 +25,7 @@ public class DepositoEspecial extends JPanel implements MouseListener {
         label = new JLabel(icon);
         add(label);
         this.addMouseListener(this);
+        this.setBackground(Color.GRAY);
     }
 
     private void setIcon() {
@@ -71,7 +72,8 @@ public class DepositoEspecial extends JPanel implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        JOptionPane.showMessageDialog(this, producto.consumir());
+        if(producto != null)
+            JOptionPane.showMessageDialog(this, producto.consumir());
     }
 
     @Override
