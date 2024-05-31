@@ -1,6 +1,8 @@
 package org.vistas;
 
 import org.modelos.*;
+import org.vistas.paneldepositos.JPanelDepositos;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -9,18 +11,20 @@ import java.awt.event.MouseListener;
 public class JButtonCompra extends JPanel {
     private Expendedor expendedor;
     private JPanelSelect comPanel;
-    private PanelBilletera monedero;
+    private JPanelBilletera monedero;
+    private JPanelDepositos panelDepositos;
+    private JPanelBolsillo panelBolsillo;
     private Selector seleccion;
     private Moneda moneda;
     //Objeto fuente
-    private JRadioButton  BotonComprar= new JRadioButton("Compra");
+    private JButton  BotonComprar= new JButton("Compra");
 
-    public JButtonCompra(Expendedor exp, JPanelSelect comPanel, PanelBilletera monedero) {
+    public JButtonCompra(Expendedor exp, JPanelSelect comPanel, JPanelBilletera monedero, JPanelDepositos panelDepositos, JPanelBolsillo panelBolsillo) {
         this.expendedor = exp;
         this. comPanel = comPanel;
-        this.seleccion= comPanel.getTipoProducto();
         this.monedero = monedero;
-        this.moneda = monedero.getMoneda();
+        this.panelDepositos = panelDepositos;
+        this.panelBolsillo = panelBolsillo;
 
         add(BotonComprar);
 
@@ -28,7 +32,11 @@ public class JButtonCompra extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) { //clickea
                 try {
-                    expendedor.comprarProducto(moneda, seleccion);
+                    seleccion = comPanel.getTipoProducto();
+                    moneda = monedero.getMoneda();
+                    Comprador comprador = new Comprador(moneda, seleccion, expendedor);
+                    panelBolsillo.addProducto(expendedor);
+                    DepositoEspecial compraExitosa = new DepositoEspecial(expendedor, seleccion);
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
                 } catch(NoHayProductoException ex) {
@@ -72,10 +80,11 @@ public class JButtonCompra extends JPanel {
         // Crear instancias de PanelExpendedor y PanelComprador
         Expendedor exp = new Expendedor(5);
         JPanelSelect com = new JPanelSelect();
-        PanelBilletera mon = new PanelBilletera();
-
+        JPanelBilletera mon = new JPanelBilletera();
+        JPanelDepositos pan = new JPanelDepositos();
+        JPanelBolsillo bol = new JPanelBolsillo();
         // Inicializar la instancia de JButtonCompra
-        JButtonCompra botonCompra = new JButtonCompra(exp, com, mon);
+        JButtonCompra botonCompra = new JButtonCompra(exp, com, mon, pan, bol);
 
         // Añadir el panel de compra al frame
         frame.add(botonCompra);

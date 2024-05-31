@@ -24,9 +24,9 @@ class CompradorTest {
     @BeforeEach
     void setUp() {
         expendedor = new Expendedor(2);
-        moneda500 = new Moneda500();
-        moneda1000 = new Moneda1000();
-        moneda1500 = new Moneda2000();
+        moneda500 = new Moneda500(5);
+        moneda1000 = new Moneda1000(2);
+        moneda1500 = new Moneda2000(8);
 
         coca = Selector.COCACOLA;
         sprite = Selector.SPRITE;

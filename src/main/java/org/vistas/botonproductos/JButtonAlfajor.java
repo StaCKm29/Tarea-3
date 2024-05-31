@@ -1,37 +1,36 @@
-package org.vistas;
+package org.vistas.botonproductos;
+import org.modelos.Selector;
+import org.vistas.JPanelSelect;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
-import org.modelos.Selector;
+import java.awt.*;
 
-public class JButtonSuper8 extends JRadioButton implements MouseListener {
+public class JButtonAlfajor extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
-    public JButtonSuper8(JPanelSelect panelSelect) {
-        super("Precio: $300");
+    public JButtonAlfajor(JPanelSelect panelSelect){
+        super("Precio: $600");
 
-        this.panelSelect = panelSelect;
-
-        URL urlSuper8 = getClass().getClassLoader().getResource("super8.png");
-        URL urlSeleccionado = getClass().getClassLoader().getResource("super8Seleccionado.png");
+        URL urlAlfajor = getClass().getClassLoader().getResource("alfajor.png");
+        URL urlSeleccionado = getClass().getClassLoader().getResource("alfajorSeleccionado.png");
 
         int ancho = 150;
         int alto = 170;
-
-        ImageIcon iconSuper8 = new ImageIcon(new ImageIcon(urlSuper8).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        ImageIcon iconAlfajor = new ImageIcon(new ImageIcon(urlAlfajor).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-
-        this.setIcon(iconSuper8);
+        this.setIcon(iconAlfajor);
         this.setSelectedIcon(iconSeleccionado);
+        this.panelSelect = panelSelect;
         this.addMouseListener(this);
+        setBackground(new Color(3, 131, 168));
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        panelSelect.setTipoProducto(Selector.SUPER8);;
+        panelSelect.setTipoProducto(Selector.ALFAJOR);
     }
 
     @Override

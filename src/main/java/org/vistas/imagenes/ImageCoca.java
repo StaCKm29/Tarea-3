@@ -1,4 +1,4 @@
-package org.vistas;
+package org.vistas.imagenes;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +12,8 @@ public class ImageCoca extends JPanel {
         URL imagenURL = getClass().getClassLoader().getResource("Coca-Cola.png");
         try{
             imagen = ImageIO.read(imagenURL);
-            int ancho = 200;
-            int alto = 200;
+            int ancho = 70;
+            int alto = 70;
             imagen = imagen.getScaledInstance(ancho, alto, Image.SCALE_DEFAULT);
         } catch (Exception e) {
             e.printStackTrace();
