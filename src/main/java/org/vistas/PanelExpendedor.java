@@ -17,13 +17,10 @@ public class PanelExpendedor extends JPanel{
     private DepositoEspecial depositoEspecial;
     private ProductoHolder productoHolder;
 
-    public PanelExpendedor(int size, DepositoEspecial depositoEspecial) {
+    public PanelExpendedor(int size) {
         this.exp = new Expendedor(size);
         this.panelDepositos = new JPanelDepositos(exp);
         panelDepositos.setPreferredSize(new Dimension(440,440));
-        this.productoHolder = productoHolder;
-        this.depositoEspecial = depositoEspecial;
-        add(depositoEspecial);
         add(panelDepositos);
     }
     public void setDepositoEspecial(DepositoEspecial compraExitosa) {
@@ -50,8 +47,8 @@ public class PanelExpendedor extends JPanel{
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(300, 300);
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            DepositoEspecial depositoEspecial = new DepositoEspecial(Selector.SUPER8, new Sprite(123));
-            PanelExpendedor panelExpendedor = new PanelExpendedor(5, depositoEspecial);
+            PanelExpendedor panelExpendedor = new PanelExpendedor(5);
+            DepositoEspecial depositoEspecial = new DepositoEspecial(panelExpendedor.getExpendedor().getProducto());
             frame.add(panelExpendedor);
             // Hacer visible el JFrame
             frame.setVisible(true);

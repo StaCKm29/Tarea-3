@@ -6,6 +6,7 @@ public class DepositoMonedas extends Deposito{
     private ArrayList<Moneda> almacen;
     public DepositoMonedas(){
         super();
+        almacen = new ArrayList<>();
     }
 
     public void ordenar(){
