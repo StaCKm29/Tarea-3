@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
-public class ImageMoneda100 {
+public class ImageMoneda100 extends ImageMonedas {
     private String ruta;
     private int valor;
     private Image imagen;

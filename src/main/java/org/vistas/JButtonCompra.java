@@ -16,8 +16,6 @@ public class JButtonCompra extends JPanel {
     private JPanelBolsillo panelBolsillo;
     private Selector seleccion;
     private Moneda moneda;
-    private DepositoEspecial compraExitosa;
-    private ProductoHolder productoHolder;
     //Objeto fuente
     private JButton  BotonComprar= new JButton("Compra");
 
@@ -26,8 +24,9 @@ public class JButtonCompra extends JPanel {
         this. comPanel = comPanel;
         this.monedero = monedero;
         this.panelDepositos = panelDepositos;
-        this.productoHolder = new ProductoHolder(null);
-        this.add(BotonComprar);
+        this.panelBolsillo = panelBolsillo;
+
+        add(BotonComprar);
 
         BotonComprar.addMouseListener(new MouseListener() {
             @Override
@@ -37,7 +36,7 @@ public class JButtonCompra extends JPanel {
                     moneda = monedero.getMoneda();
                     Comprador comprador = new Comprador(moneda, seleccion, expendedor);
                     panelBolsillo.addProducto(expendedor);
-                    compraExitosa = new DepositoEspecial(seleccion, exp.getProducto());
+                    DepositoEspecial compraExitosa = new DepositoEspecial(expendedor, seleccion);
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
                 } catch(NoHayProductoException ex) {
@@ -69,9 +68,6 @@ public class JButtonCompra extends JPanel {
 
             }
         });
-    }
-    public DepositoEspecial getCompraExitosa() {
-        return compraExitosa;
     }
 
     public static void main(String[] args) {
