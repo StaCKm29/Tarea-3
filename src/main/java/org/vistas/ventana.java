@@ -1,6 +1,11 @@
 package org.vistas;
+import org.modelos.Deposito;
 import org.vistas.*;
+import org.vistas.imagenes.ImageFanta;
+import org.vistas.paneldepositos.DepositoGenerico;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class ventana extends JFrame {
     private JPanel PanelPrincipal;
