@@ -1,10 +1,8 @@
 package org.vistas;
 
 import org.modelos.*;
-import org.vistas.paneldepositos.JPanelDepositos;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -12,18 +10,17 @@ public class JButtonCompra extends JPanel {
     private Expendedor expendedor;
     private JPanelSelect comPanel;
     private JPanelBilletera monedero;
-    private PanelExpendedor panelExpendedor;
-    private PanelComprador panelComprador;
     private Selector seleccion;
     private Moneda moneda;
     private Comprador comprador;
-    //Objeto fuente
-    private JButton  BotonComprar= new JButton("Compra");
+    private DepositoEspecial depositoEspecial;
+    private JButton BotonComprar= new JButton("Compra");
 
     public JButtonCompra(PanelExpendedor panelExpendedor, PanelComprador panelComprador) {
         this.expendedor = panelExpendedor.getExpendedor();
         this.comPanel = panelComprador.getPanel();
         this.monedero = panelComprador.getMonedero();
+        this.depositoEspecial = panelExpendedor.getDepositoEspecial();
         add(BotonComprar);
 
         BotonComprar.addMouseListener(new MouseListener() {
@@ -33,6 +30,7 @@ public class JButtonCompra extends JPanel {
                     seleccion = comPanel.getTipoProducto();
                     moneda = monedero.getMoneda();
                     comprador = new Comprador(moneda, seleccion, expendedor);
+                    depositoEspecial.setProducto(expendedor.getProducto());
                     //Remueve un producto de la parte gráfica
                     panelExpendedor.getPanelDepositos().removeProducto(seleccion);
                     //panelExpendedor.getPanelDepositos().actualizarMonedas();

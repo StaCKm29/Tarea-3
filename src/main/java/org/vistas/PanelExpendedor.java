@@ -30,6 +30,10 @@ public class PanelExpendedor extends JPanel{
         return panelDepositos;
     }
 
+    public DepositoEspecial getDepositoEspecial(){
+        return depositoEspecial;
+    }
+
     @Override
     public void paintComponents(Graphics g) {
         super.paintComponents(g);

@@ -1,4 +1,8 @@
 package org.vistas;
+import org.modelos.NoHayProductoException;
+import org.modelos.PagoIncorrectoException;
+import org.modelos.PagoInsuficienteException;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -28,7 +32,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         add(botonComprar, BorderLayout.SOUTH);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         JFrame frame = new JFrame("Panel Principal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);

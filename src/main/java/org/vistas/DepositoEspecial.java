@@ -10,25 +10,21 @@ import java.awt.event.MouseListener;
 public class DepositoEspecial extends JPanel implements MouseListener {
     private Producto producto;
     private ImageIcon icon;
-    private JLabel label;
 
     public DepositoEspecial(Producto producto){
         this.producto = producto;
-        setIcon();
-
-        label = new JLabel(icon);
-        add(label);
-        this.setBounds(0,0,200,200);
+        this.setPreferredSize(new Dimension(150, 150));
         this.addMouseListener(this);
         this.setBackground(Color.GRAY);
+
+        setIcon();
     }
 
     private void setIcon() {
         if(producto == null) {
             icon = null;
-        }
-        else if (producto instanceof Cocacola) {
-            icon = new ImageIcon("src/main/resources/Coca-Cola.png");
+        } else if (producto instanceof Cocacola) {
+            icon = new ImageIcon(new ImageIcon("src/main/resources/Coca-Cola.png").getImage().getScaledInstance(200,200, Image.SCALE_DEFAULT));
         } else if(producto instanceof Fanta) {
             icon = new ImageIcon(new ImageIcon("src/main/resources/fanta.png").getImage().getScaledInstance(200,200, Image.SCALE_DEFAULT));
         } else if(producto instanceof Sprite) {
@@ -47,13 +43,19 @@ public class DepositoEspecial extends JPanel implements MouseListener {
         //analizar que consiumio el comprador
         super.paintComponent(g);
         if(icon != null) {
-            g.drawImage(icon.getImage(), 0, 0,100, 100, this);
+            g.drawImage(icon.getImage(), 0, 0,getWidth(), getHeight(), this);
         }
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+        setIcon();
+        repaint();
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        setProducto(null);
     }
 
     @Override
@@ -69,7 +71,7 @@ public class DepositoEspecial extends JPanel implements MouseListener {
     @Override
     public void mouseEntered(MouseEvent e) {
         if(producto != null)
-            JOptionPane.showMessageDialog(this, producto.consumir());
+            JOptionPane.showMessageDialog(this, "N° de serie: " + producto.getSerie());
     }
 
     @Override
@@ -96,7 +98,7 @@ public class DepositoEspecial extends JPanel implements MouseListener {
         frame.add(depositoEspecial);
 
         // Configuración y visualización del JFrame
-        frame.setLayout(new FlowLayout());
+        frame.pack();
         frame.setVisible(true);
     }
 }

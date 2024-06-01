@@ -7,15 +7,12 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class PanelComprador extends JPanel{
-    private Comprador comprador;
     private JPanelSelect panel;
     private JPanelBilletera monedero;
     private JPanelBolsillo bolsillo;
 
-    public PanelComprador() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+    public PanelComprador() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
-        this.comprador = new Comprador(null,null,null);
 
         panel = new JPanelSelect();
         panel.setPreferredSize(new Dimension(600, 200));
@@ -48,14 +45,6 @@ public class PanelComprador extends JPanel{
 
     public JPanelBolsillo getBolsillo(){
         return bolsillo;
-    }
-
-    public void actualizarComprador(Moneda m, Selector cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        comprador.setVariables(m, cualProducto, exp);
-    }
-
-    public Comprador getComprador(){
-        return comprador;
     }
 
     public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
