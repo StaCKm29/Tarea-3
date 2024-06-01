@@ -29,6 +29,7 @@ public class PanelComprador extends JPanel{
         monederoAjustado.add(monedero);
         monederoAjustado.setOpaque(false);//Para que se vea el fondo de la ventana
 
+
         bolsillo = new JPanelBolsillo();
         bolsillo.setPreferredSize(new Dimension(500, 300));
         add(bolsillo);
