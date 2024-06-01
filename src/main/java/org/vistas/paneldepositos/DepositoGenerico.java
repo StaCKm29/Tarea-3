@@ -15,10 +15,9 @@ public class DepositoGenerico<T extends JComponent> extends JPanel {
 
     public DepositoGenerico(Supplier<T> tipo) {
         this.tipo = tipo;
-        setLayout(new GridLayout(1,5));
+        setLayout(new FlowLayout(FlowLayout.CENTER, -50, 0));
         for(int i = 0; i < 5; i++) {
             T imagen = tipo.get();
-            imagen.setBorder(new LineBorder(Color.BLACK));
             add(imagen);
         }
     }
@@ -34,7 +33,6 @@ public class DepositoGenerico<T extends JComponent> extends JPanel {
         this.removeAll();
         for(int i = 0; i < 5; i++) {
             T imagen = tipo.get();
-            imagen.setBorder(new LineBorder(Color.BLACK));
             add(imagen);
         }
     }
