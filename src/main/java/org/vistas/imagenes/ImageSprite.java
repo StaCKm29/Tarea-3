@@ -17,6 +17,8 @@ public class ImageSprite extends JPanel {
         catch (Exception e) {
             e.printStackTrace();
         }
+        this.setPreferredSize(new Dimension(imagen.getWidth(null), imagen.getHeight(null)));
+        setOpaque(false);
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

@@ -34,10 +34,10 @@ public class JPanelDepositos extends JPanel{
         this.panelSuper8 = new DepositoGenerico<>(ImageSuper8::new);
         this.panelAlfajor = new DepositoGenerico<>(ImageAlfajor::new);
         this.panelMonedas = new JPanelMonedas(expendedorAsociado.getDepositoPago());
-        add(panelSprite);
-        add(panelSnickers);
         add(panelCoca);
+        add(panelSprite);
         add(panelFanta);
+        add(panelSnickers);
         add(panelAlfajor);
         add(panelSuper8);
         add(panelMonedas);
@@ -77,5 +77,7 @@ public class JPanelDepositos extends JPanel{
             panelAlfajor.removeProducto();
         }
     }
+
+
 
 }

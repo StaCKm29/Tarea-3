@@ -19,6 +19,7 @@ public class ImageCoca extends JPanel {
             e.printStackTrace();
         }
         this.setPreferredSize(new Dimension(imagen.getWidth(null), imagen.getHeight(null)));
+        setOpaque(false);
     }
     @Override
     protected void paintComponent(Graphics g) {
