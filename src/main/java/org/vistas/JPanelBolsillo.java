@@ -41,28 +41,27 @@ public class JPanelBolsillo extends JPanel {
 
     public void addProducto(Producto producto){
 
-        String tipo = producto.consumir();
-        if (tipo == "CocaCola") {
+        if (producto instanceof Cocacola) {
             cocas.addObjeto((Cocacola) producto);
             cuantasCocas.setText("Cocas: " + cocas.size());
         }
-        else if (tipo == "Sprite") {
+        else if (producto instanceof Sprite) {
             sprites.addObjeto((Sprite) producto);
             cuantasSprites.setText("Sprites: " + sprites.size());
         }
-        else if (tipo == "Fanta") {
+        else if (producto instanceof Fanta) {
             fantas.addObjeto((Fanta) producto);
             cuantasFantas.setText("Fantas: " + fantas.size());
         }
-        else if (tipo == "Snickers") {
+        else if (producto instanceof Snickers) {
             snickers.addObjeto((Snickers) producto);
             cuantosSnickers.setText("Snickers: " + snickers.size());
         }
-        else if (tipo == "Super8"){
+        else if (producto instanceof Super8){
             super8s.addObjeto((Super8) producto);
             cuantosSuper8s.setText("Super8s: " + super8s.size());
         }
-        else if (tipo == "Alfajor"){
+        else if (producto instanceof Alfajor){
             alfajores.addObjeto((Alfajor) producto);
             cuantosAlfajores.setText("Alfajores: " + alfajores.size());
         }

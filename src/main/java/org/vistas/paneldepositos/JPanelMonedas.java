@@ -42,6 +42,12 @@ public class JPanelMonedas extends JPanel{
                 add(new ImageMoneda2000());
             }
         }
+        revalidate();
+        repaint();
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+    }
 }
