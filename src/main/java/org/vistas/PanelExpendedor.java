@@ -1,16 +1,13 @@
 package org.vistas;
+
 import org.modelos.Expendedor;
-import org.modelos.Producto;
-import org.modelos.Sprite;
 import org.vistas.paneldepositos.JPanelDepositos;
-import org.modelos.Selector;
 
 import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-//Se debe instanciar a expendedor
 public class PanelExpendedor extends JPanel{
     private Expendedor exp;
     private JPanelDepositos panelDepositos;
@@ -31,6 +28,10 @@ public class PanelExpendedor extends JPanel{
 
     public JPanelDepositos getPanelDepositos(){
         return panelDepositos;
+    }
+
+    public DepositoEspecial getDepositoEspecial(){
+        return depositoEspecial;
     }
 
     @Override

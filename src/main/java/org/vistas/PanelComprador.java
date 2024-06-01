@@ -1,5 +1,7 @@
 package org.vistas;
 
+import org.modelos.*;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -8,7 +10,8 @@ public class PanelComprador extends JPanel{
     private JPanelSelect panel;
     private JPanelBilletera monedero;
     private JPanelBolsillo bolsillo;
-    public PanelComprador(){
+
+    public PanelComprador() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         panel = new JPanelSelect();
@@ -44,7 +47,7 @@ public class PanelComprador extends JPanel{
         return bolsillo;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         JFrame frame = new JFrame("Container with Custom Panels");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
