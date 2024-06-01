@@ -31,15 +31,19 @@ public class PanelComprador extends JPanel{
         add(monederoAjustado);
 
     }
+
     public JPanelSelect getPanel(){
         return panel;
     }
+
     public JPanelBilletera getMonedero(){
         return monedero;
     }
+
     public JPanelBolsillo getBolsillo(){
         return bolsillo;
     }
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("Container with Custom Panels");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

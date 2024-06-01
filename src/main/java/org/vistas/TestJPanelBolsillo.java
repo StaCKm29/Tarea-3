@@ -4,7 +4,7 @@ import org.modelos.*;
 
 import javax.swing.*;
 import java.util.Scanner;
-
+/*
 public class TestJPanelBolsillo {
     public static void main(String[] args) {
         // Crear un expendedor con 5 productos de cada tipo
@@ -40,3 +40,5 @@ public class TestJPanelBolsillo {
 
     }
 }
+
+ */

@@ -6,7 +6,7 @@ package org.modelos;
 
 public abstract class Producto {
 
-    private int serie;
+    protected int serie;
 
     public Producto(int serie){
         this.serie = serie;

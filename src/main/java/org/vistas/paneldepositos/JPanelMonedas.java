@@ -1,5 +1,8 @@
 package org.vistas.paneldepositos;
-import org.vistas.ImageMonedas;
+import org.modelos.Deposito;
+import org.modelos.DepositoMonedas;
+import org.modelos.Moneda;
+import org.vistas.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,71 +15,39 @@ import java.util.Comparator;
 
 public class JPanelMonedas extends JPanel{
     //Arreglo que ordenará las monedas
-    private ArrayList<ImageMonedas> monedas = new ArrayList<ImageMonedas>();
+    private DepositoMonedas monedaPagoTemp;
     private ImageMonedas monedaTemporal;
-    private JPanel[] espaciosGrilla = new JPanel[5];
-
     /**
      * Constructor de la clase
      */
-    public JPanelMonedas(){
-        setLayout(new GridLayout(1,5));
-        for(int i = 0; i < 5; i++){
-            espaciosGrilla[i] = new JPanel();
-            espaciosGrilla[i].setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            add(espaciosGrilla[i]);
-        }
+    public JPanelMonedas(DepositoMonedas monedaPagoTemp){
+        this.monedaPagoTemp = monedaPagoTemp;
+        setLayout(new GridLayout(10,10));
     }
-    /**
-     * Método que sirve para agregar una moneda al panel
-     * @param moneda la moneda a agregar
-     */
-    public void agregarMoneda(ImageMonedas moneda){
-        this.monedaTemporal = moneda;
-        monedas.add(moneda);
-        ordenarMonedas();
-        actualizarMonedas();
-    }
-    /**
-     * Método que sirve para retirar la última moneda ingresada
-     * @return m la moneda que se retiró
-     */
-    public ImageMonedas retirarMoneda(){
-        if(monedas.size() > 0){
-            for(ImageMonedas m : monedas){
-                if(m.getValor() == monedaTemporal.getValor()){
-                    monedas.remove(m);
-                    ordenarMonedas();
-                    actualizarMonedas();
-                    return m;
-                }
+
+    //Este método actualiza las monedas mostradas en pantalla en base al depósito de pago en expendedor
+    public void graficarMonedas(){
+        removeAll();
+        for(int i = 0 ; i < monedaPagoTemp.size() ; i++){
+            if(monedaPagoTemp.getMonedaEspecifica(i).getValor() == 100){
+                add(new ImageMoneda100());
+            }
+            else if(monedaPagoTemp.getMonedaEspecifica(i).getValor() == 500){
+                add(new ImageMoneda500());
+            }
+            else if(monedaPagoTemp.getMonedaEspecifica(i).getValor() == 1000){
+                add(new ImageMoneda1000());
+            }
+            else if(monedaPagoTemp.getMonedaEspecifica(i).getValor() == 2000){
+                add(new ImageMoneda2000());
             }
         }
-        return null;
+        revalidate();
+        repaint();
     }
 
-    /**
-     * Método que sirve para ordenar las monedas en el panel
-     */
-    public void ordenarMonedas(){
-        monedas.sort(Comparator.comparingInt(ImageMonedas::getValor));
-    }
-
-    /*Metodo que actualiza las monedas en el panel*/
-    public void actualizarMonedas(){
-        for(JPanel panel : espaciosGrilla){
-            panel.removeAll();
-        }
-        for(int i = 0; i < monedas.size(); i++){
-            espaciosGrilla[i].add(monedas.get(i));
-            add(espaciosGrilla[i]);
-        }
-        updateUI();
-    }
-
-    public void paintComponent(Graphics g){
+    @Override
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
-
-
 }

@@ -1,15 +1,15 @@
 package org.vistas;
 import javax.swing.*;
 import java.awt.*;
-import org.modelos.*;
+
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private PanelComprador com;
-    private PanelExpendedor exp; //static
+    private PanelExpendedor exp;
     private JButtonCompra botonComprar;
 
     public PanelPrincipal () {
-        this.exp = new PanelExpendedor (5);
         this.com = new PanelComprador();
+        this.exp = new PanelExpendedor (5);
 
         setLayout(new FlowLayout());
         add(exp);
@@ -22,8 +22,9 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     protected void paintComponent (Graphics g) {
         super.paintComponent(g);
     }
+
     public void iniciarButtonCompra() {
-        this.botonComprar = new JButtonCompra(exp.getExpendedor(), com.getPanel(), com.getMonedero(), exp.getPanelDepositos(), com.getBolsillo());
+        this.botonComprar = new JButtonCompra(exp,com);
         add(botonComprar, BorderLayout.SOUTH);
     }
 

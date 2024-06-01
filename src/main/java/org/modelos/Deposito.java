@@ -1,6 +1,9 @@
 package org.modelos;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Deposito<T> {
 
@@ -20,6 +23,7 @@ public class Deposito<T> {
             return almacen.remove(0);
         }
     }
+
     public boolean isEmpty(){
         return almacen.isEmpty();
     }
