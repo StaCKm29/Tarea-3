@@ -15,7 +15,7 @@ public class Fanta extends Bebida{
      * @return retorna que se ha consumido una fanta
      */
     public String consumir(){
-        return "Fanta" + this.getSerie();
+        return "Fanta";
     }
 }
 

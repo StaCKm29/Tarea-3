@@ -15,6 +15,6 @@ public class Sprite extends  Bebida{
      * @return Retorna que se ha consumido una sprite
      */
     public String consumir(){
-        return "Sprite" + this.getSerie();
+        return "Sprite";
     }
 }

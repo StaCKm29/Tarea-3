@@ -16,6 +16,6 @@ public class Snickers extends Dulce {
      *
      */
     public String consumir() {
-        return "Snickers" + this.getSerie();
+        return "Snickers";
     }
 }

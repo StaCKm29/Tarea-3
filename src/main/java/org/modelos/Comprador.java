@@ -6,6 +6,9 @@ package org.modelos;
 public class Comprador {
     private String sonido;
     private int vuelto = 0;
+    private Moneda moneda;
+    private Expendedor expendedor;
+    private Selector cualProducto;
 
     /**
      * Constructor
@@ -49,6 +52,12 @@ public class Comprador {
      */
     public String queConsumiste(){
         return sonido;
+    }
+
+    public void setVariables(Moneda m, Selector cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+        this.moneda = m;
+        this.cualProducto = cualProducto;
+        this.expendedor = exp;
     }
 
 }
