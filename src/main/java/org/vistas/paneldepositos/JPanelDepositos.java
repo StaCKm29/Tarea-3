@@ -14,14 +14,14 @@ import java.awt.*;
  * Clase que representa el panel de los depósitos
  */
 public class JPanelDepositos extends JPanel{
-    DepositoGenerico<ImageSprite> panelSprite;
-    DepositoGenerico<ImageSnickers> panelSnickers;
-    DepositoGenerico<ImageCoca> panelCoca;
-    DepositoGenerico<ImageFanta> panelFanta;
-    DepositoGenerico<ImageSuper8> panelSuper8;
-    DepositoGenerico<ImageAlfajor> panelAlfajor;
-    JPanelMonedas panelMonedas;
-    Expendedor expendedorAsociado;
+    private DepositoGenerico<ImageSprite> panelSprite;
+    private DepositoGenerico<ImageSnickers> panelSnickers;
+    private DepositoGenerico<ImageCoca> panelCoca;
+    private DepositoGenerico<ImageFanta> panelFanta;
+    private DepositoGenerico<ImageSuper8> panelSuper8;
+    private DepositoGenerico<ImageAlfajor> panelAlfajor;
+    private JPanelMonedas panelMonedas;
+    private Expendedor expendedorAsociado;
 
 
     public JPanelDepositos(Expendedor expendedorAsociado){
