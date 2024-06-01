@@ -6,8 +6,8 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class Deposito<T> {
-
     private ArrayList<T> almacen;
+
     public Deposito() {
         almacen = new ArrayList<T>();
     }

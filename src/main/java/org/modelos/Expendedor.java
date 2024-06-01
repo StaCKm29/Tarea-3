@@ -44,7 +44,6 @@ public class Expendedor {
     }
 
     public void comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
-        // Comprueba si 'eleccion' es null antes de llamar a 'ordinal()'
         int i = eleccion.ordinal();
         if(pago == null){
             throw new PagoIncorrectoException("El pago es incorrecto.");
@@ -63,7 +62,7 @@ public class Expendedor {
         }
         producto = depositos.get(i).getObjeto();
         monedaPago.addObjeto(pago);
-        ordenarMonedas();
+        //ordenarMonedas();
     }
 
 

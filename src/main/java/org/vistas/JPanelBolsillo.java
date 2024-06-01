@@ -19,7 +19,7 @@ public class JPanelBolsillo extends JPanel {
     private JLabel cuantosAlfajores;
 
     public JPanelBolsillo() {
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         cuantasCocas = new JLabel("Cocas: 0");
         cuantasSprites = new JLabel("Sprites: 0");
