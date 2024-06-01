@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 
 public class ImageCoca extends JPanel {
     private Image imagen;
+
     public ImageCoca() {
         URL imagenURL = getClass().getClassLoader().getResource("Coca-Cola.png");
         try{
@@ -18,6 +19,7 @@ public class ImageCoca extends JPanel {
             e.printStackTrace();
         }
         this.setPreferredSize(new Dimension(imagen.getWidth(null), imagen.getHeight(null)));
+        setOpaque(false);
     }
     @Override
     protected void paintComponent(Graphics g) {
