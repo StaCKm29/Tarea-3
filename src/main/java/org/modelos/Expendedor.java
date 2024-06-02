@@ -102,7 +102,6 @@ public class Expendedor {
      * @return deposito de productos.
      */
     public void comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
-        // Comprueba si 'eleccion' es null antes de llamar a 'ordinal()'
         int i = eleccion.ordinal();
         if(pago == null){
             throw new PagoIncorrectoException("El pago es incorrecto.");

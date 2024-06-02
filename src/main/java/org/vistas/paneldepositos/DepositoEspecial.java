@@ -1,4 +1,4 @@
-package org.vistas;
+package org.vistas.paneldepositos;
 
 import org.modelos.*;
 
@@ -48,7 +48,7 @@ public class DepositoEspecial extends JPanel implements MouseListener {
      * @param g the <code>Graphics</code> object to protect
      */
     @Override
-    protected void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) {
         //analizar que consiumio el comprador
         super.paintComponent(g);
         if(icon != null) {
