@@ -15,7 +15,7 @@ public class Comprador {
      */
     public Comprador(Moneda m, Selector cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         exp.comprarProducto(m, cualProducto);
-        Producto b1 = exp.getProducto();
+        Producto p = exp.getProducto();
         /**
          * Este ciclo se utilizará para que el comprador pueda retirar su vuelto
          */
@@ -28,8 +28,8 @@ public class Comprador {
             }
         }
 
-        if (b1 != null) {
-            sonido = b1.consumir();
+        if (p != null) {
+            sonido = p.consumir();
         }else{
             sonido = null;
         }

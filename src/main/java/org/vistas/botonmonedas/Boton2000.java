@@ -10,6 +10,9 @@ import org.modelos.Moneda;
 import org.modelos.Moneda2000;
 import org.vistas.JPanelBilletera;
 
+/** Boton2000 es un JRadioButton que representa una moneda de 2000 pesos.
+ * Al ser seleccionado, se crea una moneda de 2000 pesos y se agrega al panel de billetera.
+ */
 public class Boton2000 extends JRadioButton implements MouseListener {
     private JPanelBilletera panelBilletera;
     private int contador = 223;

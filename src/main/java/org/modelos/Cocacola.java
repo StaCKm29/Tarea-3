@@ -1,10 +1,10 @@
 package org.modelos;
 
-/**Cumple la función de representar una cocacola */
+/**Cumple la función de representar una cocacola. */
 public class Cocacola extends Bebida{
     /**
      *
-     * @param serie
+     * @param serie Número de serie de la cocacola.
      */
     public Cocacola(int serie){
         super(serie);
@@ -12,7 +12,7 @@ public class Cocacola extends Bebida{
 
     /**
      *
-     * @return Retorna que se ha consumido una cocacola
+     * @return Retorna que se ha consumido una cocacola.
      */
     public String consumir(){
         return "CocaCola";

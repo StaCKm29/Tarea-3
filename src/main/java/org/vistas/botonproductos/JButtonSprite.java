@@ -9,6 +9,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
 
+/**
+ * Clase que representa un botón de Sprite y muestra su precio.
+ */
 public class JButtonSprite extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
@@ -24,11 +27,15 @@ public class JButtonSprite extends JRadioButton implements MouseListener {
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         this.setIcon(iconSprite);
         this.setSelectedIcon(iconSeleccionado);
-        setBackground(new Color(3, 131, 168));
+        setBackground(Color.ORANGE);
         this.panelSelect = panelSelect;
         this.addMouseListener(this);
     }
 
+    /**
+     * Método que se ejecuta cuando se hace click en el botón.
+     * @param e Evento de mouse.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         panelSelect.setTipoProducto(Selector.SPRITE);

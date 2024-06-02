@@ -79,7 +79,7 @@ public class DepositoEspecial extends JPanel implements MouseListener {
 
     }
 
-    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
         // Crear el JFrame
         JFrame frame = new JFrame("Deposito Especial");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

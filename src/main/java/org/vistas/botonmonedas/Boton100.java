@@ -10,6 +10,7 @@ import org.modelos.Moneda;
 import org.modelos.Moneda100;
 import org.vistas.JPanelBilletera;
 
+/** Boton que representa una moneda de 100 graficamente */
 public class Boton100 extends JRadioButton implements MouseListener {
     private JPanelBilletera panelBilletera;
     private int contador = 123;
@@ -30,6 +31,10 @@ public class Boton100 extends JRadioButton implements MouseListener {
         this.addMouseListener(this);
     }
 
+    /**
+     * Se invoca cuando el mouse fue clickeado en el Boton100.
+     * @param e evento de mouse.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         Moneda moneda = new Moneda100(contador);

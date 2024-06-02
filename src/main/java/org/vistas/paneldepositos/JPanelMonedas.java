@@ -1,21 +1,17 @@
 package org.vistas.paneldepositos;
-import org.modelos.Deposito;
-import org.modelos.DepositoMonedas;
 import org.modelos.Moneda;
-import org.vistas.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Clase que representa el depósito de monedas ingresadas al expendedor
  */
 
-public class JPanelMonedas extends JPanel{
+public class JPanelMonedas extends JPanel {
     //Arreglo que ordenará las monedas
     private ArrayList<Integer> monedas = new ArrayList<>();
 
@@ -34,7 +30,7 @@ public class JPanelMonedas extends JPanel{
             JLabel label = new JLabel();
             ImageIcon icon = null;
             if(monedas.get(i) == 100){
-                URL urlSnickers = getClass().getClassLoader().getResource("snickers.png");
+                //URL urlSnickers = getClass().getClassLoader().getResource("snickers.png");
                 URL imagenURL = getClass().getClassLoader().getResource("moneda100.png");
                 icon = new ImageIcon(new ImageIcon(imagenURL).getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT));
             }

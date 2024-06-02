@@ -1,6 +1,5 @@
 package org.vistas;
 
-import org.modelos.Moneda;
 import org.modelos.Selector;
 import org.vistas.botonproductos.*;
 

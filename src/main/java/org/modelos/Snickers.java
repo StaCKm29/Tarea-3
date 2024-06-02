@@ -3,8 +3,8 @@ package org.modelos;
 /**Cumple la función de representar un snickers */
 public class Snickers extends Dulce {
     /**
-     *
-     * @param serie
+     * Constructor de la clase Snickers.
+     * @param serie Número de serie del snickers.
      */
     public Snickers(int serie) {
         super(serie);
