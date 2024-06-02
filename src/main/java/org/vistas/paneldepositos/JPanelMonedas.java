@@ -20,6 +20,7 @@ public class JPanelMonedas extends JPanel {
      */
     public JPanelMonedas(){
         setLayout(new FlowLayout(FlowLayout.CENTER, -25, 10));
+        setOpaque(false);
     }
 
     public void AñadirMonedaGrafica(Moneda moneda){

@@ -3,27 +3,33 @@ package org.vistas;
 import org.modelos.Expendedor;
 import org.vistas.paneldepositos.JPanelDepositos;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import java.net.URL;
 
 public class PanelExpendedor extends JPanel implements MouseListener {
     private Expendedor exp;
     private JPanelDepositos panelDepositos;
     private DepositoEspecial depositoEspecial;
+    private ImageIcon icon;
+    private Image backgroundImage;
+
 
     public PanelExpendedor(int size) {
         this.exp = new Expendedor(size);
         this.panelDepositos = new JPanelDepositos();
-        panelDepositos.setPreferredSize(new Dimension(440, 500));
+        panelDepositos.setPreferredSize(new Dimension(375,500));
         depositoEspecial = new DepositoEspecial(exp.getProducto());
         add(depositoEspecial);
         add(panelDepositos);
 
         this.addMouseListener(this);
+        URL imageUrl = getClass().getClassLoader().getResource("expendedor.png");
+        ImageIcon icon = new ImageIcon(new ImageIcon(imageUrl).getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT));
+        backgroundImage = icon.getImage();
+
     }
 
     public Expendedor getExpendedor(){
@@ -43,6 +49,16 @@ public class PanelExpendedor extends JPanel implements MouseListener {
         super.paintComponents(g);
         depositoEspecial.paintComponent(g);
     }
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // Dibujar la imagen de fondo
+        if (backgroundImage != null) {
+            g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
+        }
+
+    }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -56,6 +72,7 @@ public class PanelExpendedor extends JPanel implements MouseListener {
             frame.add(panelExpendedor);
             // Hacer visible el JFrame
             frame.setVisible(true);
+
         });
     }
 
@@ -87,4 +104,5 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     public void mouseExited(MouseEvent e) {
 
     }
+
 }

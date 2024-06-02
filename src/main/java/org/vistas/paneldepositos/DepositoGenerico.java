@@ -20,6 +20,7 @@ public class DepositoGenerico<T extends JComponent> extends JPanel {
             T imagen = tipo.get();
             add(imagen);
         }
+        setOpaque(false);
     }
 
     public void removeProducto(){
