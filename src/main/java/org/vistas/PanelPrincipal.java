@@ -37,7 +37,7 @@ public class PanelPrincipal extends JPanel {
         super.paintComponent(g);
     }
 
-    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException, IOException {
+    public static void main(String[] args) {
         JFrame frame = new JFrame("Panel Principal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);

@@ -61,7 +61,6 @@ public class JPanelDepositos extends JPanel{
         panelSnickers.rellenarTodo();
         panelSuper8.rellenarTodo();
         panelAlfajor.rellenarTodo();
-        System.out.println("llenado imagenes");
     }
 
     /**
@@ -90,10 +89,5 @@ public class JPanelDepositos extends JPanel{
                 panelAlfajor.removeProducto();
                 break;
         }
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
     }
 }
