@@ -1,5 +1,7 @@
 package org.vistas;
 
+import org.modelos.*;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -10,6 +12,7 @@ import java.awt.*;
 public class PanelComprador extends JPanel{
     private JPanelSelect panel;
     private JPanelBilletera monedero;
+    private PanelVueltoComprador vuelto;
     private JPanelCarro bolsillo;
 
     public PanelComprador() {
@@ -28,7 +31,12 @@ public class PanelComprador extends JPanel{
 
         bolsillo = new JPanelCarro();
         bolsillo.setPreferredSize(new Dimension(100, 100));
+
+        vuelto = new PanelVueltoComprador();
+        vuelto.setPreferredSize(new Dimension(600, 200));
+
         add(bolsillo);
+        add(vuelto);
         add(panelAjustado);
         add(monederoAjustado);
 
@@ -46,5 +54,8 @@ public class PanelComprador extends JPanel{
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+    }
+    public void ActualizarBolsilloVuelto(Comprador comprador){
+        vuelto.RecibirVuelto(comprador.getMonedasVuelto());
     }
 }

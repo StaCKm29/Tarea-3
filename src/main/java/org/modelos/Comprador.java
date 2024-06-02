@@ -1,11 +1,14 @@
 package org.modelos;
 
+import java.util.ArrayList;
+
 /**
  * Comprador representará a un comprador que cuenta con una moneda para pagar, una  elección de producto y un expendedor donde realizará su compra
  */
 public class Comprador {
     private String sonido;
     private int vuelto = 0;
+    private ArrayList<Moneda> monedas = new ArrayList<>();
 
     /**
      * Constructor
@@ -25,6 +28,7 @@ public class Comprador {
                 break;
             } else {
                 vuelto = vuelto + a.getValor();
+                monedas.add(a);
             }
         }
 
@@ -41,6 +45,10 @@ public class Comprador {
      */
     public int cuantoVuelto(){
         return vuelto;
+    }
+
+    public ArrayList<Moneda> getMonedasVuelto(){
+        return monedas;
     }
 
     /**
