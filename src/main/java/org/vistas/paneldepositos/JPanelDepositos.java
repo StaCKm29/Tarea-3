@@ -2,11 +2,7 @@ package org.vistas.paneldepositos;
 import org.modelos.Expendedor;
 import org.modelos.Moneda;
 import org.modelos.Selector;
-import org.vistas.ImageMoneda100;
-import org.vistas.ImageMoneda500;
-import org.vistas.ImageMonedas;
 import org.vistas.imagenes.*;
-import org.vistas.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,26 +10,25 @@ import java.awt.*;
  * Clase que representa el panel de los depósitos
  */
 public class JPanelDepositos extends JPanel{
-    DepositoGenerico<ImageSprite> panelSprite;
-    DepositoGenerico<ImageSnickers> panelSnickers;
-    DepositoGenerico<ImageCoca> panelCoca;
-    DepositoGenerico<ImageFanta> panelFanta;
-    DepositoGenerico<ImageSuper8> panelSuper8;
-    DepositoGenerico<ImageAlfajor> panelAlfajor;
-    JPanelMonedas panelMonedas;
-    Expendedor expendedorAsociado;
+    private DepositoGenerico<ImageSprite> panelSprite;
+    private DepositoGenerico<ImageSnickers> panelSnickers;
+    private DepositoGenerico<ImageCoca> panelCoca;
+    private DepositoGenerico<ImageFanta> panelFanta;
+    private DepositoGenerico<ImageSuper8> panelSuper8;
+    private DepositoGenerico<ImageAlfajor> panelAlfajor;
+    private JPanelMonedas panelMonedas;
+    private Expendedor expendedorAsociado;
 
 
-    public JPanelDepositos(Expendedor expendedorAsociado){
+    public JPanelDepositos(){
         setLayout(new GridLayout(7,1));
-        this.expendedorAsociado = expendedorAsociado;
         this.panelSprite = new DepositoGenerico<>(ImageSprite::new);
         this.panelSnickers = new DepositoGenerico<>(ImageSnickers::new);
         this.panelCoca = new DepositoGenerico<>(ImageCoca::new);
         this.panelFanta = new DepositoGenerico<>(ImageFanta::new);
         this.panelSuper8 = new DepositoGenerico<>(ImageSuper8::new);
         this.panelAlfajor = new DepositoGenerico<>(ImageAlfajor::new);
-        this.panelMonedas = new JPanelMonedas(expendedorAsociado.getDepositoPago());
+        this.panelMonedas = new JPanelMonedas();
         add(panelCoca);
         add(panelSprite);
         add(panelFanta);
@@ -43,8 +38,8 @@ public class JPanelDepositos extends JPanel{
         add(panelMonedas);
     }
 
-    public void actualizarMonedas(){
-        panelMonedas.graficarMonedas();
+    public void actualizarMonedas(Moneda moneda){
+        panelMonedas.AñadirMonedaGrafica(moneda);
     }
 
     public static void main(String[] args) {
@@ -54,7 +49,7 @@ public class JPanelDepositos extends JPanel{
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(300, 300);
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            JPanelDepositos panelDepositos = new JPanelDepositos(new Expendedor(5));
+            JPanelDepositos panelDepositos = new JPanelDepositos();
             frame.add(panelDepositos);
             // Hacer visible el JFrame
             frame.setVisible(true);
@@ -77,7 +72,8 @@ public class JPanelDepositos extends JPanel{
             panelAlfajor.removeProducto();
         }
     }
-
-
-
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+    }
 }

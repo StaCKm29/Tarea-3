@@ -35,7 +35,7 @@ public class JButtonCompra extends JPanel {
                     panelExpendedor.getPanelDepositos().removeProducto(seleccion);
                     //panelExpendedor.getPanelDepositos().actualizarMonedas();
                     panelComprador.getBolsillo().addProducto(expendedor.getProducto());
-                    panelExpendedor.getPanelDepositos().actualizarMonedas();
+                    panelExpendedor.getPanelDepositos().actualizarMonedas(moneda);
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
                 } catch(NoHayProductoException ex) {

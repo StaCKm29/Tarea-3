@@ -15,8 +15,8 @@ public class PanelExpendedor extends JPanel{
 
     public PanelExpendedor(int size) {
         this.exp = new Expendedor(size);
-        this.panelDepositos = new JPanelDepositos(exp);
-        panelDepositos.setPreferredSize(new Dimension(440,440));
+        this.panelDepositos = new JPanelDepositos();
+        panelDepositos.setPreferredSize(new Dimension(440, 500));
         depositoEspecial = new DepositoEspecial(exp.getProducto());
         add(depositoEspecial);
         add(panelDepositos);
