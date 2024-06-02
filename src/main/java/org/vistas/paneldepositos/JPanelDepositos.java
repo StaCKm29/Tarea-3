@@ -35,6 +35,7 @@ public class JPanelDepositos extends JPanel{
         add(panelAlfajor);
         add(panelSuper8);
         add(panelMonedas);
+        setOpaque(false);
     }
 
     public void actualizarMonedas(Moneda moneda){
