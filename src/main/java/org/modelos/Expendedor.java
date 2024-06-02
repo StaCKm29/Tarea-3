@@ -36,15 +36,59 @@ public class Expendedor {
         depositos.add(super8);
         depositos.add(alfajores);
 
-        inicializarDepositos();
-    }
-    public void inicializarDepositos() {
         for(Selector p : Selector.values()){
             for(int i = 0; i < size; i++){
                 Producto producto = p.crearProducto(i+c);
                 depositos.get(p.ordinal()).addObjeto(producto);
             }
             c+= 100;
+        }
+
+    }
+
+    public void rellenarDepositos() {
+        System.out.println("Rellenando depositos...");
+        if (coca.size() < size) {
+            for (int i = coca.size(); i < size; i++) {
+                Producto producto = Selector.COCACOLA.crearProducto(i+c);
+                coca.addObjeto(producto);
+                c++;
+            }
+        }
+        if (sprite.size() < size) {
+            for (int i = sprite.size(); i < size; i++) {
+                Producto producto = Selector.SPRITE.crearProducto(i+c);
+                sprite.addObjeto(producto);
+                c++;
+            }
+        }
+        if (fanta.size() < size) {
+            for (int i = fanta.size(); i < size; i++) {
+                Producto producto = Selector.FANTA.crearProducto(i+c);
+                fanta.addObjeto(producto);
+                c++;
+            }
+        }
+        if (snickers.size() < size) {
+            for (int i = snickers.size(); i < size; i++) {
+                Producto producto = Selector.SNICKERS.crearProducto(i+c);
+                snickers.addObjeto(producto);
+                c++;
+            }
+        }
+        if (super8.size() < size) {
+            for (int i = super8.size(); i < size; i++) {
+                Producto producto = Selector.SUPER8.crearProducto(i+c);
+                super8.addObjeto(producto);
+                c++;
+            }
+        }
+        if (alfajores.size() < size) {
+            for (int i = alfajores.size(); i < size; i++) {
+                Producto producto = Selector.ALFAJOR.crearProducto(i+c);
+                alfajores.addObjeto(producto);
+                c++;
+            }
         }
     }
 

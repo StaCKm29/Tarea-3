@@ -17,8 +17,6 @@ public class JPanelDepositos extends JPanel{
     private DepositoGenerico<ImageSuper8> panelSuper8;
     private DepositoGenerico<ImageAlfajor> panelAlfajor;
     private JPanelMonedas panelMonedas;
-    private Expendedor expendedorAsociado;
-
 
     public JPanelDepositos(){
         setLayout(new GridLayout(7,1));
@@ -54,6 +52,15 @@ public class JPanelDepositos extends JPanel{
             // Hacer visible el JFrame
             frame.setVisible(true);
         });
+    }
+    public void rellenarImagenes(){
+        panelCoca.rellenarTodo();
+        panelFanta.rellenarTodo();
+        panelSprite.rellenarTodo();
+        panelSnickers.rellenarTodo();
+        panelSuper8.rellenarTodo();
+        panelAlfajor.rellenarTodo();
+        System.out.println("llenado imagenes");
     }
 
     public void removeProducto(Selector seleccion){

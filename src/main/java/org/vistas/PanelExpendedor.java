@@ -5,10 +5,12 @@ import org.vistas.paneldepositos.JPanelDepositos;
 
 import javax.swing.JPanel;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-public class PanelExpendedor extends JPanel{
+public class PanelExpendedor extends JPanel implements MouseListener {
     private Expendedor exp;
     private JPanelDepositos panelDepositos;
     private DepositoEspecial depositoEspecial;
@@ -20,6 +22,8 @@ public class PanelExpendedor extends JPanel{
         depositoEspecial = new DepositoEspecial(exp.getProducto());
         add(depositoEspecial);
         add(panelDepositos);
+
+        this.addMouseListener(this);
     }
 
     public Expendedor getExpendedor(){
@@ -56,4 +60,30 @@ public class PanelExpendedor extends JPanel{
     }
 
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        exp.rellenarDepositos();
+        panelDepositos.rellenarImagenes();
+        System.out.println("Me presionaste!");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }
