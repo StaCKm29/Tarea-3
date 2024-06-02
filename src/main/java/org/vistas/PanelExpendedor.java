@@ -64,6 +64,7 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         exp.rellenarDepositos();
         panelDepositos.rellenarImagenes();
+        updateUI();
         System.out.println("Me presionaste!");
     }
 
