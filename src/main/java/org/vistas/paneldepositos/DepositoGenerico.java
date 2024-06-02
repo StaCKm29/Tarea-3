@@ -14,6 +14,7 @@ public class DepositoGenerico<T extends JComponent> extends JPanel {
     private T imagen;
 
     public DepositoGenerico(Supplier<T> tipo) {
+        setOpaque(false);
         this.tipo = tipo;
         setLayout(new FlowLayout(FlowLayout.CENTER, -50, 0));
         for(int i = 0; i < 5; i++) {

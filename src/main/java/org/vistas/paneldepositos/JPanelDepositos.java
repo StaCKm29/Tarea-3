@@ -19,6 +19,7 @@ public class JPanelDepositos extends JPanel{
     private JPanelMonedas panelMonedas;
 
     public JPanelDepositos(){
+        setOpaque(false);
         setLayout(new GridLayout(7,1));
         this.panelSprite = new DepositoGenerico<>(ImageSprite::new);
         this.panelSnickers = new DepositoGenerico<>(ImageSnickers::new);

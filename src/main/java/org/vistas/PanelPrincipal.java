@@ -5,6 +5,7 @@ import org.modelos.PagoInsuficienteException;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private PanelComprador com;
@@ -32,7 +33,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         add(botonComprar, BorderLayout.SOUTH);
     }
 
-    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException, IOException {
         JFrame frame = new JFrame("Panel Principal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);

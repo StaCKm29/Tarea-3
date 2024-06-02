@@ -3,26 +3,31 @@ package org.vistas;
 import org.modelos.Expendedor;
 import org.vistas.paneldepositos.JPanelDepositos;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 public class PanelExpendedor extends JPanel implements MouseListener {
     private Expendedor exp;
     private JPanelDepositos panelDepositos;
     private DepositoEspecial depositoEspecial;
+    private Image imagenFondo;
 
     public PanelExpendedor(int size) {
         this.exp = new Expendedor(size);
         this.panelDepositos = new JPanelDepositos();
         panelDepositos.setPreferredSize(new Dimension(440, 500));
         depositoEspecial = new DepositoEspecial(exp.getProducto());
+        ImageIcon icon = new ImageIcon(getClass().getResource("/expendedor.png"));
+        this.imagenFondo = icon.getImage();
+        /*
+        setLayout(null);
+        panelDepositos.setBounds(100,100,440,500);
+        depositoEspecial.setBounds(100,100,80,80);
+*/
         add(depositoEspecial);
         add(panelDepositos);
-
         this.addMouseListener(this);
     }
 
@@ -39,9 +44,11 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     }
 
     @Override
-    public void paintComponents(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponents(g);
         depositoEspecial.paintComponent(g);
+        //if (imagenFondo != null)
+            //g.drawImage(imagenFondo, 20, 0,560,560, this);
     }
 
     public static void main(String[] args) {
@@ -49,8 +56,10 @@ public class PanelExpendedor extends JPanel implements MouseListener {
             // Crear el JFrame (ventana)
             JFrame frame = new JFrame("Deposito con respectivo Botón");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(300, 300);
+            frame.setSize(800, 800);
+
             // Crear una instancia de PanelPrincipal y añadirla al JFrame
+            //PanelExpendedor panelExpendedor = null;
             PanelExpendedor panelExpendedor = new PanelExpendedor(5);
             DepositoEspecial depositoEspecial = new DepositoEspecial(panelExpendedor.getExpendedor().getProducto());
             frame.add(panelExpendedor);
@@ -65,7 +74,6 @@ public class PanelExpendedor extends JPanel implements MouseListener {
         exp.rellenarDepositos();
         panelDepositos.rellenarImagenes();
         updateUI();
-        System.out.println("Me presionaste!");
     }
 
     @Override

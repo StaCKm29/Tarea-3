@@ -10,6 +10,7 @@ import java.net.URL;
 public class ImageSuper8 extends JPanel{
     private Image imagen;
     public ImageSuper8(){
+        setOpaque(false);
         URL imagenURL = getClass().getClassLoader().getResource("super8.png");
         try{
             imagen = ImageIO.read(imagenURL);
