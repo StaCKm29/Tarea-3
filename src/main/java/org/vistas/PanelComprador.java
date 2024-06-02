@@ -28,7 +28,7 @@ public class PanelComprador extends JPanel{
 
 
         bolsillo = new JPanelBolsillo();
-        bolsillo.setPreferredSize(new Dimension(500, 300));
+        bolsillo.setPreferredSize(new Dimension(100, 100));
         add(bolsillo);
         add(panelAjustado);
         add(monederoAjustado);
