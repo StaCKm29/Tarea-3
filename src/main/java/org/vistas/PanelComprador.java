@@ -10,6 +10,7 @@ public class PanelComprador extends JPanel{
     private JPanelSelect panel;
     private JPanelBilletera monedero;
     private JPanelBolsillo bolsillo;
+    private PanelVueltoComprador vuelto;
 
     public PanelComprador() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -29,7 +30,12 @@ public class PanelComprador extends JPanel{
 
         bolsillo = new JPanelBolsillo();
         bolsillo.setPreferredSize(new Dimension(100, 100));
+
+        vuelto = new PanelVueltoComprador();
+        vuelto.setPreferredSize(new Dimension(600, 200));
+
         add(bolsillo);
+        add(vuelto);
         add(panelAjustado);
         add(monederoAjustado);
 
@@ -45,6 +51,10 @@ public class PanelComprador extends JPanel{
 
     public JPanelBolsillo getBolsillo(){
         return bolsillo;
+    }
+
+    public void ActualizarBolsilloVuelto(Comprador comprador){
+        vuelto.RecibirVuelto(comprador.getMonedasVuelto());
     }
 
     public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {

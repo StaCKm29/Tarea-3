@@ -35,13 +35,16 @@ public class JButtonCompra extends JPanel {
                     panelExpendedor.getPanelDepositos().removeProducto(seleccion);
                     panelComprador.getBolsillo().addProducto(expendedor.getProducto());
                     panelExpendedor.getPanelDepositos().actualizarMonedas(moneda);
+                    panelComprador.ActualizarBolsilloVuelto(comprador);
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
                 } catch(NoHayProductoException ex) {
                     Moneda moneda = expendedor.getVuelto();
+                    panelComprador.ActualizarBolsilloVuelto(comprador);
                     JOptionPane.showMessageDialog(null, "No hay stock o el producto no existe");
                 } catch(PagoInsuficienteException ex) {
                     Moneda moneda = expendedor.getVuelto();
+                    panelComprador.ActualizarBolsilloVuelto(comprador);
                     JOptionPane.showMessageDialog(null, "El pago es insuficiente");
                 }
 
