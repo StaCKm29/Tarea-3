@@ -10,6 +10,7 @@ import java.net.URL;
 public class ImageSnickers extends JPanel{
     private Image imagen;
     public ImageSnickers(){
+        setOpaque(false);
         URL imagenURL = getClass().getClassLoader().getResource("snickers.png");
         try{
             imagen = ImageIO.read(imagenURL);
@@ -21,7 +22,7 @@ public class ImageSnickers extends JPanel{
             e.printStackTrace();
         }
         this.setPreferredSize(new Dimension(imagen.getWidth(null), imagen.getHeight(null)));
-        setOpaque(false);
+
     }
     /**
      * Método que se encarga de pintar la imagen en el componente.

@@ -23,7 +23,7 @@ public class Boton2000 extends JRadioButton implements MouseListener {
         URL url2000 = getClass().getClassLoader().getResource("2000pesos.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("2000pesosDark.png");
 
-        int ancho = 100;
+        int ancho = 150;
         int alto = 100;
         ImageIcon icon2000 = new ImageIcon(new ImageIcon(url2000).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));

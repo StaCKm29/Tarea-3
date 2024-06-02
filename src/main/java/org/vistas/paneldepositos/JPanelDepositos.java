@@ -7,7 +7,7 @@ import org.vistas.imagenes.*;
 import javax.swing.*;
 import java.awt.*;
 /**
- * Clase que representa el panel de los depósitos
+ * Clase que representa el panel de los depósitos graficos (con imagenes).
  */
 public class JPanelDepositos extends JPanel{
     private DepositoGenerico<ImageSprite> panelSprite;
@@ -18,14 +18,20 @@ public class JPanelDepositos extends JPanel{
     private DepositoGenerico<ImageAlfajor> panelAlfajor;
     private JPanelMonedas panelMonedas;
 
-    public JPanelDepositos(){
+    /**
+     * Constructor de la clase. Crea depositos graficos de cada producto.
+     * @param size tamaño de los depositos.
+     */
+    public JPanelDepositos(int size){
+        setOpaque(false);
+        this.setBackground(Color.GRAY);
         setLayout(new GridLayout(7,1));
-        this.panelSprite = new DepositoGenerico<>(ImageSprite::new);
-        this.panelSnickers = new DepositoGenerico<>(ImageSnickers::new);
-        this.panelCoca = new DepositoGenerico<>(ImageCoca::new);
-        this.panelFanta = new DepositoGenerico<>(ImageFanta::new);
-        this.panelSuper8 = new DepositoGenerico<>(ImageSuper8::new);
-        this.panelAlfajor = new DepositoGenerico<>(ImageAlfajor::new);
+        this.panelSprite = new DepositoGenerico<>(ImageSprite::new, size);
+        this.panelSnickers = new DepositoGenerico<>(ImageSnickers::new, size);
+        this.panelCoca = new DepositoGenerico<>(ImageCoca::new, size);
+        this.panelFanta = new DepositoGenerico<>(ImageFanta::new, size);
+        this.panelSuper8 = new DepositoGenerico<>(ImageSuper8::new, size);
+        this.panelAlfajor = new DepositoGenerico<>(ImageAlfajor::new, size);
         this.panelMonedas = new JPanelMonedas();
         add(panelCoca);
         add(panelSprite);
@@ -34,26 +40,20 @@ public class JPanelDepositos extends JPanel{
         add(panelAlfajor);
         add(panelSuper8);
         add(panelMonedas);
-        setOpaque(false);
     }
 
+    /**
+     * Metodo que actualiza la cantidad de monedas en la "caja" del expendedor.
+     * @param moneda Moneda que contiene la caja despues de una compra exitosa.
+     */
     public void actualizarMonedas(Moneda moneda){
         panelMonedas.AñadirMonedaGrafica(moneda);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            // Crear el JFrame (ventana)
-            JFrame frame = new JFrame("Deposito con respectivo Botón");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(300, 300);
-            // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            JPanelDepositos panelDepositos = new JPanelDepositos();
-            frame.add(panelDepositos);
-            // Hacer visible el JFrame
-            frame.setVisible(true);
-        });
-    }
+    /**
+     * Metodo que rellena las imagenes de los depositos.
+     * Más fácil de llamar con este metodo desde el PanelExpendedor
+     */
     public void rellenarImagenes(){
         panelCoca.rellenarTodo();
         panelFanta.rellenarTodo();
@@ -61,27 +61,33 @@ public class JPanelDepositos extends JPanel{
         panelSnickers.rellenarTodo();
         panelSuper8.rellenarTodo();
         panelAlfajor.rellenarTodo();
-        System.out.println("llenado imagenes");
     }
 
+    /**
+     * Metodo que remueve un producto (imagen) de un deposito.
+     * @param seleccion Selector que indica que producto se va a remover.
+     */
     public void removeProducto(Selector seleccion){
         int i = seleccion.ordinal();
-        if(i == 0){
-            panelCoca.removeProducto();
-        } else if(i == 1){
-            panelFanta.removeProducto();
-        } else if(i == 2){
-            panelSprite.removeProducto();
-        } else if(i == 3){
-            panelSnickers.removeProducto();
-        } else if(i == 4){
-            panelSuper8.removeProducto();
-        } else if(i == 5){
-            panelAlfajor.removeProducto();
+        switch(i){
+            case 0:
+                panelCoca.removeProducto();
+                break;
+            case 1:
+                panelFanta.removeProducto();
+                break;
+            case 2:
+                panelSprite.removeProducto();
+                break;
+            case 3:
+                panelSnickers.removeProducto();
+                break;
+            case 4:
+                panelSuper8.removeProducto();
+                break;
+            case 5:
+                panelAlfajor.removeProducto();
+                break;
         }
-    }
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
     }
 }

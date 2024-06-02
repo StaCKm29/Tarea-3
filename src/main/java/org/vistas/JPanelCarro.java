@@ -4,7 +4,10 @@ import org.modelos.*;
 
 import javax.swing.*;
 
-public class JPanelBolsillo extends JPanel {
+/**
+ * Clase que representa el panel que muestra los productos que se han agregado al carro.
+ */
+public class JPanelCarro extends JPanel {
     int cantidadCocas = 0;
     int cantidadSprites = 0;
     int cantidadFantas = 0;
@@ -18,7 +21,7 @@ public class JPanelBolsillo extends JPanel {
     private JLabel cuantosSuper8s;
     private JLabel cuantosAlfajores;
 
-    public JPanelBolsillo() {
+    public JPanelCarro() {
         //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         cuantasCocas = new JLabel("Cocas: 0");
@@ -35,6 +38,11 @@ public class JPanelBolsillo extends JPanel {
         add(cuantosAlfajores);
     }
 
+    /**
+     * Método que agrega un producto al carro.
+     * En caso de que el producto ya esté en el carro, se aumenta la cantidad.
+     * @param producto Producto comprado exitosamente y debe ser agregado al carro.
+     */
     public void addProducto(Producto producto){
         if (producto instanceof Cocacola) {
             cantidadCocas++;

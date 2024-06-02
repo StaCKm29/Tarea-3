@@ -21,8 +21,8 @@ public class JButtonCoca extends JRadioButton implements MouseListener {
         URL urlCoca = getClass().getClassLoader().getResource("Coca-Cola.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("Coca-ColaSeleccionado.png");
 
-        int ancho = 100;
-        int alto = 100;
+        int ancho = 80;
+        int alto = 80;
         ImageIcon iconCoca = new ImageIcon(new ImageIcon(urlCoca).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         this.setIcon(iconCoca);

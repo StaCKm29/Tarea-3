@@ -6,6 +6,9 @@ import org.vistas.botonproductos.*;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Clase que muestra los botones de los productos a seleccionar.
+ */
 public class JPanelSelect extends JPanel {
     private Selector tipo;
     private JButtonSuper8 boton1;
@@ -40,21 +43,19 @@ public class JPanelSelect extends JPanel {
         add(boton6);
     }
 
+    /**
+     * Método que establece el tipo de producto seleccionado.
+     * @param selector Selector (tipo de producto seleccionado).
+     */
     public void setTipoProducto(Selector selector) {
         this.tipo = selector;
     }
+
+    /**
+     * Método que retorna el tipo de producto seleccionado.
+     * @return Selector (tipo de producto seleccionado).
+     */
     public Selector getTipoProducto() {
         return this.tipo;
     }
-
-    public static void main (String[] args){
-        JFrame frame = new JFrame("Seleccion de Producto");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 600);
-
-        JPanelSelect panel = new JPanelSelect();
-        frame.add(panel);
-        frame.setVisible(true);
-    }
-
 }

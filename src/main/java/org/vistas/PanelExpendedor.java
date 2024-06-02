@@ -9,6 +9,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
 
+/*
+ * Clase que representa el panel del Expendedor con todos sus elementos.
+ */
 public class PanelExpendedor extends JPanel implements MouseListener {
     private Expendedor exp;
     private JPanelDepositos panelDepositos;
@@ -16,12 +19,11 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     private ImageIcon icon;
     private Image backgroundImage;
 
-
     public PanelExpendedor(int size) {
         this.exp = new Expendedor(size);
-        this.panelDepositos = new JPanelDepositos();
+        this.panelDepositos = new JPanelDepositos(size);
         panelDepositos.setPreferredSize(new Dimension(375,500));
-        depositoEspecial = new DepositoEspecial(exp.getProducto());
+        depositoEspecial = new DepositoEspecial();
         add(depositoEspecial);
         add(panelDepositos);
 
@@ -32,26 +34,25 @@ public class PanelExpendedor extends JPanel implements MouseListener {
 
     }
 
+    // Getters para que las otras clases puedan acceder a los componentes.
     public Expendedor getExpendedor(){
         return exp;
     }
-
     public JPanelDepositos getPanelDepositos(){
         return panelDepositos;
     }
-
     public DepositoEspecial getDepositoEspecial(){
         return depositoEspecial;
     }
 
+    /*
+     * Método que se encarga de pintar los componentes del panel.
+     * Dibuja la imagen de fondo y los componentes del panel.
+     */
     @Override
-    public void paintComponents(Graphics g) {
-        super.paintComponents(g);
-        depositoEspecial.paintComponent(g);
-    }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
+        depositoEspecial.paintComponent(g);
         // Dibujar la imagen de fondo
         if (backgroundImage != null) {
             g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
@@ -59,30 +60,16 @@ public class PanelExpendedor extends JPanel implements MouseListener {
 
     }
 
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            // Crear el JFrame (ventana)
-            JFrame frame = new JFrame("Deposito con respectivo Botón");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(300, 300);
-            // Crear una instancia de PanelPrincipal y añadirla al JFrame
-            PanelExpendedor panelExpendedor = new PanelExpendedor(5);
-            DepositoEspecial depositoEspecial = new DepositoEspecial(panelExpendedor.getExpendedor().getProducto());
-            frame.add(panelExpendedor);
-            // Hacer visible el JFrame
-            frame.setVisible(true);
-
-        });
-    }
-
-
+    /**
+     * Se invoca cuando se hace click en el PanelExpendedor desde la clase PanelPrincipal.
+     * Se encarga de rellenar los depósitos y las imágenes de los depósitos.
+     * @param e Evento de mouse.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         exp.rellenarDepositos();
         panelDepositos.rellenarImagenes();
         updateUI();
-        System.out.println("Me presionaste!");
     }
 
     @Override

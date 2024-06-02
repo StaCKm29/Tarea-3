@@ -5,8 +5,12 @@ import org.modelos.PagoInsuficienteException;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
-public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
+/**
+ * Clase que representa el panel principal de la interfaz gráfica.
+ */
+public class PanelPrincipal extends JPanel {
     private PanelComprador com;
     private PanelExpendedor exp;
     private JButtonCompra botonComprar;
@@ -14,31 +18,31 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     public PanelPrincipal () {
         this.com = new PanelComprador();
         this.exp = new PanelExpendedor (5);
+        this.botonComprar = new JButtonCompra(exp,com);
+        this.setBackground(Color.WHITE);
 
-        setLayout(new FlowLayout());
         add(exp);
         add(com);
+        add(botonComprar, BorderLayout.SOUTH);
 
-        this.setBackground(Color.white);
+        setLayout(new FlowLayout());
     }
 
+    /**
+     * Método que se encarga de pintar los componentes del panel.
+     * @param g
+     */
     @Override
     protected void paintComponent (Graphics g) {
         super.paintComponent(g);
     }
 
-    public void iniciarButtonCompra() {
-        this.botonComprar = new JButtonCompra(exp,com);
-        add(botonComprar, BorderLayout.SOUTH);
-    }
-
-    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+    public static void main(String[] args) {
         JFrame frame = new JFrame("Panel Principal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         PanelPrincipal panelPrincipal = new PanelPrincipal();
-        panelPrincipal.iniciarButtonCompra();
         frame.add(panelPrincipal);
 
         frame.setVisible(true);

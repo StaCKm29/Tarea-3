@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * Clase que representa un botón de compra
+ */
 public class JButtonCompra extends JPanel {
     private Expendedor expendedor;
     private JPanelSelect comPanel;
@@ -23,27 +26,35 @@ public class JButtonCompra extends JPanel {
         this.depositoEspecial = panelExpendedor.getDepositoEspecial();
         add(BotonComprar);
 
+        /**
+         * En caso de que haya sido presionado, se intenta realizar la compra siempre y
+         * cuando se haya seleccionado una moneda y un producto.
+         * Estos parametros se pasan a un comprador y despues al deposito especial.
+         * Si todo fue exitoso: se elimina el producto del panel de depositos y se agrega al bolsillo (contadores).
+         * Además la moneda ingresada, queda en el deposito grafico de monedas del expendedor.
+         */
         BotonComprar.addMouseListener(new MouseListener() {
             @Override
-            public void mouseClicked(MouseEvent e) { //clickea
+            public void mouseClicked(MouseEvent e) {
                 try {
                     seleccion = comPanel.getTipoProducto();
                     moneda = monedero.getMoneda();
                     comprador = new Comprador(moneda, seleccion, expendedor);
                     depositoEspecial.setProducto(expendedor.getProducto());
-                    //Remueve un producto de la parte gráfica
                     panelExpendedor.getPanelDepositos().removeProducto(seleccion);
                     panelComprador.getBolsillo().addProducto(expendedor.getProducto());
                     panelExpendedor.getPanelDepositos().actualizarMonedas(moneda);
                     panelComprador.ActualizarBolsilloVuelto(comprador);
                 } catch (PagoIncorrectoException ex) {
-                    JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda");
+                    JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda.");
                 } catch(NoHayProductoException ex) {
                     Moneda moneda = expendedor.getVuelto();
+                    JOptionPane.showMessageDialog(null, "No hay stock o el producto no existe. \nVuelto: " + moneda.getValor());
                     panelComprador.ActualizarBolsilloVuelto(comprador);
                     JOptionPane.showMessageDialog(null, "No hay stock o el producto no existe");
                 } catch(PagoInsuficienteException ex) {
                     Moneda moneda = expendedor.getVuelto();
+                    JOptionPane.showMessageDialog(null, "El pago es insuficiente. \nVuelto: " + moneda.getValor());
                     panelComprador.ActualizarBolsilloVuelto(comprador);
                     JOptionPane.showMessageDialog(null, "El pago es insuficiente");
                 }
@@ -71,31 +82,4 @@ public class JButtonCompra extends JPanel {
             }
         });
     }
-/*
-    public static void main(String[] args) {
-        // Crear el JFrame
-        JFrame frame = new JFrame("Compra de Productos");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
-
-        // Crear instancias de PanelExpendedor y PanelComprador
-        Expendedor exp = new Expendedor(5);
-        JPanelSelect com = new JPanelSelect();
-        JPanelBilletera mon = new JPanelBilletera();
-        JPanelDepositos pan = new JPanelDepositos(exp);
-        JPanelBolsillo bol = new JPanelBolsillo();
-        // Inicializar la instancia de JButtonCompra
-        JButtonCompra botonCompra = new JButtonCompra(exp, com, mon);
-
-        // Añadir el panel de compra al frame
-        frame.add(botonCompra);
-
-        // Configuración y visualización del JFrame
-        frame.setLayout(new FlowLayout());
-        frame.setVisible(true);
-    }
-
- */
-
-
 }

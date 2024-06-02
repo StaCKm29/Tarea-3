@@ -12,6 +12,7 @@ public class ImageAlfajor extends JPanel {
     private Image imagen;
 
     public ImageAlfajor() {
+        setOpaque(false);
         URL imagenURL = getClass().getClassLoader().getResource("alfajor.png");
         try{
             imagen = ImageIO.read(imagenURL);
@@ -22,7 +23,6 @@ public class ImageAlfajor extends JPanel {
             e.printStackTrace();
         }
         this.setPreferredSize(new Dimension(imagen.getWidth(null), imagen.getHeight(null)));
-        setOpaque(false);
     }
 
     /**
