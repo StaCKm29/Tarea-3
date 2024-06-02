@@ -12,11 +12,13 @@ public class Expendedor {
     private ArrayList <Deposito<Producto>> depositos;
     private Deposito<Moneda> monedaPago;
     private int c = 100;
+    private int size;
 
     private Deposito<Moneda> monedaVuelto;
     private Producto producto; //Será el producto que se retornará
 
     public Expendedor(int size){
+        this.size = size;
         coca = new Deposito<>();
         sprite = new Deposito<>();
         fanta = new Deposito<>();
@@ -25,6 +27,7 @@ public class Expendedor {
         alfajores = new Deposito<>();
         depositos = new ArrayList<>();
         monedaPago = new Deposito<>();
+        monedaVuelto = new Deposito<>();
 
         depositos.add(coca);
         depositos.add(sprite);
@@ -33,7 +36,9 @@ public class Expendedor {
         depositos.add(super8);
         depositos.add(alfajores);
 
-        monedaVuelto = new Deposito<>();
+        inicializarDepositos();
+    }
+    public void inicializarDepositos() {
         for(Selector p : Selector.values()){
             for(int i = 0; i < size; i++){
                 Producto producto = p.crearProducto(i+c);
@@ -44,7 +49,6 @@ public class Expendedor {
     }
 
     public void comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
-        // Comprueba si 'eleccion' es null antes de llamar a 'ordinal()'
         int i = eleccion.ordinal();
         if(pago == null){
             throw new PagoIncorrectoException("El pago es incorrecto.");
