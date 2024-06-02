@@ -20,8 +20,8 @@ public class JButtonAlfajor extends JRadioButton implements MouseListener {
         URL urlAlfajor = getClass().getClassLoader().getResource("alfajor.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("alfajorSeleccionado.png");
 
-        int ancho = 150;
-        int alto = 170;
+        int ancho = 80;
+        int alto = 80;
         ImageIcon iconAlfajor = new ImageIcon(new ImageIcon(urlAlfajor).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         this.setIcon(iconAlfajor);

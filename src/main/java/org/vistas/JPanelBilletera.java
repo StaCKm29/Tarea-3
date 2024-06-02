@@ -6,6 +6,9 @@ import org.vistas.botonmonedas.*;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * Clase que representa el panel de Botones de Monedas.
+ */
 public class JPanelBilletera extends JPanel {
     private Boton100 boton100;
     private Boton500 boton500;
@@ -31,26 +34,21 @@ public class JPanelBilletera extends JPanel {
         add(boton1000);
         add(boton2000);
     }
+
+    /**
+     * Instancia el tipo de moneda que se seleccionó
+     * @param moneda Moneda seleccionada.
+     */
     public void setTipoMoneda(Moneda moneda) {
         this.moneda = moneda;
     }
 
+    /**
+     * Retorna la moneda seleccionada.
+     * @return Moneda seleccionada.
+     */
     public Moneda getMoneda(){
         return this.moneda;
-    }
-
-    public static void main(String[] args) {
-        // Crear el JFrame (ventana)
-        JFrame frame = new JFrame("Su Monedero");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 600);
-
-        // Crear una instancia del PanelBilletera
-        JPanelBilletera panel = new JPanelBilletera();
-        frame.add(panel);
-
-        // Hacer visible el JFrame
-        frame.setVisible(true);
     }
 
 }

@@ -1,19 +1,19 @@
 package org.vistas;
 
-import org.modelos.*;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
+/**
+ * Clase que representa el panel del comprador
+ */
 public class PanelComprador extends JPanel{
     private JPanelSelect panel;
     private JPanelBilletera monedero;
-    private JPanelBolsillo bolsillo;
+    private JPanelCarro bolsillo;
 
     public PanelComprador() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
         panel = new JPanelSelect();
         panel.setPreferredSize(new Dimension(600, 200));
         panel.setBorder(new LineBorder(Color.BLACK, 3));
@@ -26,35 +26,25 @@ public class PanelComprador extends JPanel{
         monederoAjustado.add(monedero);
         monederoAjustado.setOpaque(false);//Para que se vea el fondo de la ventana
 
-
-        bolsillo = new JPanelBolsillo();
+        bolsillo = new JPanelCarro();
         bolsillo.setPreferredSize(new Dimension(100, 100));
         add(bolsillo);
         add(panelAjustado);
         add(monederoAjustado);
 
     }
-
+    //Getters para que las otras clases de package vistas puedan acceder a estos elementos.
     public JPanelSelect getPanel(){
         return panel;
     }
-
     public JPanelBilletera getMonedero(){
         return monedero;
     }
-
-    public JPanelBolsillo getBolsillo(){
+    public JPanelCarro getBolsillo(){
         return bolsillo;
     }
 
-    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        JFrame frame = new JFrame("Container with Custom Panels");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-
-        PanelComprador comprador = new PanelComprador();
-        frame.add(comprador);
-
-        frame.setVisible(true);
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
     }
 }

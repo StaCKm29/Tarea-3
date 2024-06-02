@@ -7,12 +7,14 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * Clase que representa un panel del deposito donde aparecerá el producto que fue comprado.
+ */
 public class DepositoEspecial extends JPanel implements MouseListener {
     private Producto producto;
     private ImageIcon icon;
 
-    public DepositoEspecial(Producto producto){
-        this.producto = producto;
+    public DepositoEspecial(){
         this.setPreferredSize(new Dimension(150, 150));
         this.addMouseListener(this);
         this.setBackground(Color.GRAY);
@@ -20,6 +22,9 @@ public class DepositoEspecial extends JPanel implements MouseListener {
         setIcon();
     }
 
+    /**
+     * Método que establece el ícono del producto comprado.
+     */
     private void setIcon() {
         if(producto == null) {
             icon = null;
@@ -38,6 +43,10 @@ public class DepositoEspecial extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * Método que pinta el icono que fue seleccionado previamente.
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         //analizar que consiumio el comprador
@@ -47,12 +56,19 @@ public class DepositoEspecial extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * Método que establece el producto que fue comprado.
+     * @param producto Producto que se compró.
+     */
     public void setProducto(Producto producto) {
         this.producto = producto;
         setIcon();
         repaint();
     }
 
+    /**
+     * Método para el caso que se haga click en la imagen, ésta desaparezca.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         setProducto(null);
@@ -68,6 +84,9 @@ public class DepositoEspecial extends JPanel implements MouseListener {
 
     }
 
+    /**
+     * Método que muestra un mensaje con el número de serie del producto.
+     */
     @Override
     public void mouseEntered(MouseEvent e) {
         if(producto != null)
@@ -77,28 +96,5 @@ public class DepositoEspecial extends JPanel implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
-    }
-
-    public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
-        // Crear el JFrame
-        JFrame frame = new JFrame("Deposito Especial");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
-
-        // Crear instancias de Expendedor y Selector
-        Expendedor exp = new Expendedor(5);
-        Selector seleccion = Selector.COCACOLA; // Puedes cambiar esto a la selección que desees
-        Moneda moneda2000 = new Moneda2000(123);
-        exp.comprarProducto(moneda2000, seleccion);
-
-        // Inicializar la instancia de DepositoEspecial
-        DepositoEspecial depositoEspecial = new DepositoEspecial(exp.getProducto());
-
-        // Añadir el panel de DepositoEspecial al frame
-        frame.add(depositoEspecial);
-
-        // Configuración y visualización del JFrame
-        frame.pack();
-        frame.setVisible(true);
     }
 }

@@ -21,8 +21,8 @@ public class JButtonSnickers extends JRadioButton implements MouseListener {
         URL urlSnickers = getClass().getClassLoader().getResource("snickers.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("snickersSeleccionado.png");
 
-        int ancho = 100;
-        int alto = 100;
+        int ancho = 80;
+        int alto = 80;
         ImageIcon iconSnickers = new ImageIcon(new ImageIcon(urlSnickers).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         this.setIcon(iconSnickers);

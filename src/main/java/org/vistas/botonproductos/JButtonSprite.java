@@ -21,8 +21,8 @@ public class JButtonSprite extends JRadioButton implements MouseListener {
         URL urlSprite = getClass().getClassLoader().getResource("sprite.png");
         URL urlSeleccionado = getClass().getClassLoader().getResource("spriteSeleccionado.png");
 
-        int ancho = 100;
-        int alto = 100;
+        int ancho = 80;
+        int alto = 80;
         ImageIcon iconSprite = new ImageIcon(new ImageIcon(urlSprite).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         ImageIcon iconSeleccionado = new ImageIcon(new ImageIcon(urlSeleccionado).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         this.setIcon(iconSprite);
