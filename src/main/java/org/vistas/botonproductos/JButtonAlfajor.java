@@ -8,6 +8,9 @@ import java.awt.event.MouseListener;
 import java.net.URL;
 import java.awt.*;
 
+/**
+ * Clase que representa un botón de alfajor y muestra su precio.
+ */
 public class JButtonAlfajor extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
@@ -28,6 +31,10 @@ public class JButtonAlfajor extends JRadioButton implements MouseListener {
         setBackground(new Color(3, 131, 168));
     }
 
+    /**
+     * Se invoca cuando el mouse fue presionado y soltado en el botón.
+     * @param e evento de mouse.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         panelSelect.setTipoProducto(Selector.ALFAJOR);

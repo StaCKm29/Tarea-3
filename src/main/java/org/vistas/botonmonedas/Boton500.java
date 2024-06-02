@@ -10,6 +10,9 @@ import org.modelos.Moneda;
 import org.modelos.Moneda500;
 import org.vistas.JPanelBilletera;
 
+/** Boton500 es un JRadioButton que representa una moneda de 500 pesos.
+ *  Al ser seleccionado, se crea una moneda de 500 pesos y se agrega al panel de Jpanelbilletera.
+ */
 public class Boton500 extends JRadioButton implements MouseListener {
     private JPanelBilletera panelBilletera;
     private int contador = 423;

@@ -9,6 +9,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
 
+/**
+ * Clase que representa un botón de coca cola y muestra su precio.
+ */
 public class JButtonCoca extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
@@ -29,6 +32,10 @@ public class JButtonCoca extends JRadioButton implements MouseListener {
         setBackground(new Color(3, 131, 168));
     }
 
+    /**
+     * Se invoca cuando el mouse ha sido presionado y soltado en un componente.
+     * @param e Evento del mouse.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         panelSelect.setTipoProducto(Selector.COCACOLA);

@@ -33,7 +33,6 @@ public class JButtonCompra extends JPanel {
                     depositoEspecial.setProducto(expendedor.getProducto());
                     //Remueve un producto de la parte gráfica
                     panelExpendedor.getPanelDepositos().removeProducto(seleccion);
-                    //panelExpendedor.getPanelDepositos().actualizarMonedas();
                     panelComprador.getBolsillo().addProducto(expendedor.getProducto());
                     panelExpendedor.getPanelDepositos().actualizarMonedas(moneda);
                 } catch (PagoIncorrectoException ex) {

@@ -8,6 +8,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
 
+/**
+ * Clase que representa un botón de Fanta y muestra su precio.
+ */
 public class JButtonFanta extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
@@ -28,6 +31,10 @@ public class JButtonFanta extends JRadioButton implements MouseListener {
         this.addMouseListener(this);
     }
 
+    /**
+     * Método que se ejecuta cuando se hace click en el botón.
+     * @param e Evento de click.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         panelSelect.setTipoProducto(Selector.FANTA);

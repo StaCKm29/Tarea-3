@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
+/**
+ * Clase que representa un componente de imagen de una fanta.
+ */
 public class ImageFanta extends JPanel{
     private Image imagen;
     public ImageFanta(){
@@ -21,6 +24,10 @@ public class ImageFanta extends JPanel{
         setOpaque(false);
     }
 
+    /**
+     * Método que se encarga de pintar la imagen en el componente.
+     * @param g Objeto Graphics.
+     */
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imagen, 0, 0, this);

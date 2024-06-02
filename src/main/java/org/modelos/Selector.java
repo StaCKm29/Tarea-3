@@ -1,5 +1,6 @@
 package org.modelos;
 
+/** Enumerador de productos con sus respectivos precios y métodos para crearlos */
 public enum Selector {
     COCACOLA(1200){
         @Override

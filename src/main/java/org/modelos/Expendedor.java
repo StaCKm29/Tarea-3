@@ -1,7 +1,7 @@
 package org.modelos;
 
 import java.util.ArrayList;
-
+/** esta clase representa un expendedor de productos */
 public class Expendedor {
     private Deposito <Producto> coca;
     private Deposito <Producto> sprite;
@@ -11,12 +11,15 @@ public class Expendedor {
     private Deposito <Producto> alfajores;
     private ArrayList <Deposito<Producto>> depositos;
     private Deposito<Moneda> monedaPago;
+    private Deposito<Moneda> monedaVuelto;
     private int c = 100;
     private int size;
-
-    private Deposito<Moneda> monedaVuelto;
     private Producto producto; //Será el producto que se retornará
 
+    /**
+     * Constructor de la clase
+     * @param size cantidad de productos para los depositos.
+     */
     public Expendedor(int size){
         this.size = size;
         coca = new Deposito<>();
@@ -46,8 +49,8 @@ public class Expendedor {
 
     }
 
+    /** Método que rellena los depositos de productos. */
     public void rellenarDepositos() {
-        System.out.println("Rellenando depositos...");
         if (coca.size() < size) {
             for (int i = coca.size(); i < size; i++) {
                 Producto producto = Selector.COCACOLA.crearProducto(i+c);
@@ -92,6 +95,12 @@ public class Expendedor {
         }
     }
 
+    /**
+     * Método que saca un producto de los depositos de Expendedor, en el caso de que sea una compra exitosa.
+     * @param pago moneda ingresada.
+     * @param eleccion producto seleccionado.
+     * @return deposito de productos.
+     */
     public void comprarProducto (Moneda pago, Selector eleccion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
         // Comprueba si 'eleccion' es null antes de llamar a 'ordinal()'
         int i = eleccion.ordinal();
@@ -114,11 +123,18 @@ public class Expendedor {
         monedaPago.addObjeto(pago);
     }
 
-
+    /**
+     * Método que retorna el producto comprado.
+     * @return producto.
+     */
     public Producto getProducto() {
         return producto;
     }
 
+    /**
+     * Método que retorna una moneda del depositos para el vuelto.
+     * @return una moneda.
+     */
     public Moneda getVuelto() {
         Moneda m = monedaVuelto.getObjeto();
         return m;

@@ -8,6 +8,9 @@ import java.net.URL;
 import org.modelos.Selector;
 import org.vistas.JPanelSelect;
 
+/**
+ * Clase que crea un botón con la imagen de un producto y un texto con el precio del producto.
+ */
 public class JButtonSuper8 extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
@@ -32,6 +35,10 @@ public class JButtonSuper8 extends JRadioButton implements MouseListener {
         this.panelSelect = panelSelect;
     }
 
+    /**
+     * Se invoca cuando el mouse ha sido presionado y soltado en un componente.
+     * @param e evento de mouse.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         panelSelect.setTipoProducto(Selector.SUPER8);;
