@@ -2,7 +2,7 @@ package org.modelos;
 
 /**Es una plantilla para las monedas*/
 public abstract class Moneda{
-    int serie;
+    protected int serie;
 
     /**
      * Constructor de la clase Moneda
