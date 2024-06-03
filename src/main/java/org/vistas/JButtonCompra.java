@@ -6,6 +6,7 @@ import org.vistas.paneldepositos.DepositoEspecial;
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 /**
  * Clase que representa un botón de compra
@@ -45,17 +46,21 @@ public class JButtonCompra extends JPanel {
                     panelExpendedor.getPanelDepositos().removeProducto(seleccion);
                     panelComprador.getBolsillo().addProducto(expendedor.getProducto());
                     panelExpendedor.getPanelDepositos().actualizarMonedas(moneda);
-                    panelComprador.ActualizarBolsilloVuelto(comprador);
+                    panelComprador.ActualizarBolsilloVuelto(comprador.getMonedasVuelto());
                 } catch (PagoIncorrectoException ex) {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una moneda.");
                 } catch(NoHayProductoException ex) {
                     Moneda moneda = expendedor.getVuelto();
                     JOptionPane.showMessageDialog(null, "No hay stock o el producto no existe. \nVuelto: " + moneda.getValor());
-                    panelComprador.ActualizarBolsilloVuelto(comprador);
+                    ArrayList<Moneda> monedas = new ArrayList<>();
+                    monedas.add(moneda);
+                    panelComprador.ActualizarBolsilloVuelto(monedas);
                 } catch(PagoInsuficienteException ex) {
                     Moneda moneda = expendedor.getVuelto();
                     JOptionPane.showMessageDialog(null, "El pago es insuficiente. \nVuelto: " + moneda.getValor());
-                    panelComprador.ActualizarBolsilloVuelto(comprador);
+                    ArrayList<Moneda> monedas = new ArrayList<>();
+                    monedas.add(moneda);
+                    panelComprador.ActualizarBolsilloVuelto(monedas);
                 }
 
             }

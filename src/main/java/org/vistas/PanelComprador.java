@@ -5,6 +5,7 @@ import org.modelos.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Clase que representa el panel del comprador
@@ -55,7 +56,8 @@ public class PanelComprador extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
-    public void ActualizarBolsilloVuelto(Comprador comprador){
-        vuelto.RecibirVuelto(comprador.getMonedasVuelto());
+    public void ActualizarBolsilloVuelto(ArrayList<Moneda> monedasComprador){
+        vuelto.RecibirVuelto(monedasComprador);
+        updateUI();
     }
 }

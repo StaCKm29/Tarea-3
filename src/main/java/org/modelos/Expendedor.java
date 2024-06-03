@@ -106,20 +106,22 @@ public class Expendedor {
         if(pago == null){
             throw new PagoIncorrectoException("El pago es incorrecto.");
         }
-        if(pago.getValor() < eleccion.getprecio()){
+        else if(pago.getValor() < eleccion.getprecio()){
             monedaVuelto.addObjeto(pago);
             throw new PagoInsuficienteException("El pago es insuficiente.");
         }
-        if( depositos.get(eleccion.ordinal()).isEmpty() ){
+        else if( depositos.get(eleccion.ordinal()).isEmpty() ){
             monedaVuelto.addObjeto(pago);
             throw new NoHayProductoException("No hay producto." + eleccion.toString().toLowerCase());
         }
-        int vuelto = (pago.getValor() - eleccion.getprecio())/100;
-        for(int j = 0; j < vuelto; j++){
-            monedaVuelto.addObjeto(new Moneda100(j+1));
+        else {
+            int vuelto = (pago.getValor() - eleccion.getprecio()) / 100;
+            for (int j = 0; j < vuelto; j++) {
+                monedaVuelto.addObjeto(new Moneda100(j + 1));
+            }
+            producto = depositos.get(i).getObjeto();
+            monedaPago.addObjeto(pago);
         }
-        producto = depositos.get(i).getObjeto();
-        monedaPago.addObjeto(pago);
     }
 
     /**
