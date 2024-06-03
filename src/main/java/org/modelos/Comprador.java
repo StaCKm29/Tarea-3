@@ -14,7 +14,10 @@ public class Comprador {
      * Constructor
      * @param m Es la moneda ingresada
      * @param cualProducto Se usa para la elección del producto deseado, 1 para cocacola, 2 para sprite, 3 para fanta, 4 para snickers y 5 para super8
-     * @param exp Es el expendedor donde se realizará compra
+     * @param exp Es el expendedor donde se realizará compra.
+     * @throws NoHayProductoException Se lanza si no hay producto en el expendedor.
+     * @throws PagoInsuficienteException Se lanza si el pago es insuficiente para el producto que se desea comprar.
+     * @throws PagoIncorrectoException Se lanza si el pago es incorrecto, es decir, una moneda null.
      */
     public Comprador(Moneda m, Selector cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         exp.comprarProducto(m, cualProducto);
