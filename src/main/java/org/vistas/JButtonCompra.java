@@ -1,6 +1,7 @@
 package org.vistas;
 
 import org.modelos.*;
+import org.vistas.paneldepositos.DepositoEspecial;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;

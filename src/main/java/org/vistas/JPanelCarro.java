@@ -22,14 +22,14 @@ public class JPanelCarro extends JPanel {
     private JLabel cuantosAlfajores;
 
     public JPanelCarro() {
-        //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
+        JLabel label = new JLabel("CESTA DE COMPRAS: ");
         cuantasCocas = new JLabel("Cocas: 0");
         cuantasSprites = new JLabel("Sprites: 0");
         cuantasFantas = new JLabel("Fantas: 0");
         cuantosSnickers = new JLabel("Snickers: 0");
         cuantosSuper8s = new JLabel("Super8s: 0");
         cuantosAlfajores = new JLabel("Alfajores: 0");
+        add(label);
         add(cuantasCocas);
         add(cuantasSprites);
         add(cuantasFantas);
