@@ -6,6 +6,10 @@ package org.modelos;
 
 public class Moneda1000 extends Moneda{
 
+    /**
+     * Constructor de la clase Moneda1000
+     * @param serie Número de serie de la moneda
+     */
     public Moneda1000(int serie){
         super(serie);
     }

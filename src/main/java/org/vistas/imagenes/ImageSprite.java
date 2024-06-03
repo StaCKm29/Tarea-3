@@ -9,6 +9,9 @@ import java.net.URL;
  */
 public class ImageSprite extends JPanel {
     private Image imagen;
+    /**
+     * Constructor de la clase ImageSprite.
+     */
     public ImageSprite(){
         setOpaque(false);
         URL imagenURL = getClass().getClassLoader().getResource("sprite.png");

@@ -15,6 +15,10 @@ import java.net.URL;
 public class JButtonSnickers extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
+    /**
+     * Constructor de la clase JButtonSnickers.
+     * @param panelSelect panel de selección.
+     */
     public JButtonSnickers(JPanelSelect panelSelect) {
         super("Precio: $1500");
 

@@ -14,6 +14,10 @@ import java.net.URL;
 public class JButtonFanta extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
+    /**
+     * Constructor de la clase JButtonFanta.
+     * @param panelSelect panel de selección.
+     */
     public JButtonFanta(JPanelSelect panelSelect) {
         super("Precio: $1200");
 

@@ -11,6 +11,9 @@ import javax.imageio.ImageIO;
 public class ImageCoca extends JPanel {
     private Image imagen;
 
+    /**
+     * Constructor de la clase ImageCoca.
+     */
     public ImageCoca() {
         setOpaque(false);
         URL imagenURL = getClass().getClassLoader().getResource("Coca-Cola.png");

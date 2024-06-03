@@ -6,15 +6,25 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Clase que representa el panel del vuelto del comprador
+ */
 public class PanelVueltoComprador extends JPanel {
     private ArrayList<Moneda> monedas;
 
+    /**
+     * Constructor de la clase PanelVueltoComprador.
+     */
     public PanelVueltoComprador(){
         monedas = new ArrayList<>();
         setLayout(new FlowLayout(FlowLayout.CENTER, -50, 10));
         setOpaque(false);
     }
 
+    /**
+     * Método que recibe el vuelto del expendedor y lo muestra gráficamente.
+     * @param monedasComprador Monedas que se añadirán al vuelto.
+     */
     public void RecibirVuelto(ArrayList<Moneda> monedasComprador){
         removeAll();
         monedas.addAll(monedasComprador);

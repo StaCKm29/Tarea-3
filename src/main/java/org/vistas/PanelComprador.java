@@ -16,6 +16,9 @@ public class PanelComprador extends JPanel{
     private PanelVueltoComprador vuelto;
     private JPanelCarro bolsillo;
 
+    /**
+     * Constructor de la clase PanelComprador.
+     */
     public PanelComprador() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         panel = new JPanelSelect();
@@ -56,6 +59,9 @@ public class PanelComprador extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
+    /**
+     * Método que actualiza las monedas de vuelto que ha recibido el comprador.
+     */
     public void ActualizarBolsilloVuelto(ArrayList<Moneda> monedasComprador){
         vuelto.RecibirVuelto(monedasComprador);
         updateUI();

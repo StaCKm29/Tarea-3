@@ -18,6 +18,9 @@ public class JPanelSelect extends JPanel {
     private JButtonSprite boton5;
     private JButtonAlfajor boton6;
 
+    /**
+     * Constructor de la clase JPanelSelect.
+     */
     public JPanelSelect(){
         setLayout(new GridLayout(2, 3));
         boton1 = new JButtonSuper8(this);

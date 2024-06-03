@@ -9,6 +9,9 @@ import java.net.URL;
  */
 public class ImageSnickers extends JPanel{
     private Image imagen;
+    /**
+     * Constructor de la clase ImageSnickers.
+     */
     public ImageSnickers(){
         setOpaque(false);
         URL imagenURL = getClass().getClassLoader().getResource("snickers.png");

@@ -11,6 +11,9 @@ import java.net.URL;
 public class ImageAlfajor extends JPanel {
     private Image imagen;
 
+    /**
+     * Constructor de la clase ImageAlfajor.
+     */
     public ImageAlfajor() {
         setOpaque(false);
         URL imagenURL = getClass().getClassLoader().getResource("alfajor.png");

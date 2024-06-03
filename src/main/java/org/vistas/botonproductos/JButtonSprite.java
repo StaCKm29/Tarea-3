@@ -15,6 +15,10 @@ import java.net.URL;
 public class JButtonSprite extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
+    /**
+     * Constructor de la clase JButtonSprite.
+     * @param panelSelect panel de selección.
+     */
     public JButtonSprite(JPanelSelect panelSelect) {
         super("Precio: $1200");
 

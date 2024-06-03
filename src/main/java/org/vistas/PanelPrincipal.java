@@ -11,6 +11,9 @@ public class PanelPrincipal extends JPanel {
     private PanelExpendedor exp;
     private JButtonCompra botonComprar;
 
+    /**
+     * Constructor de la clase PanelPrincipal.
+     */
     public PanelPrincipal () {
         this.com = new PanelComprador();
         this.exp = new PanelExpendedor (5);

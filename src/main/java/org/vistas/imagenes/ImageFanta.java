@@ -9,6 +9,9 @@ import java.net.URL;
  */
 public class ImageFanta extends JPanel{
     private Image imagen;
+    /**
+     * Constructor de la clase ImageFanta.
+     */
     public ImageFanta(){
         setOpaque(false);
         URL imagenURL = getClass().getClassLoader().getResource("fanta.png");

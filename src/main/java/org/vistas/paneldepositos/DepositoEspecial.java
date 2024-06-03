@@ -13,7 +13,9 @@ import java.awt.event.MouseListener;
 public class DepositoEspecial extends JPanel implements MouseListener {
     private Producto producto;
     private ImageIcon icon;
-
+    /**
+     * Constructor de la clase DepositoEspecial.
+     */
     public DepositoEspecial(){
         this.setPreferredSize(new Dimension(150, 150));
         this.addMouseListener(this);

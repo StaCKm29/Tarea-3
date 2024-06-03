@@ -21,6 +21,11 @@ public class JButtonCompra extends JPanel {
     private DepositoEspecial depositoEspecial;
     private JButton BotonComprar= new JButton("Compra");
 
+    /**
+     * Constructor de la clase JButtonCompra.
+     * @param panelExpendedor PanelExpendedor que contiene el expendedor.
+     * @param panelComprador PanelComprador que contiene el panel de comprador.
+     */
     public JButtonCompra(PanelExpendedor panelExpendedor, PanelComprador panelComprador) {
         this.expendedor = panelExpendedor.getExpendedor();
         this.comPanel = panelComprador.getPanel();

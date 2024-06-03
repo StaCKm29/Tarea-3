@@ -12,7 +12,6 @@ import java.util.Collections;
  */
 
 public class JPanelMonedas extends JPanel {
-    //Arreglo que ordenará las monedas
     private ArrayList<Integer> monedas = new ArrayList<>();
 
     /**

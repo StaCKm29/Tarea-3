@@ -14,6 +14,10 @@ import org.vistas.JPanelSelect;
 public class JButtonSuper8 extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
+    /**
+     * Constructor de la clase JButtonSuper8.
+     * @param panelSelect panel de selección.
+     */
     public JButtonSuper8(JPanelSelect panelSelect) {
         super("Precio: $300");
 

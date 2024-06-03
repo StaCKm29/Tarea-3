@@ -15,6 +15,10 @@ public class Boton100 extends JRadioButton implements MouseListener {
     private JPanelBilletera panelBilletera;
     private int contador = 123;
 
+    /**
+     * Constructor de la clase Boton100.
+     * @param panelBilletera panel de la billetera.
+     */
     public Boton100(JPanelBilletera panelBilletera) {
         super();
 

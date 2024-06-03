@@ -16,6 +16,9 @@ public class JPanelBilletera extends JPanel {
     private Boton2000 boton2000;
     private Moneda moneda;
 
+    /**
+     * Constructor de la clase JPanelBilletera.
+     */
     public JPanelBilletera() {
         setLayout(new GridLayout(2, 2));
         boton100 = new Boton100(this);

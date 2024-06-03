@@ -17,6 +17,10 @@ public class Boton1000 extends JRadioButton implements MouseListener {
     private JPanelBilletera panelBilletera;
     private int contador = 323;
 
+    /**
+     * Constructor de la clase Boton1000.
+     * @param panelBilletera panel de la billetera.
+     */
     public Boton1000(JPanelBilletera panelBilletera) {
         super();
 
@@ -33,6 +37,10 @@ public class Boton1000 extends JRadioButton implements MouseListener {
         this.addMouseListener(this);
     }
 
+    /**
+     * Se invoca cuando el mouse fue clickeado en el Boton1000.
+     * @param e evento de mouse.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         Moneda moneda = new Moneda1000(contador);

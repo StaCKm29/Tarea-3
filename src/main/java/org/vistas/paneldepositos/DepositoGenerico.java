@@ -4,13 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.function.Supplier;
 
-/**T extiende a JComponent para poder utilizar setborder y demás métodos de JComponent*/
+/**Deposito Generico se utiliza para el almacenamiento de imagenes de un productos,utilizando las clases de la carpeta
+ * Imagenes
+ * T extiende a JComponent para poder utilizar setborder y demás métodos de JComponent*/
 public class DepositoGenerico<T extends JComponent> extends JPanel {
     //Permite crear un objeto de tipo T
     private Supplier<T> tipo;
     private T imagen;
     private int size;
 
+    /**
+     * Constructor de la clase DepositoGenerico.
+     * @param tipo Tipo de objeto.
+     * @param size Tamaño del deposito.
+     */
     public DepositoGenerico(Supplier<T> tipo, int size) {
         this.size = size;
         this.setBackground(Color.GRAY);

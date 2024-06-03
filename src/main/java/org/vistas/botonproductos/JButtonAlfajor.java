@@ -14,6 +14,10 @@ import java.awt.*;
 public class JButtonAlfajor extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
 
+    /**
+     * Constructor de la clase JButtonAlfajor.
+     * @param panelSelect panel de selección.
+     */
     public JButtonAlfajor(JPanelSelect panelSelect){
         super("Precio: $600");
 

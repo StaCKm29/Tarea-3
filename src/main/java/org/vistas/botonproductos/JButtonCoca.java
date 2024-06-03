@@ -14,7 +14,10 @@ import java.net.URL;
  */
 public class JButtonCoca extends JRadioButton implements MouseListener {
     private JPanelSelect panelSelect;
-
+    /**
+     * Constructor de la clase JButtonCoca.
+     * @param panelSelect panel de selección.
+     */
     public JButtonCoca(JPanelSelect panelSelect) {
         super("Precio: $1200");
 

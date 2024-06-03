@@ -17,9 +17,13 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     private Expendedor exp;
     private JPanelDepositos panelDepositos;
     private DepositoEspecial depositoEspecial;
-    private ImageIcon icon;
-    private Image backgroundImage;
+    private ImageIcon icono;
+    private Image fondo;
 
+    /**
+     * Constructor de la clase PanelExpendedor.
+     * @param size Tamaño del expendedor.
+     */
     public PanelExpendedor(int size) {
         this.exp = new Expendedor(size);
         this.panelDepositos = new JPanelDepositos(size);
@@ -29,9 +33,9 @@ public class PanelExpendedor extends JPanel implements MouseListener {
         add(panelDepositos);
 
         this.addMouseListener(this);
-        URL imageUrl = getClass().getClassLoader().getResource("expendedor.png");
-        ImageIcon icon = new ImageIcon(new ImageIcon(imageUrl).getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT));
-        backgroundImage = icon.getImage();
+        URL imagenUrl = getClass().getClassLoader().getResource("expendedor.png");
+        ImageIcon icono = new ImageIcon(new ImageIcon(imagenUrl).getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT));
+        fondo = icono.getImage();
 
     }
 
@@ -55,8 +59,8 @@ public class PanelExpendedor extends JPanel implements MouseListener {
         super.paintComponent(g);
         depositoEspecial.paintComponent(g);
         // Dibujar la imagen de fondo
-        if (backgroundImage != null) {
-            g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
+        if (fondo != null) {
+            g.drawImage(fondo, 0, 0, this.getWidth(), this.getHeight(), this);
         }
 
     }

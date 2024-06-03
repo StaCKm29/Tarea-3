@@ -49,7 +49,7 @@ public class Comprador {
 
     /**
      *
-     * @return Retorna las monedas que se le devolverán al comprador
+     * @return Retorna las monedas que se le devolvieron al comprador
      */
     public ArrayList<Moneda> getMonedasVuelto(){
         return monedas;

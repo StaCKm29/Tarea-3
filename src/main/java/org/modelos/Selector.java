@@ -40,14 +40,27 @@ public enum Selector {
     };
     private final int precio;
 
+    /**
+     * Constructor de la clase Selector
+     * @param precio Precio del producto
+     */
     Selector(int precio){
         this.precio = precio;
     }
 
+    /**
+     * Método que regresa el precio de un producto.
+     * @return Retorna el precio de un producto
+     */
     public int getprecio(){
         return precio;
     }
 
+    /**
+     * Método que crea un producto.
+     * @param serie Número de serie del producto.
+     * @return Retorna un producto
+     */
     public abstract Producto crearProducto(int serie);
 }
 

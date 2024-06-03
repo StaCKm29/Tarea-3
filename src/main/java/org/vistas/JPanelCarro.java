@@ -21,6 +21,9 @@ public class JPanelCarro extends JPanel {
     private JLabel cuantosSuper8s;
     private JLabel cuantosAlfajores;
 
+    /**
+     * Constructor de la clase JPanelCarro.
+     */
     public JPanelCarro() {
         JLabel label = new JLabel("CESTA DE COMPRAS: ");
         cuantasCocas = new JLabel("Cocas: 0");
