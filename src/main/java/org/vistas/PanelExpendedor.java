@@ -57,7 +57,6 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        depositoEspecial.paintComponent(g);
         // Dibujar la imagen de fondo
         if (fondo != null) {
             g.drawImage(fondo, 0, 0, this.getWidth(), this.getHeight(), this);
