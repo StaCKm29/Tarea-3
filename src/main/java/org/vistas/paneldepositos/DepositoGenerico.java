@@ -10,7 +10,6 @@ import java.util.function.Supplier;
 public class DepositoGenerico<T extends JComponent> extends JPanel {
     //Permite crear un objeto de tipo T
     private Supplier<T> tipo;
-    private T imagen;
     private int size;
 
     /**
