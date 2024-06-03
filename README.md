@@ -18,6 +18,9 @@ Tanto las clases JButton[Producto] como las clases Image[Producto] y las clases 
 Lo único que las diferencia es la imagen que cada clase carga. 
 ![UML](src/main/resources/ExpendedorUML.png)
 
+### Interfaz de usuario: 
+![Interfaz](src/main/resources/Interfaz.png)
+
 ### Cambios realizados:
  - Se agregó un producto extra (Alfajor), únicamente con el propósito de que fuera una grilla de productos de 2x3.
  - Se agregó un método en Expendedor para que pueda rellenar sus depósitos.
