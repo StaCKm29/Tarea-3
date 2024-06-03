@@ -30,10 +30,10 @@ public class PanelComprador extends JPanel{
         monederoAjustado.setOpaque(false);//Para que se vea el fondo de la ventana
 
         bolsillo = new JPanelCarro();
-        bolsillo.setPreferredSize(new Dimension(100, 100));
+        bolsillo.setPreferredSize(new Dimension(100, 20));
 
         vuelto = new PanelVueltoComprador();
-        vuelto.setPreferredSize(new Dimension(600, 100));
+        vuelto.setPreferredSize(new Dimension(600, 200));
 
         add(bolsillo);
         add(vuelto);
