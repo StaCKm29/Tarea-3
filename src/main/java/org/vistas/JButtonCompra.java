@@ -52,12 +52,10 @@ public class JButtonCompra extends JPanel {
                     Moneda moneda = expendedor.getVuelto();
                     JOptionPane.showMessageDialog(null, "No hay stock o el producto no existe. \nVuelto: " + moneda.getValor());
                     panelComprador.ActualizarBolsilloVuelto(comprador);
-                    JOptionPane.showMessageDialog(null, "No hay stock o el producto no existe");
                 } catch(PagoInsuficienteException ex) {
                     Moneda moneda = expendedor.getVuelto();
                     JOptionPane.showMessageDialog(null, "El pago es insuficiente. \nVuelto: " + moneda.getValor());
                     panelComprador.ActualizarBolsilloVuelto(comprador);
-                    JOptionPane.showMessageDialog(null, "El pago es insuficiente");
                 }
 
             }

@@ -33,7 +33,7 @@ public class PanelComprador extends JPanel{
         bolsillo.setPreferredSize(new Dimension(100, 100));
 
         vuelto = new PanelVueltoComprador();
-        vuelto.setPreferredSize(new Dimension(600, 200));
+        vuelto.setPreferredSize(new Dimension(600, 100));
 
         add(bolsillo);
         add(vuelto);
