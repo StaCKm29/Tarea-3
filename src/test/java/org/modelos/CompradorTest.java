@@ -11,7 +11,7 @@ class CompradorTest {
     private Expendedor expendedor;
     private Moneda moneda500;
     private Moneda moneda1000;
-    private Moneda moneda1500;
+    private Moneda moneda2000;
 
     private Selector coca;
     private Selector sprite;
@@ -26,7 +26,7 @@ class CompradorTest {
         expendedor = new Expendedor(2);
         moneda500 = new Moneda500(5);
         moneda1000 = new Moneda1000(2);
-        moneda1500 = new Moneda2000(8);
+        moneda2000 = new Moneda2000(8);
 
         coca = Selector.COCACOLA;
         sprite = Selector.SPRITE;
@@ -42,8 +42,8 @@ class CompradorTest {
     @Test
     @DisplayName("Test para vuelto")
     void cuantoVuelto() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        comprador = new Comprador(moneda1500, coca, expendedor);
-        assertEquals(300, comprador.cuantoVuelto());
+        comprador = new Comprador(moneda2000, coca, expendedor);
+        assertEquals(800, comprador.cuantoVuelto());
     }
 
     @Test

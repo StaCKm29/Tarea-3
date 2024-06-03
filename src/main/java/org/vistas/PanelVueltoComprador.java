@@ -40,6 +40,7 @@ public class PanelVueltoComprador extends JPanel {
             }
             label.setIcon(icon);
             add(label);
+            updateUI();
         }
     }
     @Override
