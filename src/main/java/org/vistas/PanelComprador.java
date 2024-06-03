@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Clase que representa el panel del comprador
+ * Clase que representa el panel del comprador.
  */
 public class PanelComprador extends JPanel{
     private JPanelSelect panel;

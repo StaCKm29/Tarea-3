@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
 
-/*
+/**
  * Clase que representa el panel del Expendedor con todos sus elementos.
  */
 public class PanelExpendedor extends JPanel implements MouseListener {
